@@ -129,7 +129,7 @@ if (modalTitle) {
     // 7. Render Calendar Grid
     renderCalendarGrid(state.viewDate, state.selectedDate, (newDate) => {
         state.selectedDate = newDate;
-        updateNamedaysDisplay(newDate);
+        if (typeof updateNamedaysDisplay === "function") updateNamedaysDisplay(newDate);
         render(); 
     });
 }
@@ -264,14 +264,12 @@ window.render = render;
 window.state = state;
 window.renderCalendarGrid = renderCalendarGrid;
 
-// Function to update namedays display
 async function updateNamedaysDisplay(date) {
     const namedaysList = document.getElementById('namedaysList');
     if (!namedaysList) return;
     
     try {
         const names = await getNamesForDate(date);
-        
         if (names.length > 0) {
             namedaysList.innerHTML = `<p class="namedays-names">${names.join(', ')}</p>`;
         } else {

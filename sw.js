@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pl-date-v1 ';
+const CACHE_NAME = 'pl-date-v1152';
 const ASSETS = [
   './',
   './index.html',
@@ -9,14 +9,14 @@ const ASSETS = [
   './phonetics.js',
   './numbers.js',
   './audio.js',
-  './namedays.js',
-  './namedays.json',
   './holiday.js',
   './cultural.js',
   './rules.js',
   './manifest.json',
   './icon-192.png',
-  './icon-512.png'
+  './icon-512.png',
+  './namedays.js',
+  './namedays.json'
 ];
 
 // Install Event

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Polish Date Master</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon-192.png" type="image/png"> <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PL Date">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+
+
+    
+<body class="winter">
+    <noscript>
+        <div style="text-align: center; padding: 50px;">
+            <h2>Oops! JavaScript is required.</h2>
+            <p>Please enable JavaScript to use the Polish Date Master.</p>
+        </div>
+    </noscript>
+
+    <div class="brand-header">
+        <h1>Learn Polish Dates</h1>
+    </div>
+
+    <header class="main-nav-container">
+        <div class="utility-controls">
+            <button id="navCalendar" class="nav-icon-btn" title="Calendar">📅</button>
+            <button id="navCulture" class="nav-icon-btn" title="Culture">📖</button>
+            <button id="navRules" class="nav-icon-btn" title="Grammar">⚖️</button>
+            <button id="navInfo" class="nav-icon-btn" title="About">❓</button>
+            <div class="divider"></div>
+            <button id="meetingToggle" class="pill-btn mode-btn-written">Mode: Written (Genitive)</button>
+            <button id="langToggle" class="pill-btn-sm">EN</button>
+           
+        </div>
+    </header>
+
+    <main id="calendarSection">
+    <div class="calendar-navigation">
+        <div class="nav-controls-row">
+            <button id="prevMonth" class="nav-btn-arrow" aria-label="Previous Month">‹</button>
+            
+            <div class="rollers-container">
+                <select id="monthRoller" class="roller-select"></select>
+                <input type="number" id="yearInput" value="2026" min="0" max="3000">
+            </div>
+            
+            <button id="nextMonth" class="nav-btn-arrow" aria-label="Next Month">›</button>
+        </div>
+    </div>
+
+        <div class="calendar-container">
+            <div class="weekdays"></div>
+            <div id="calendarGrid" class="calendar-grid"></div>
+        </div>
+    </main>
+
+    <section id="culturalHub" class="content-page" style="display: none;">
+        <h1>Polish Cultural Traditions</h1>
+        <div class="content-body">
+            <h2>Imieniny (Name Days)</h2>
+            <p>In Poland, <strong>Name Days</strong> are often more important than birthdays. Most Polish calendars list the names associated with each day.</p>
+            
+            <div id="namedaysSection" class="namedays-display">
+                <h3>Today's Name Days</h3>
+                <div id="namedaysList" class="namedays-list">
+                    <p class="namedays-placeholder">Select a date to see name days</p>
+                </div>
+            </div>
+
+            <h2>Holidays & Customs</h2>
+            <p>Look for days with <em>red borders</em> in the calendar to identify national holidays and significant celebrations.</p>
+        </div>
+        <button class="pill-btn back-to-cal">← Back to Calendar</button>
+    </section>
+
+   <section id="rulesPage" class="content-page" style="display: none;">
+    <h1>Grammar Rules</h1>
+    <div class="content-body">
+        <h2>1. Ordinal Numbers</h2>
+        <p>Polish dates always use <strong>Ordinal Numbers</strong> (1st, 2nd, etc.). You don't say "one January," you say "the first of January."</p>
+        
+        <h2>2. Written vs. Spoken (Cases)</h2>
+        <p><strong>Written (Genitive):</strong> The standard way to write dates or talk about appointments. <em>"On the 5th of January"</em> uses the Genitive case.</p>
+        <p><strong>Spoken (Nominative):</strong> Used for simple statements, like answering <em>"What day is it today?"</em></p>
+    </div>
+    <button class="pill-btn back-to-cal">← Back to Calendar</button>
+</section>
+
+    <footer class="info-panel">
+        <div class="phrase-display">
+            <p id="plPhrase" class="phrase-pl">Wybierz datę</p>
+            <p id="phoneticPhrase" class="phrase-phonetic">vye-byezh dah-teh</p>
+            <p id="enPhrase" class="phrase-en">Select a date</p>
+        </div>
+
+        <div class="footer-controls">
+            <button id="playBtn" class="pill-btn">🔊 Listen</button>
+            <button id="repeatYearBtn" class="pill-btn">YEAR: ON</button>
+        </div>
+    </footer>
+
+    <script src="namedays.js"></script>
+    <script type="module" src="app.js"></script>
+<div id="aboutModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="about-body">
+            <h2 id="modalTitle">Say the Date in Polish</h2>
+            <p><b id="modalAboutHeader">O aplikacji:</b></p>
+            <ul style="list-style: none; padding: 10px 0;">
+                <li id="featCal">📅 <b>Kalendarz:</b> Kliknij datę...</li>
+                <li id="featCult">📖 <b>Kultura:</b> Poznaj polskie...</li>
+                <li id="featGram">⚖️ <b>Gramatyka:</b> Opanuj odmianę...</li>
+            </ul>
+            <hr style="margin: 15px 0; border: 0; border-top: 1px solid var(--border-color);">
+            <p id="modalDevNote" style="font-size: 0.85rem; color: var(--text-dim);">
+                Projekt niezależny...
+            </p>
+            <button id="feedbackBtn" class="pill-btn-feedback">Prześlij opinię</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

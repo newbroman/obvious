@@ -1,0 +1,446 @@
+/* --- 1. Variables & Themes --- */
+:root {
+    --accent-color: #e6192e; 
+    --bg-dark: #f8f9fa;
+    --panel-bg: #ffffff;
+    --grid-item-bg: #ffffff;
+    --text-main: #1a1a1a;
+    --text-dim: #666666;
+    --gold: #b8860b;
+    --tan: #8b4513;
+    --seasonal-bg: rgba(230, 25, 46, 0.05);
+    --border-color: #dee2e6;
+    --formal-blue: #00d4ff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-dark: #121212;
+        --panel-bg: #1e1e1e;
+        --grid-item-bg: #252525;
+        --text-main: #ffffff;
+        --text-dim: #bbbbbb;
+        --gold: #ffd700;
+        --tan: #D2B48C;
+        --seasonal-bg: rgba(230, 25, 46, 0.15);
+        --border-color: #333333;
+    }
+}
+
+/* Seasonal Body Overrides */
+body.spring { --accent-color: #4caf50; }
+body.summer { --accent-color: #ffc107; }
+body.autumn { --accent-color: #ff5722; }
+body.winter { --accent-color: #e6192e; }
+
+/* --- 2. Global Reset & Layout --- */
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    background-image: linear-gradient(180deg, var(--seasonal-bg) 0%, var(--bg-dark) 600px);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 3. Navigation & Header --- */
+.brand-header {
+    text-align: center;
+    padding: 0.8rem 0.5rem; 
+    background: linear-gradient(to bottom, #ffffff 50%, #dc143c 50%);
+    border-bottom: 2px solid #a0102b;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.brand-header h1 { font-size: 1.8rem; font-weight: 900; color: #000; text-transform: uppercase; line-height: 1.2; }
+
+.main-nav-container { padding: 8px 0; border-bottom: 1px solid var(--border-color); }
+
+.utility-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.nav-icon-btn { background: none; border: none; font-size: 1.3rem; cursor: pointer; transition: transform 0.2s; }
+.nav-icon-btn:active { transform: scale(0.9); }
+.divider { width: 1px; height: 18px; background: var(--border-color); }
+
+/* --- 4. Calendar Components --- */
+.calendar-container {
+    width: 95%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--panel-bg);
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.weekdays {
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    gap: 5px;
+    margin-bottom: 10px;
+    padding: 0 5px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-dim);
+}
+
+#calendarGrid { display: grid !important; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+
+.calendar-day {
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.calendar-day.holiday { border: 2px solid var(--accent-color) !important; color: var(--accent-color) !important; font-weight: 900 !important; }
+.calendar-day.today-highlight { background-color: var(--gold) !important; color: #000 !important; border: none !important; font-weight: 800; box-shadow: 0 0 8px rgba(184, 134, 11, 0.5); }
+.calendar-day.selected { background: var(--accent-color) !important; color: white !important; border-color: var(--accent-color) !important; }
+
+/* Navigation Row & Arrows */
+.nav-controls-row {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto 15px !important;
+    justify-content: center !important;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn-arrow {
+    background-color: transparent; 
+    border: 1px solid var(--border-color, #ccc); 
+    height: 42px; 
+    width: 42px;
+    color: currentColor; 
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.roller-select, #yearInput {
+    height: 42px;
+    background-color: transparent;
+    border: 1px solid var(--border-color, #ccc);
+    color: currentColor;
+    border-radius: 6px;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+/* --- 5. Info Panel (Footer) --- */
+.info-panel {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: var(--panel-bg);
+    padding: 15px 15px 25px;
+    border-top: 4px solid var(--border-color);
+    z-index: 9999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+}
+
+.info-panel.formal-theme { 
+    border-top: 3px solid #ffd700; /* Gold for Event Mode */
+    background: linear-gradient(to bottom, var(--panel-bg), rgba(255, 215, 0, 0.05)); 
+}
+
+.info-panel.informal-theme { 
+    border-top: 3px solid #4a90e2; /* Blue for Naming Mode */
+    background: linear-gradient(to bottom, var(--panel-bg), rgba(74, 144, 226, 0.05)); 
+}
+
+.phrase-display { text-align: center; width: 100%; max-width: 400px; margin-bottom: 15px; }
+.phrase-pl { font-size: 1.3rem; font-weight: 800; margin-bottom: 4px; }
+.phrase-phonetic { font-size: 0.95rem; color: var(--tan); font-style: italic; display: block; margin-bottom: 4px; }
+.phrase-en { font-size: 0.85rem; color: var(--text-dim); }
+
+.footer-controls { display: flex; gap: 10px; justify-content: center; }
+
+/* --- 6. Buttons & Toggles --- */
+.pill-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#meetingToggle, #repeatYearBtn {
+    font-size: 0.65rem !important; 
+    padding: 4px 8px !important;
+    height: 26px;
+    min-width: 90px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    gap: 8px;
+}
+
+/* New Logic: Event (🎉) and Naming (📅) classes */
+.mode-btn-event { background-color: #ffd700 !important; color: #333 !important; border: 2px solid #daa520 !important; }
+
+.mode-btn-naming { background-color: #4a90e2 !important; color: white !important; border: 2px solid #357abd !important; }
+
+
+/* --- 7. Content Page Styling --- */
+.content-page {
+    max-width: 700px;
+    margin: 20px auto 100px;
+    padding: 30px;
+    background: var(--panel-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    line-height: 1.8;
+}
+
+.content-page h1 { color: var(--accent-color); margin-bottom: 20px; border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+.content-page h2 { margin-top: 25px; color: var(--text-main); font-size: 1.2rem; }
+.content-page p { margin-bottom: 15px; color: var(--text-dim); }
+.content-page strong { color: var(--gold); }
+.content-page em { background: rgba(184, 134, 11, 0.1); padding: 2px 5px; border-radius: 4px; font-style: normal; color: var(--tan); }
+
+/* Section visibility shield */
+#calendarSection, #culturalHub, #rulesPage {
+    width: 100% !important;
+    padding-bottom: 220px !important;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- 8. Holiday & Rule Details --- */
+.holiday-list { display: flex; flex-direction: column; gap: 15px; }
+.holiday-entry { background: rgba(0, 0, 0, 0.03); padding: 12px 16px; border-radius: 8px; border-left: 4px solid var(--accent-color); }
+.holiday-title { font-size: 1.05rem; color: var(--text-main); }
+.holiday-desc { font-size: 0.9rem; color: var(--text-dim); font-style: italic; }
+
+.season-box { margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--seasonal-bg); border-radius: 20px; border: 1px solid var(--accent-color); font-size: 0.95rem; }
+.season-text { font-weight: 700; color: var(--accent-color); }
+
+.highlight { font-weight: bold; padding: 2px 6px; border-radius: 4px; background: rgba(255, 255, 255, 0.2); border-bottom: 2px solid currentColor; }
+
+.rule-block.written-mode { border-left: 5px solid #ffd700; background: rgba(255, 215, 0, 0.08); padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0; }
+.rule-block.spoken-mode { border-left: 5px solid #4a90e2; background: rgba(74, 144, 226, 0.08); padding: 15px; margin-bottom: 20px; border-radius: 0 8px 8px 0; }
+
+.section-divider { color: #ffd700; border-bottom: 2px solid rgba(255, 215, 0, 0.3); padding-bottom: 5px; margin: 25px 0 15px 0; text-transform: uppercase; font-size: 1rem; }
+
+.holiday-block {
+    padding: 10px;
+    font-size: 0.9em;
+    border-left: 4px solid #e74c3c; /* A red accent for holidays */
+}
+
+/* Official Holiday Style */
+.state-holiday {
+    border-left: 4px solid #e74c3c; /* Red */
+    background: rgba(231, 76, 60, 0.05);
+}
+
+/* Tradition Style */
+.tradition-item {
+    border-left: 4px solid #3498db; /* Blue */
+    background: rgba(52, 152, 219, 0.05);
+}
+
+.holiday-type-tag {
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    opacity: 0.7;
+}
+/* Base cell style (ensure it has a transparent border to prevent 'jumping') */
+.calendar-day {
+    box-sizing: border-box;
+    border-top: 5px solid transparent; /* Placeholder to prevent jumping */
+    transition: all 0.2s ease;
+}
+
+/* Priority 1: State Holiday (Red Top Border) */
+.calendar-day.is-holiday {
+    border-top-color: #e74c3c !important;
+    background-color: rgba(231, 76, 60, 0.08) !important;
+    color: #c0392b;
+}
+
+/* Priority 2: Tradition (Blue Top Border) */
+.calendar-day.is-tradition {
+    border-top-color: #3498db !important;
+    background-color: rgba(52, 152, 219, 0.08) !important;
+    color: #2980b9;
+}
+
+/* Selected state should still pop */
+.calendar-day.selected {
+    border-top-color: white !important;
+    background: var(--accent-color) !important;
+    color: white !important;
+}
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    z-index: 10000; /* Higher than your info-panel z-index (9999) */
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--panel-bg);
+    color: var(--text-main);
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-dim);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--accent-color);
+}
+
+.about-body h2 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.about-body p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.about-body ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.about-body li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pill-btn-feedback {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    width: 100%;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.pill-btn-feedback:active {
+    transform: scale(0.96);
+}
+
+/* Dark Mode adjustment for better contrast */
+@media (prefers-color-scheme: dark) {
+    .modal-content {
+        border-color: var(--border-color);
+        box-shadow: 0 0 20px rgba(230, 25, 46, 0.2);
+    }
+}
+
+/* Namedays Display Styling */
+.namedays-display {
+    margin: 20px 0;
+    padding: 15px;
+    background: var(--card-bg, #f8f9fa);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color, #4a90e2);
+}
+
+.namedays-display h3 {
+    margin: 0 0 10px 0;
+    color: var(--text-primary, #333);
+    font-size: 1.2rem;
+}
+
+.namedays-list {
+    padding: 10px;
+}
+
+.namedays-names {
+    font-size: 1.1rem;
+    color: var(--text-primary, #333);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.namedays-placeholder {
+    color: var(--text-dim, #999);
+    font-style: italic;
+    margin: 0;
+}

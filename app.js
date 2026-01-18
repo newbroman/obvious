@@ -17,6 +17,26 @@ const state = {
 }
 
 // 2. Main Render Function
+
+// Namedays Display Function
+async function updateNamedaysDisplay(date) {
+    console.log("updateNamedaysDisplay called with:", date);
+    const namedaysList = document.getElementById("namedaysList");
+    if (!namedaysList) return;
+    
+    try {
+        const names = await getNamesForDate(date);
+        if (names.length > 0) {
+            namedaysList.innerHTML = `<p class="namedays-names">${names.join(", ")}</p>`;
+        } else {
+            namedaysList.innerHTML = "<p class="namedays-placeholder">No name days for this date</p>";
+        }
+    } catch (error) {
+        console.error("Error loading namedays:", error);
+        namedaysList.innerHTML = "<p class="namedays-placeholder">Error loading name days</p>";
+    }
+}
+
 function render() {
     const grid = document.getElementById('calendarGrid');
     const mRoller = document.getElementById('monthRoller');
@@ -264,19 +284,4 @@ window.render = render;
 window.state = state;
 window.renderCalendarGrid = renderCalendarGrid;
 
-async function updateNamedaysDisplay(date) {
-    const namedaysList = document.getElementById('namedaysList');
-    if (!namedaysList) return;
-    
-    try {
-        const names = await getNamesForDate(date);
-        if (names.length > 0) {
-            namedaysList.innerHTML = `<p class="namedays-names">${names.join(', ')}</p>`;
-        } else {
-            namedaysList.innerHTML = '<p class="namedays-placeholder">No name days for this date</p>';
-        }
-    } catch (error) {
-        console.error('Error loading namedays:', error);
-        namedaysList.innerHTML = '<p class="namedays-placeholder">Error loading name days</p>';
-    }
 }

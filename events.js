@@ -172,6 +172,12 @@ export function renderCulturalHub(state) {
             </div>
         </section>
         <section class="info-block">
+            <h3>🎂 ${state.isPolish ? 'Imieniny' : 'Name Days'}</h3>
+            <div id="namedaysList" class="namedays-list" style="padding: 15px; background: rgba(128,128,128,0.05); border-radius: 8px;">
+                <p class="namedays-placeholder" style="color: #999; font-style: italic;">Select a date to see name days</p>
+            </div>
+        </section>
+        <section class="info-block">
             <h3>🎈 ${state.isPolish ? 'Wydarzenia i Święta' : 'Holidays & Traditions'}</h3>
             <div class="holiday-list">`;
 

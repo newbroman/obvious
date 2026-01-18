@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pl-date-v1153';
+const CACHE_NAME = 'pl-date-v1154';
 const ASSETS = [
   './',
   './index.html',
@@ -14,7 +14,7 @@ const ASSETS = [
   './rules.js',
   './manifest.json',
   './icon-192.png',
-  './icon-512.png',
+  './icon-512.png'
   './namedays.js',
   './namedays.json'
 ];

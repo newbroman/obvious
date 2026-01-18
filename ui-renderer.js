@@ -115,3 +115,25 @@ export function speakPolish() {
     window.speechSynthesis.speak(utterance);
 }
 
+
+// Update namedays display when date changes
+export async function updateNamedaysDisplay(selectedDate) {
+    const list = document.getElementById('namedaysList');
+    if (!list || !selectedDate) return;
+    
+    try {
+        // Call the global function from namedays.js
+        if (typeof window.getNamesForDate === 'function') {
+            const names = await window.getNamesForDate(selectedDate);
+            
+            if (names && names.length > 0) {
+                list.innerHTML = `<p class="namedays-names">${names.join(', ')}</p>`;
+            } else {
+                list.innerHTML = '<p class="namedays-placeholder">No name days found for this date</p>';
+            }
+        }
+    } catch (error) {
+        console.error('Error updating namedays:', error);
+        list.innerHTML = '<p class="namedays-placeholder">Error loading name days</p>';
+    }
+}

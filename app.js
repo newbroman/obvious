@@ -1,7 +1,7 @@
 /**
  * app.js - Final Integration Fixed
  */
-import { updateInfoPanel } from './ui-renderer.js';
+import { updateInfoPanel, updateNamedaysDisplay } from './ui-renderer.js';
 import { setupListeners } from './events.js';
 import holidayData from './holiday.js';
 import { checkVoices } from './audio.js';
@@ -14,25 +14,6 @@ const state = {
     includeYear: true,
     isPolish: false,
     isFormal: false
-}
-
-
-// Namedays Display Function
-async function updateNamedaysDisplay(date) {
-    const namedaysList = document.getElementById('namedaysList');
-    if (!namedaysList) return;
-    
-    try {
-        const names = await getNamesForDate(date);
-        if (names.length > 0) {
-            namedaysList.innerHTML = `<p class="namedays-names">${names.join(', ')} </p>`;
-        } else {
-            namedaysList.innerHTML = '<p class="namedays-placeholder">No name days for this date</p>';
-        }
-    } catch (error) {
-        console.error('Error loading namedays:', error);
-        namedaysList.innerHTML = '<p class="namedays-placeholder">Error loading name days</p>';
-    }
 }
 
 // 2. Main Render Function
@@ -103,6 +84,13 @@ if (modalTitle) {
         console.error("Info Panel Error:", e); 
     }
     
+    // Update Namedays Display
+    try {
+        updateNamedaysDisplay(state.selectedDate);
+    } catch (e) {
+        console.error("Namedays Error:", e);
+    }
+    
     // 3. Seasonal Themes
     document.body.className = ''; 
     const seasons = ['winter', 'winter', 'spring', 'spring', 'spring', 'summer', 'summer', 'summer', 'autumn', 'autumn', 'autumn', 'winter'];
@@ -148,7 +136,6 @@ if (modalTitle) {
     // 7. Render Calendar Grid
     renderCalendarGrid(state.viewDate, state.selectedDate, (newDate) => {
         state.selectedDate = newDate;
-        updateNamedaysDisplay(newDate);
         render(); 
     });
 }

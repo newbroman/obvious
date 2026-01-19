@@ -21,7 +21,7 @@
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const dateKey = `${day}-${month}`;
         const names = data[dateKey] || [];
-        console.log(`getNamesForDate called: ${date.toDateString()} -> key: ${dateKey} -> found ${names.length} names`);
+        console.log(`getNamesForDate called: ${date.toDateString()} -> key: ${dateKey} -> found ${names.length} names`, names);
         return names;
     };
 })();

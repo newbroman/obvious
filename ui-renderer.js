@@ -118,19 +118,31 @@ export function speakPolish() {
 
 // Update namedays display when date changes
 export async function updateNamedaysDisplay(selectedDate) {
+    console.log('updateNamedaysDisplay called with date:', selectedDate);
     const list = document.getElementById('namedaysList');
-    if (!list || !selectedDate) return;
+    console.log('Found namedaysList element:', list);
+    
+    if (!list || !selectedDate) {
+        console.log('Early return - list or selectedDate missing');
+        return;
+    }
     
     try {
         // Call the global function from namedays.js
         if (typeof window.getNamesForDate === 'function') {
+            console.log('Calling window.getNamesForDate...');
             const names = await window.getNamesForDate(selectedDate);
+            console.log('Received names:', names);
             
             if (names && names.length > 0) {
-                list.innerHTML = `<p class="namedays-names">${names.join(', ')}</p>`;
+                const html = `<p class="namedays-names">${names.join(', ')}</p>`;
+                console.log('Setting innerHTML to:', html);
+                list.innerHTML = html;
             } else {
                 list.innerHTML = '<p class="namedays-placeholder">No name days found for this date</p>';
             }
+        } else {
+            console.log('window.getNamesForDate is not a function');
         }
     } catch (error) {
         console.error('Error updating namedays:', error);

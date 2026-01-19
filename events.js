@@ -5,6 +5,7 @@ import { speakText, unlockAudio, checkVoices } from './audio.js';
 import holidayData from './holiday.js';
 import culturalData from './cultural.js';
 import { getRulesHTML } from './rules.js';
+import { updateNamedaysDisplay } from './ui-renderer.js';
 
 export function setupListeners(state, render) {
     
@@ -218,6 +219,14 @@ export function renderCulturalHub(state) {
 
     hub.innerHTML = html;
     hub.querySelector('.back-to-cal').onclick = () => document.getElementById('navCalendar').click();
+    
+    // Update namedays display after HTML is inserted
+    if (state.selectedDate) {
+        // Use setTimeout to ensure DOM is fully rendered
+        setTimeout(() => {
+            updateNamedaysDisplay(state.selectedDate);
+        }, 0);
+    }
 }
 
 /**

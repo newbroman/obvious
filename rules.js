@@ -272,7 +272,6 @@ export function getRulesHTML(state) {
                 <p>Whether you're in nominative or genitive mode for the day, the month is ALWAYS in genitive form (${colorTerm('stycznia', 'genitive')}, ${colorTerm('lutego', 'genitive')}, etc.).</p>
             </section>
 
-            <button class="floating-close-btn" title="Close">✕</button>
         </article>
     `;
 

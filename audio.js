@@ -12,28 +12,9 @@ window.activeUtterance = null;
  * Finds the best Polish voice available.
  */
 function findVoice() {
-    if (!('speechSynthesis' in window)) {
-        console.log('❌ Speech Synthesis not available');
-        return;
-    }
+    if (!('speechSynthesis' in window)) return;
     const voices = window.speechSynthesis.getVoices();
-    console.log('🎤 Available voices:', voices.length);
-    console.log('🇵🇱 Looking for Polish voices...');
-    
-    // Log all voices for debugging
-    voices.forEach(v => {
-        if (v.lang.startsWith('pl')) {
-            console.log('  ✅ Polish voice found:', v.name, v.lang);
-        }
-    });
-    
     polishVoice = voices.find(v => v.lang === 'pl-PL' || v.lang === 'pl_PL' || v.lang.startsWith('pl'));
-    
-    if (polishVoice) {
-        console.log('✅ Selected Polish voice:', polishVoice.name, polishVoice.lang);
-    } else {
-        console.warn('⚠️ No Polish voice found, will use system default');
-    }
 }
 
 export function loadVoices() {
@@ -87,20 +68,7 @@ export function unlockAudio() {
  * The Main Speak Function - Exported for events.js
  */
 export function speakText(text, speed = 0.85) {
-    console.log('🔊 speakText called with:', text, 'speed:', speed);
-    
-    if (!text) {
-        console.error('❌ No text provided to speakText');
-        return;
-    }
-    
-    if (!('speechSynthesis' in window)) {
-        console.error('❌ Speech Synthesis not supported in this browser');
-        return;
-    }
-
-    console.log('✅ Speech Synthesis is available');
-    console.log('🎤 Polish voice:', polishVoice ? polishVoice.name : 'None found (will use default)');
+    if (!text || !('speechSynthesis' in window)) return;
 
     // 1. Force Resume & Clear Queue (Fixes Opera/Firefox hang)
     window.speechSynthesis.resume();
@@ -118,16 +86,9 @@ export function speakText(text, speed = 0.85) {
     // 4. Learner-friendly settings with variable speed
     window.activeUtterance.rate = speed;
     window.activeUtterance.pitch = 1.0;
-    
-    // 5. Add event listeners for debugging
-    window.activeUtterance.onstart = () => console.log('🎵 Speech started');
-    window.activeUtterance.onend = () => console.log('✅ Speech ended');
-    window.activeUtterance.onerror = (e) => console.error('❌ Speech error:', e);
 
-    // 6. Speak (with a tiny delay to ensure cancel() finished)
-    console.log('🚀 Attempting to speak...');
+    // 5. Speak (with a tiny delay to ensure cancel() finished)
     setTimeout(() => {
         window.speechSynthesis.speak(window.activeUtterance);
-        console.log('📢 speak() called, queue length:', window.speechSynthesis.pending ? 'pending' : 'not pending');
     }, 50);
 }

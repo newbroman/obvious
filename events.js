@@ -174,12 +174,10 @@ export function renderCulturalHub(state) {
     const hub = document.getElementById('culturalHub');
     const monthIndex = state.viewDate.getMonth();
     const year = state.viewDate.getFullYear();
+    const day = state.viewDate.getDate();
     const monthInfo = culturalData.months[monthIndex] || { pl: "Miesiąc", derivation: "N/A", season: "N/A" };
     const holidays = holidayData.getHolidaysForYear(year);
     const displayMonth = monthInfo.pl.charAt(0).toUpperCase() + monthInfo.pl.slice(1);
-    
-    // Get the selected day
-    const day = state.viewDate.getDate();
     
     let html = `
     <div class="content-body">
@@ -275,16 +273,12 @@ export function renderRulesPage(state) {
     // Pass state here so we can access viewDate
     page.innerHTML = `
         <div class="content-body">
-            ${getRulesHTML(state)}
+            ${getRulesHTML(state)} 
+            <div style="text-align:center;">
+                <button class="pill-btn back-to-cal" style="margin-top:20px">← Back to Calendar</button>
+            </div>
         </div>`;
-    
-    // Attach floating close button listener
-    const closeBtn = page.querySelector('.floating-close-btn');
-    if (closeBtn) {
-        closeBtn.onclick = () => {
-            showSection('calendar');
-        };
-    }
+    page.querySelector('.back-to-cal').onclick = () => document.getElementById('navCalendar').click();
 }
 
 

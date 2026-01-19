@@ -33,8 +33,32 @@ export function setupListeners(state, render) {
             if (plPhraseElement) {
                 const textToSpeak = plPhraseElement.innerText;
                 if (textToSpeak && !textToSpeak.includes("Wybierz")) {
-                    unlockAudio(); 
-                    speakText(textToSpeak);
+                    unlockAudio();
+                    
+                    // Speed control: toggle between 0.85x and 0.5x on quick successive taps
+                    const now = Date.now();
+                    const timeSinceLastPlay = now - lastPlayTime;
+                    
+                    if (timeSinceLastPlay < 2000) {
+                        // Quick tap (within 2 seconds) - switch to slow speed
+                        playbackSpeed = playbackSpeed === 0.85 ? 0.5 : 0.85;
+                    } else {
+                        // First tap or long gap - reset to default
+                        playbackSpeed = 0.85;
+                    }
+                    
+                    lastPlayTime = now;
+                    
+                    // Update button text to show speed
+                    const speedLabel = playbackSpeed === 0.5 ? ' (Slow)' : '';
+                    playBtn.innerText = (state.isPolish ? '🔊 Słuchaj' : '🔊 Listen') + speedLabel;
+                    
+                    speakText(textToSpeak, playbackSpeed);
+                    
+                    // Reset button text after 2 seconds
+                    setTimeout(() => {
+                        playBtn.innerText = state.isPolish ? '🔊 Słuchaj' : '🔊 Listen';
+                    }, 2000);
                 }
             }
         };

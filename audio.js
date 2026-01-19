@@ -67,7 +67,7 @@ export function unlockAudio() {
 /**
  * The Main Speak Function - Exported for events.js
  */
-export function speakText(text) {
+export function speakText(text, speed = 0.85) {
     if (!text || !('speechSynthesis' in window)) return;
 
     // 1. Force Resume & Clear Queue (Fixes Opera/Firefox hang)
@@ -83,8 +83,8 @@ export function speakText(text) {
         window.activeUtterance.voice = polishVoice;
     }
 
-    // 4. Learner-friendly settings
-    window.activeUtterance.rate = 0.8;
+    // 4. Learner-friendly settings with variable speed
+    window.activeUtterance.rate = speed;
     window.activeUtterance.pitch = 1.0;
 
     // 5. Speak (with a tiny delay to ensure cancel() finished)

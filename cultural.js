@@ -1,51 +1,62 @@
 /**
- * cultural.js - Polish Cultural Data
+ * cultural.js - Categorized Background data
  */
 
 const culturalData = {
     months: [
-        { pl: "styczeń", derivation: "From Latin 'Januarius', named after Janus, god of beginnings", season: "Zima (Winter)" },
-        { pl: "luty", derivation: "From 'lód' (ice) or 'luty' (harsh/fierce)", season: "Zima (Winter)" },
-        { pl: "marzec", derivation: "From Latin 'Martius', named after Mars, god of war", season: "Wiosna (Spring)" },
-        { pl: "kwiecień", derivation: "From 'kwiat' (flower), the month when flowers bloom", season: "Wiosna (Spring)" },
-        { pl: "maj", derivation: "From Latin 'Maius', possibly from Maia, goddess of growth", season: "Wiosna (Spring)" },
-        { pl: "czerwiec", derivation: "From 'czerw' (a red insect used for dye)", season: "Lato (Summer)" },
-        { pl: "lipiec", derivation: "From 'lipa' (linden tree), which blooms in July", season: "Lato (Summer)" },
-        { pl: "sierpień", derivation: "From 'sierp' (sickle), the harvest month", season: "Lato (Summer)" },
-        { pl: "wrzesień", derivation: "From 'wrzos' (heather), which blooms in September", season: "Jesień (Autumn)" },
-        { pl: "październik", derivation: "From 'paździerz' (flax fibers), processing season", season: "Jesień (Autumn)" },
-        { pl: "listopad", derivation: "From 'liść' (leaf) + 'padać' (to fall)", season: "Jesień (Autumn)" },
-        { pl: "grudzień", derivation: "From 'gruda' (frozen clump of earth)", season: "Zima (Winter)" }
+        { pl: "stycznia", en: "January", season: "Zima (Winter)", derivation: "From 'stykać' (to connect), as the month connects the old and the new year." },
+        { pl: "lutego", en: "February", season: "Zima (Winter)", derivation: "Named after 'luty', meaning 'harsh' or 'fierce', referring to severe freezes." },
+        { pl: "marca", en: "March", season: "Wiosna (Spring)", derivation: "Derived from Latin 'Martius'. In old Slavic, called 'brzezień' from birch trees." },
+        { pl: "kwietnia", en: "April", season: "Wiosna (Spring)", derivation: "The 'blooming month'. Derived from 'kwiat' (flower)." },
+        { pl: "maja", en: "May", season: "Wiosna (Spring)", derivation: "Adopted from Latin 'Maius'. Traditionally the most beautiful month in Poland." },
+        { pl: "czerwca", en: "June", season: "Lato (Summer)", derivation: "Derived from 'czerwie' (larvae), used historically to produce red dye." },
+        { pl: "lipca", en: "July", season: "Lato (Summer)", derivation: "Named after 'lipa' (linden tree), which blossoms and scents the air." },
+        { pl: "sierpnia", en: "August", season: "Lato (Summer)", derivation: "Named after 'sierp' (sickle), used by farmers for the harvest." },
+        { pl: "września", en: "September", season: "Jesień (Autumn)", derivation: "Derived from 'wrzosy' (heather), which blooms in Polish forests." },
+        { pl: "października", en: "October", season: "Jesień (Autumn)", derivation: "From 'paździer' (flax husks), from the time of processing flax for linen." },
+        { pl: "listopada", en: "November", season: "Jesień (Autumn)", derivation: "A compound of 'liść' (leaf) and 'padać' (to fall)." },
+        { pl: "grudnia", en: "December", season: "Zima (Winter)", derivation: "From 'gruda' (frozen lump of earth), as the ground freezes solid." }
     ],
-    
     days: [
-        "Niedziela (Sunday)", "Poniedziałek (Monday)", "Wtorek (Tuesday)", 
-        "Środa (Wednesday)", "Czwartek (Thursday)", "Piątek (Friday)", "Sobota (Saturday)"
+        { pl: "Niedziela", meaning: "From 'nie działać' (not working). The day of rest." },
+        { pl: "Poniedziałek", meaning: "Means 'after Sunday' (po niedzieli)." },
+        { pl: "Wtorek", meaning: "From 'wtóry' (second). The second day of the week." },
+        { pl: "Środa", meaning: "Means 'middle' (środek), the midpoint of the week." },
+        { pl: "Czwartek", meaning: "From 'czwarty' (fourth day)." },
+        { pl: "Piątek", meaning: "From 'piąty' (fifth day)." },
+        { pl: "Sobota", meaning: "Derived from 'Sabbath' (Szabat)." }
     ],
-    
+
     holidayExplanations: {
-        "Nowy Rok": "New Year's Day. While the world rests, many Poles enjoy a traditional 'Noworoczny' walk.",
-        "Święto Trzech Króli": "Epiphany. You'll see 'K+M+B' written in chalk on doors, representing the Three Kings blessing the home.",
-        "Dzień Babci 👵": "Grandmother's Day. A huge deal in Poland! Expect kids to recite poems (laurki) for their 'Babcia'.",
-        "Dzień Dziadka 👴": "Grandfather's Day. Celebrated immediately after Babcia's day, ensuring grandpas get their flowers and chocolates too.",
-        "Dzień Kobiet 🌷": "Women's Day. A remnant of the past that remains popular; men often buy tulips for every woman in their office or family.",
-        "Prima Aprilis 🤡": "April Fools' Day. In Poland, the rule is 'uważaj, bo się pomylisz' (watch out, or you'll be mistaken!).",
-        "Święto Pracy": "Labor Day. It kicks off 'Majówka'—the legendary Polish long weekend of grilling and outdoor trips.",
-        "Święto Konstytucji 3 Maja": "Constitution Day. Poland proudly celebrates having the first democratic constitution in Europe (1791).",
-        "Dzień Matki 💐": "Mother's Day. A day of 'wszystkiego najlepszego' (all the best) and heart-shaped cards.",
-        "Dzień Dziecka 🧸": "Children's Day. No schoolwork today! Most towns host festivals with ice cream and games for the 'małolaty' (youngsters).",
-        "Dzień Ojca 👔": "Father's Day. Dads are honored with gifts, often involving 'majsterkowanie' (DIY) tools or sweets.",
-        "Wniebowzięcie NMP": "Assumption Day & Polish Army Day. You'll see military parades in Warsaw and beautiful herb bouquets in churches.",
-        "Wszystkich Świętych": "All Saints' Day. A stunning sight: millions of 'znicze' (candles) turn cemeteries into glowing seas of light at night.",
-        "Narodowe Święto Niepodległości": "Independence Day. Commemorates 1918. Expect patriotic marches and the singing of 'Mazurek Dąbrowskiego'.",
-        "Andrzejki 🕯️": "St. Andrew's Eve. The last night for parties before Advent. People pour hot wax into water to 'see' their future spouse.",
-        "Mikołajki 🎅": "St. Nicholas Day. Not the 'main' Christmas; this is when kids find small gifts in their boots or under pillows.",
-        "Wigilia Bożego Narodzenia": "Christmas Eve. The 'Star' of Polish holidays. We share the 'Opłatek' wafer and wait for the first star to start dinner.",
-        "Boże Narodzenie": "Christmas Day. A time for family, 'pierniki' (gingerbread), and visiting the 'szopka' (nativity scene) at church.",
-        "Drugi Dzień Świąt": "St. Stephen's Day. Traditionally a day for visiting friends and throwing grain for good harvests.",
-        "Wielkanoc 🐣": "Easter Sunday. Starts with a sunrise mass and a breakfast of 'żurek' and eggs from the blessed basket.",
-        "Tłusty Czwartek 🍩": "Fat Thursday. The only day it is socially mandatory to eat several 'pączki' (rose-jam donuts).",
-        "Środa Popielcowa": "Ash Wednesday. Marking the transition from Carnival to the 40 days of Lent."
+        // --- Official State Holidays (Dni wolne od pracy) ---
+        "0-1": { text: "Nowy Rok: The start of the New Year, celebrated with fireworks and parties.", type: "holiday" },
+        "0-6": { text: "Trzech Króli: Epiphany. Poles write 'K+M+B' in chalk on their doors to bless the home.", type: "holiday" },
+        "4-1": { text: "Święto Pracy: Labor Day. Often the start of 'Majówka', the great Polish BBQ weekend.", type: "holiday" },
+        "4-3": { text: "Święto Konstytucji: Commemorating the 1791 Constitution, Europe's first modern constitution.", type: "holiday" },
+        "7-15": { text: "Wniebowzięcie / Wojska Polskiego: A double holiday celebrating Mary and the Polish Army.", type: "holiday" },
+        "10-1": { text: "Wszystkich Świętych: All Saints' Day. Millions of candles (znicze) light up cemeteries.", type: "holiday" },
+        "10-11": { text: "Święto Niepodległości: Independence Day. Celebrating the rebirth of Poland in 1918.", type: "holiday" },
+        "11-25": { text: "Boże Narodzenie: Christmas Day. A quiet time for family and singing carols.", type: "holiday" },
+        "11-26": { text: "Drugi Dzień Świąt: St. Stephen’s Day; a day for visiting friends and family.", type: "holiday" },
+        "Wielkanoc 🐣": { text: "Easter Sunday: Celebrated with a festive breakfast including blessed eggs (pisanki).", type: "holiday" },
+        "Lany Poniedziałek 💧": { text: "Wet Monday: A fun tradition of splashing friends with water! Also a day off.", type: "holiday" },
+        "Boże Ciało": { text: "Corpus Christi: Famous for massive outdoor processions through flower-covered streets.", type: "holiday" },
+
+        // --- Cultural Traditions (Working Days) ---
+        "0-21": { text: "Dzień Babci: Grandmothers receive flowers and handmade cards from grandchildren.", type: "tradition" },
+        "0-22": { text: "Dzień Dziadka: A day to honor grandfathers for their wisdom and care.", type: "tradition" },
+        "2-8": { text: "Dzień Kobiet: Women's Day. In Poland, it is common to give tulips to women.", type: "tradition" },
+        "3-1": { text: "Prima Aprilis: April Fools' Day. A day for jokes, hoaxes, and lighthearted fun.", type: "tradition" },
+        "3-3": { text: "Wielki Piątek: Good Friday. A solemn day of fasting and visiting 'Lord's Tombs' in churches.", type: "tradition" },
+        "4-26": { text: "Dzień Matki: Mother's Day. Children honor their moms with 'laurki' (handmade cards).", type: "tradition" },
+        "5-1": { text: "Dzień Dziecka: Children's Day. Kids usually get small gifts or special trips.", type: "tradition" },
+        "5-23": { text: "Dzień Ojca: Father's Day. A time to celebrate dads and their role in the family.", type: "tradition" },
+        "10-29": { text: "Andrzejki: St. Andrew’s Eve. A night of fortune-telling, like pouring hot wax.", type: "tradition" },
+        "11-6": { text: "Mikołajki: St. Nicholas Day. Kids find gifts or chocolates in their clean boots.", type: "tradition" },
+        "11-24": { text: "Wigilia: Christmas Eve. The most sacred night, involving a 12-dish meatless supper.", type: "tradition" },
+        "Tłusty Czwartek 🍩": { text: "Fat Thursday: The last Thursday before Lent. Everyone eats pączki (donuts)!", type: "tradition" },
+        "Środa Popielcowa": { text: "Ash Wednesday: Marks the beginning of Lent. Ashes are placed on foreheads.", type: "tradition" },
+        "Zielone Świątki": { text: "Pentecost: An old agricultural holiday where homes were decorated with branches.", type: "tradition" }
     }
 };
 

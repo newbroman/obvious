@@ -4,11 +4,12 @@
 
 // Color scheme for grammatical components
 const GRAMMAR_COLORS = {
-    context: '#95a5a6',      // Gray - "Dzisiaj jest", day names
-    ordinal: '#3498db',      // Blue - Ordinal day numbers
-    genitive: '#f39c12',     // Gold - Genitive month names
-    year: '#9b59b6',         // Purple - Year numbers
-    genitiveMark: '#e74c3c'  // Red - "roku" marker
+    context: '#95a5a6',           // Gray - "Dzisiaj jest", day names
+    ordinalNominative: '#4a90e2', // Blue - Nominative ordinals (pierwszy, drugi) - matches "Today is" button
+    ordinalGenitive: '#ffd700',   // Gold - Genitive ordinals (pierwszego, drugiego) - matches "It's on" button
+    genitive: '#f39c12',          // Orange - Genitive month names
+    year: '#9b59b6',              // Purple - Year numbers
+    genitiveMark: '#e74c3c'       // Red - "roku" marker
 };
 
 // Genitive month names (all lowercase for matching)
@@ -49,12 +50,17 @@ export function colorizePolishPhrase(phrase, includeYear = false) {
         colored = colored.replace(/(roku)/g, `<span style="color: ${GRAMMAR_COLORS.genitiveMark}; font-weight: 600;">$1</span>`);
     }
     
-    // 4. Color ordinal day numbers (blue)
-    // Common ordinal endings: -ego, -y, -i, -iego, -szego
-    const ordinalPattern = /(pierwszego|drugiego|trzeciego|czwartego|piątego|szóstego|siódmego|ósmego|dziewiątego|dziesiątego|jedenastego|dwunastego|trzynastego|czternastego|piętnastego|szesnastego|siedemnastego|osiemnastego|dziewiętnastego|dwudziestego|pierwszego|drugiego|trzeciego|czwartego|piątego|szóstego|siódmego|ósmego|dziewiątego)/gi;
-    colored = colored.replace(ordinalPattern, `<span style="color: ${GRAMMAR_COLORS.ordinal}; font-weight: 600;">$1</span>`);
+    // 4. Color ordinal day numbers - GENITIVE forms (gold - matches "It's on" button)
+    // Genitive ordinals end in -ego (pierwszego, drugiego, trzeciego, etc.)
+    const genitiveOrdinalPattern = /(pierwszego|drugiego|trzeciego|czwartego|piątego|szóstego|siódmego|ósmego|dziewiątego|dziesiątego|jedenastego|dwunastego|trzynastego|czternastego|piętnastego|szesnastego|siedemnastego|osiemnastego|dziewiętnastego|dwudziestego|dwudziestego pierwszego|dwudziestego drugiego|dwudziestego trzeciego|dwudziestego czwartego|dwudziestego piątego|dwudziestego szóstego|dwudziestego siódmego|dwudziestego ósmego|dwudziestego dziewiątego|trzydziestego|trzydziestego pierwszego)/gi;
+    colored = colored.replace(genitiveOrdinalPattern, `<span style="color: ${GRAMMAR_COLORS.ordinalGenitive}; font-weight: 600;">$1</span>`);
     
-    // 5. Color year numbers (purple) - match multi-word year phrases
+    // 5. Color ordinal day numbers - NOMINATIVE forms (blue - matches "Today is" button)
+    // Nominative ordinals end in -y or -i (pierwszy, drugi, trzeci, etc.)
+    const nominativeOrdinalPattern = /(pierwszy|drugi|trzeci|czwarty|piąty|szósty|siódmy|ósmy|dziewiąty|dziesiąty|jedenasty|dwunasty|trzynasty|czternasty|piętnasty|szesnasty|siedemnasty|osiemnasty|dziewiętnasty|dwudziesty|dwudziesty pierwszy|dwudziesty drugi|dwudziesty trzeci|dwudziesty czwarty|dwudziesty piąty|dwudziesty szósty|dwudziesty siódmy|dwudziesty ósmy|dwudziesty dziewiąty|trzydziesty|trzydziesty pierwszy)(?![ego])/gi;
+    colored = colored.replace(nominativeOrdinalPattern, `<span style="color: ${GRAMMAR_COLORS.ordinalNominative}; font-weight: 600;">$1</span>`);
+    
+    // 6. Color year numbers (purple) - match multi-word year phrases
     if (includeYear) {
         // Match patterns like "dwa tysiące dwudziestego szóstego"
         const yearPattern = /(dwa tysiące [\w\s]+?)(?=\s+roku)/gi;

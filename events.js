@@ -11,12 +11,16 @@ export function setupListeners(state, render) {
     
     // --- 1. Audio and Logic Toggles ---
     const triggerAudioUnlock = () => {
-        import('./audio.js').then(m => m.unlockAudio());
+        console.log('🔊 Unlocking audio on user interaction...');
+        import('./audio.js').then(m => {
+            m.unlockAudio();
+            console.log('✅ Audio unlock attempted');
+        });
         document.removeEventListener('touchstart', triggerAudioUnlock);
         document.removeEventListener('click', triggerAudioUnlock);
     };
-    document.addEventListener('touchstart', triggerAudioUnlock);
-    document.addEventListener('click', triggerAudioUnlock);
+    document.addEventListener('touchstart', triggerAudioUnlock, { once: true });
+    document.addEventListener('click', triggerAudioUnlock, { once: true });
     
     const playBtn = document.getElementById('playBtn');
     if (playBtn) {
@@ -33,8 +37,33 @@ export function setupListeners(state, render) {
             if (plPhraseElement) {
                 const textToSpeak = plPhraseElement.innerText;
                 if (textToSpeak && !textToSpeak.includes("Wybierz")) {
-                    unlockAudio(); 
-                    speakText(textToSpeak);
+                    unlockAudio();
+                    
+                    // Speed control: toggle between 0.85x and 0.5x on quick successive taps
+                    const now = Date.now();
+                    const timeSinceLastPlay = now - lastPlayTime;
+                    
+                    if (timeSinceLastPlay < 2000) {
+                        // Quick tap (within 2 seconds) - switch to slow speed
+                        playbackSpeed = playbackSpeed === 0.85 ? 0.5 : 0.85;
+                    } else {
+                        // First tap or long gap - reset to default
+                        playbackSpeed = 0.85;
+                    }
+                    
+                    lastPlayTime = now;
+                    
+                    // Update button text to show speed
+                    const speedLabel = playbackSpeed === 0.5 ? ' (Slow)' : '';
+                    playBtn.innerText = (state.isPolish ? '🔊 Słuchaj' : '🔊 Listen') + speedLabel;
+                    
+                    console.log('🔊 Speaking:', textToSpeak, 'at speed', playbackSpeed);
+                    speakText(textToSpeak, playbackSpeed);
+                    
+                    // Reset button text after 2 seconds
+                    setTimeout(() => {
+                        playBtn.innerText = state.isPolish ? '🔊 Słuchaj' : '🔊 Listen';
+                    }, 2000);
                 }
             }
         };
@@ -145,6 +174,7 @@ export function renderCulturalHub(state) {
     const hub = document.getElementById('culturalHub');
     const monthIndex = state.viewDate.getMonth();
     const year = state.viewDate.getFullYear();
+    const day = state.viewDate.getDate();
     const monthInfo = culturalData.months[monthIndex] || { pl: "Miesiąc", derivation: "N/A", season: "N/A" };
     const holidays = holidayData.getHolidaysForYear(year);
     const displayMonth = monthInfo.pl.charAt(0).toUpperCase() + monthInfo.pl.slice(1);
@@ -152,7 +182,7 @@ export function renderCulturalHub(state) {
     let html = `
     <div class="content-body">
         <header class="content-header">
-            <h1>${displayMonth} ${year}</h1>
+            <h1>${day}. ${displayMonth} ${year}</h1>
             <div class="season-box">
                 <span class="season-icon">${getSeasonIcon(monthInfo.season)}</span>
                 <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 
@@ -205,7 +235,7 @@ export function renderCulturalHub(state) {
                 <div class="holiday-entry ${isHoliday ? 'state-holiday' : 'tradition-item'}">
                     <div class="holiday-type-tag">${isHoliday ? 'OFFICIAL HOLIDAY' : 'TRADITION'}</div>
                     <div class="holiday-title">
-                        <strong>${dayNum} ${capitalizedMonthGenitive}:</strong> ${holidayName}
+                        <strong>${dayNum}. ${capitalizedMonthGenitive}:</strong> ${holidayName}
                     </div>
                     ${info.text ? `<p class="holiday-desc">${info.text}</p>` : ''}
                 </div>`;
@@ -218,9 +248,7 @@ export function renderCulturalHub(state) {
     }
 
     html += `</div></section>
-            <div class="nav-actions">
-                <button class="pill-btn back-to-cal">← ${state.isPolish ? 'Powrót' : 'Back to Calendar'}</button>
-            </div>
+            <button class="floating-close-btn" title="${state.isPolish ? 'Zamknij' : 'Close'}">✕</button>
         </div>`;
 
     hub.innerHTML = html;

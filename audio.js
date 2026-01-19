@@ -3,6 +3,7 @@
  */
 
 let polishVoice = null;
+let fallbackVoice = null;
 let audioUnlocked = false;
 
 // CRITICAL FOR MOBILE/FIREFOX/DDG: Prevents garbage collection
@@ -14,7 +15,15 @@ window.activeUtterance = null;
 function findVoice() {
     if (!('speechSynthesis' in window)) return;
     const voices = window.speechSynthesis.getVoices();
+    
+    // Try to find Polish voice
     polishVoice = voices.find(v => v.lang === 'pl-PL' || v.lang === 'pl_PL' || v.lang.startsWith('pl'));
+    
+    // Fallback to any available voice
+    if (!polishVoice && voices.length > 0) {
+        fallbackVoice = voices[0];
+        console.warn('⚠️ No Polish voice found. Using fallback:', fallbackVoice.name, fallbackVoice.lang);
+    }
 }
 
 export function loadVoices() {
@@ -35,7 +44,8 @@ export function checkVoices(onReady) {
     
     const runCheck = () => {
         findVoice();
-        if (onReady) onReady(!!polishVoice);
+        // Ready if we have either Polish or fallback voice
+        if (onReady) onReady(!!(polishVoice || fallbackVoice));
     };
 
     if (window.speechSynthesis.getVoices().length > 0) {
@@ -81,14 +91,22 @@ export function speakText(text, speed = 0.85) {
     window.activeUtterance.lang = 'pl-PL';
     if (polishVoice) {
         window.activeUtterance.voice = polishVoice;
+        console.log('🗣️ Using Polish voice:', polishVoice.name);
+    } else if (fallbackVoice) {
+        window.activeUtterance.voice = fallbackVoice;
+        console.log('🗣️ Using fallback voice:', fallbackVoice.name);
+    } else {
+        console.warn('⚠️ No voice available - attempting default');
     }
 
     // 4. Learner-friendly settings with variable speed
     window.activeUtterance.rate = speed;
     window.activeUtterance.pitch = 1.0;
+    window.activeUtterance.volume = 1.0; // Ensure full volume
 
     // 5. Speak (with a tiny delay to ensure cancel() finished)
     setTimeout(() => {
+        console.log('🔊 Speaking:', text.substring(0, 50) + '...');
         window.speechSynthesis.speak(window.activeUtterance);
     }, 50);
 }

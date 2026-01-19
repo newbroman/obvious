@@ -4,6 +4,7 @@
 import { getWrittenDay, getPhoneticDay, getYearPolish, getYearPhonetic } from './numbers.js';
 import phonetics from './phonetics.js';
 import holidayData from './holiday.js';
+import { colorizePolishPhrase } from './color-utils.js';
 
 export function updateInfoPanel(selectedDate, includeYear, isFormal) {
     const plDisplay = document.getElementById('plPhrase');
@@ -88,7 +89,8 @@ export function updateInfoPanel(selectedDate, includeYear, isFormal) {
         }
     }
    // 6. Update UI - Trimmed to remove potential leading spaces
-    plDisplay.innerText = fullPl.trim();
+    // Use innerHTML with color coding for Polish phrase
+    plDisplay.innerHTML = colorizePolishPhrase(fullPl.trim(), includeYear);
     enDisplay.innerText = fullEn.trim();
     phoneticDisplay.innerText = fullPhonetic.trim();
 }

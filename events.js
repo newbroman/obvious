@@ -11,16 +11,12 @@ export function setupListeners(state, render) {
     
     // --- 1. Audio and Logic Toggles ---
     const triggerAudioUnlock = () => {
-        console.log('🔊 Unlocking audio on user interaction...');
-        import('./audio.js').then(m => {
-            m.unlockAudio();
-            console.log('✅ Audio unlock attempted');
-        });
+        import('./audio.js').then(m => m.unlockAudio());
         document.removeEventListener('touchstart', triggerAudioUnlock);
         document.removeEventListener('click', triggerAudioUnlock);
     };
-    document.addEventListener('touchstart', triggerAudioUnlock, { once: true });
-    document.addEventListener('click', triggerAudioUnlock, { once: true });
+    document.addEventListener('touchstart', triggerAudioUnlock);
+    document.addEventListener('click', triggerAudioUnlock);
     
     const playBtn = document.getElementById('playBtn');
     if (playBtn) {
@@ -57,7 +53,6 @@ export function setupListeners(state, render) {
                     const speedLabel = playbackSpeed === 0.5 ? ' (Slow)' : '';
                     playBtn.innerText = (state.isPolish ? '🔊 Słuchaj' : '🔊 Listen') + speedLabel;
                     
-                    console.log('🔊 Speaking:', textToSpeak, 'at speed', playbackSpeed);
                     speakText(textToSpeak, playbackSpeed);
                     
                     // Reset button text after 2 seconds
@@ -234,7 +229,7 @@ export function renderCulturalHub(state) {
                 <div class="holiday-entry ${isHoliday ? 'state-holiday' : 'tradition-item'}">
                     <div class="holiday-type-tag">${isHoliday ? 'OFFICIAL HOLIDAY' : 'TRADITION'}</div>
                     <div class="holiday-title">
-                        <strong>${dayNum}. ${capitalizedMonthGenitive}:</strong> ${holidayName}
+                        <strong>${dayNum} ${capitalizedMonthGenitive}:</strong> ${holidayName}
                     </div>
                     ${info.text ? `<p class="holiday-desc">${info.text}</p>` : ''}
                 </div>`;

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pl-date-v1193';
+const CACHE_NAME = 'pl-date-v1173';
 const urlsToCache = [
     './',
     './index.html',

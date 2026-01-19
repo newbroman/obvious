@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pl-date-v1201';
+const CACHE_NAME = 'pl-date-v1202';
 const ASSETS = [
   './',
   './index.html',
@@ -12,22 +12,17 @@ const ASSETS = [
   './holiday.js',
   './cultural.js',
   './rules.js',
-  './manifest.json',
-  './icon-192.png',
-  './icon-512.png',
+  './color-utils.js',
   './namedays.js',
   './namedays.json'
 ];
 
 // Install Event
-self.addEventListener('activate', event => {
+self.addEventListener('install', event => {
   event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(
-        keys.filter(key => key !== CACHE_NAME)
-            .map(key => caches.delete(key))
-      );
-    }).then(() => self.clients.claim()) // Add this line!
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(ASSETS);
+    }).then(() => self.skipWaiting())
   );
 });
 
@@ -39,7 +34,7 @@ self.addEventListener('activate', event => {
         keys.filter(key => key !== CACHE_NAME)
             .map(key => caches.delete(key))
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
 

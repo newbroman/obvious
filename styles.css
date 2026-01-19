@@ -36,7 +36,7 @@
     
     .nav-icon-btn {
         font-size: 1rem;
-        padding: 4px 6px;
+        padding: 3px 4px;
     }
     
 
@@ -315,11 +315,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 3px;
     flex-wrap: wrap;
 }
 
-.nav-icon-btn { background: none; border: none; font-size: 1.1rem; cursor: pointer; transition: transform 0.2s; padding: 4px 8px; }
+.nav-icon-btn { background: none; border: none; font-size: 1.1rem; cursor: pointer; transition: transform 0.2s; padding: 4px 6px; }
 .nav-icon-btn:active { transform: scale(0.9); }
 .divider { width: 1px; height: 18px; background: var(--border-color); }
 

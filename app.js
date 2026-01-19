@@ -64,30 +64,12 @@ if (modalTitle) {
     // state.isFormal = true            -> "It's on" (Event Mode)
     
     const icon = state.isFormal ? "🎉" : "📅";
-    const isMobile = window.innerWidth <= 768;
     
-    // Full labels for desktop, abbreviated for mobile
-    let label;
-    if (isMobile) {
-        label = state.isFormal 
-            ? (state.isPolish ? "Jest" : "On") 
-            : (state.isPolish ? "Jest" : "Is");
-    } else {
-        label = state.isFormal 
-            ? (state.isPolish ? "To jest dnia" : "It's on") 
-            : (state.isPolish ? "Dzisiaj jest" : "Today is");
-    }
+    const label = state.isFormal 
+        ? (state.isPolish ? "To jest dnia" : "It's on") 
+        : (state.isPolish ? "Dzisiaj jest" : "Today is");
 
     meetingBtn.innerText = `${icon} ${label}`;
-    
-    // Add tooltip for mobile
-    if (isMobile) {
-        meetingBtn.title = state.isFormal 
-            ? (state.isPolish ? "To jest dnia (Dopełniacz)" : "It's on (Genitive)") 
-            : (state.isPolish ? "Dzisiaj jest (Mianownik)" : "Today is (Nominative)");
-    } else {
-        meetingBtn.title = '';
-    }
     
     // Theme: Blue for Naming (Today is), Gold for Event (It's on)
     meetingBtn.className = `pill-btn ${state.isFormal ? 'mode-btn-event' : 'mode-btn-naming'}`;
@@ -287,8 +269,3 @@ document.addEventListener('DOMContentLoaded', () => {
 window.render = render;
 window.state = state;
 window.renderCalendarGrid = renderCalendarGrid;
-
-// Responsive mode button - re-render on resize
-window.addEventListener('resize', () => {
-    render();
-});

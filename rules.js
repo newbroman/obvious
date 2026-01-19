@@ -33,12 +33,16 @@ export function getRulesHTML(state) {
                 <h3 style="margin-top: 0;">🎨 Color Coding Guide</h3>
                 <p style="margin-bottom: 15px;">Polish date components are color-coded by their grammatical function:</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-                    <div style="padding: 10px; border-left: 4px solid ${COLORS.ordinal}; background: rgba(52, 152, 219, 0.05);">
-                        <strong style="color: ${COLORS.ordinal};">Blue</strong> = Ordinal Day Numbers<br>
-                        <small style="color: #666;">pierwszy, drugiego, trzeciego</small>
+                    <div style="padding: 10px; border-left: 4px solid ${COLORS.ordinalNominative}; background: rgba(74, 144, 226, 0.05);">
+                        <strong style="color: ${COLORS.ordinalNominative};">Blue</strong> = Nominative Ordinals<br>
+                        <small style="color: #666;">pierwszy, drugi, trzeci (Today is...)</small>
+                    </div>
+                    <div style="padding: 10px; border-left: 4px solid ${COLORS.ordinalGenitive}; background: rgba(255, 215, 0, 0.05);">
+                        <strong style="color: ${COLORS.ordinalGenitive};">Gold</strong> = Genitive Ordinals<br>
+                        <small style="color: #666;">pierwszego, drugiego, trzeciego (It's on...)</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.genitive}; background: rgba(243, 156, 18, 0.05);">
-                        <strong style="color: ${COLORS.genitive};">Gold</strong> = Genitive Months<br>
+                        <strong style="color: ${COLORS.genitive};">Orange</strong> = Genitive Months<br>
                         <small style="color: #666;">stycznia, lutego, marca</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.year}; background: rgba(155, 89, 182, 0.05);">
@@ -71,18 +75,18 @@ export function getRulesHTML(state) {
                         <tbody>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">jeden (one)</td>
-                                <td style="padding: 8px;">${colorTerm('pierwszy', 'ordinal')} (first)</td>
-                                <td style="padding: 8px;">${colorTerm('pierwszego', 'ordinal')} (of the first)</td>
+                                <td style="padding: 8px;">${colorTerm('pierwszy', 'ordinalNom')} (first)</td>
+                                <td style="padding: 8px;">${colorTerm('pierwszego', 'ordinalGen')} (of the first)</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">dwa (two)</td>
-                                <td style="padding: 8px;">${colorTerm('drugi', 'ordinal')} (second)</td>
-                                <td style="padding: 8px;">${colorTerm('drugiego', 'ordinal')} (of the second)</td>
+                                <td style="padding: 8px;">${colorTerm('drugi', 'ordinalNom')} (second)</td>
+                                <td style="padding: 8px;">${colorTerm('drugiego', 'ordinalGen')} (of the second)</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">trzy (three)</td>
-                                <td style="padding: 8px;">${colorTerm('trzeci', 'ordinal')} (third)</td>
-                                <td style="padding: 8px;">${colorTerm('trzeciego', 'ordinal')} (of the third)</td>
+                                <td style="padding: 8px;">${colorTerm('trzeci', 'ordinalNom')} (third)</td>
+                                <td style="padding: 8px;">${colorTerm('trzeciego', 'ordinalGen')} (of the third)</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">dziesięć (ten)</td>
@@ -215,13 +219,13 @@ export function getRulesHTML(state) {
                         <tbody>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">1st</td>
-                                <td style="padding: 8px;">${colorTerm('pierwszy', 'ordinal')}</td>
-                                <td style="padding: 8px;">${colorTerm('pierwszego', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('pierwszy', 'ordinalNom')}</td>
+                                <td style="padding: 8px;">${colorTerm('pierwszego', 'ordinalGen')}</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">5th</td>
                                 <td style="padding: 8px;">${colorTerm('piąty', 'ordinal')}</td>
-                                <td style="padding: 8px;">${colorTerm('piątego', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('piątego', 'ordinalGen')}</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">10th</td>
@@ -268,6 +272,7 @@ export function getRulesHTML(state) {
                 <p>Whether you're in nominative or genitive mode for the day, the month is ALWAYS in genitive form (${colorTerm('stycznia', 'genitive')}, ${colorTerm('lutego', 'genitive')}, etc.).</p>
             </section>
 
+            <button class="floating-close-btn" title="Close">✕</button>
         </article>
     `;
 

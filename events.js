@@ -178,10 +178,13 @@ export function renderCulturalHub(state) {
     const holidays = holidayData.getHolidaysForYear(year);
     const displayMonth = monthInfo.pl.charAt(0).toUpperCase() + monthInfo.pl.slice(1);
     
+    // Get the selected day
+    const day = state.viewDate.getDate();
+    
     let html = `
     <div class="content-body">
         <header class="content-header">
-            <h1>${displayMonth} ${year}</h1>
+            <h1>${day}. ${displayMonth} ${year}</h1>
             <div class="season-box">
                 <span class="season-icon">${getSeasonIcon(monthInfo.season)}</span>
                 <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 
@@ -247,9 +250,7 @@ export function renderCulturalHub(state) {
     }
 
     html += `</div></section>
-            <div class="nav-actions">
-                <button class="pill-btn back-to-cal">← ${state.isPolish ? 'Powrót' : 'Back to Calendar'}</button>
-            </div>
+            <button class="floating-close-btn" title="${state.isPolish ? 'Zamknij' : 'Close'}">✕</button>
         </div>`;
 
     hub.innerHTML = html;
@@ -274,12 +275,16 @@ export function renderRulesPage(state) {
     // Pass state here so we can access viewDate
     page.innerHTML = `
         <div class="content-body">
-            ${getRulesHTML(state)} 
-            <div style="text-align:center;">
-                <button class="pill-btn back-to-cal" style="margin-top:20px">← Back to Calendar</button>
-            </div>
+            ${getRulesHTML(state)}
         </div>`;
-    page.querySelector('.back-to-cal').onclick = () => document.getElementById('navCalendar').click();
+    
+    // Attach floating close button listener
+    const closeBtn = page.querySelector('.floating-close-btn');
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+            showSection('calendar');
+        };
+    }
 }
 
 

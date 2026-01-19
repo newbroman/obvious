@@ -30,6 +30,7 @@
         <div class="utility-controls">
             <button id="navCalendar" class="nav-icon-btn" title="Calendar">📅</button>
             <button id="navCulture" class="nav-icon-btn" title="Culture">📖</button>
+            <button id="navSearch" class="nav-icon-btn" title="Name Search">🔍</button>
             <button id="navRules" class="nav-icon-btn" title="Grammar">⚖️</button>
             <button id="navInfo" class="nav-icon-btn" title="About">❓</button>
             <div class="divider"></div>
@@ -89,6 +90,33 @@
         <p><strong>Spoken (Nominative):</strong> Used for simple statements, like answering <em>"What day is it today?"</em></p>
     </div>
     <button class="pill-btn back-to-cal">← Back to Calendar</button>
+</section>
+
+<!-- Name Search Page -->
+<section id="nameSearchPage" style="display: none;">
+    <div class="content-body">
+        <h2>🔍 Name Day Search</h2>
+        <p style="color: #666; margin-bottom: 10px;">Search for a name to find which dates it's celebrated</p>
+        <p style="color: #999; font-size: 0.9em; margin-bottom: 20px; font-style: italic;">
+            Click any result to practice pronouncing that date in Polish
+        </p>
+        
+        <div style="margin-bottom: 30px;">
+            <input type="text" id="nameSearchInput" placeholder="Enter a name (e.g., Jan, Maria)" 
+                   style="width: 100%; padding: 12px; font-size: 16px; border: 2px solid var(--border-color); border-radius: 8px; margin-bottom: 10px;">
+            <button id="nameSearchBtn" class="pill-btn" style="width: 100%; padding: 12px; font-size: 16px;">
+                Search
+            </button>
+        </div>
+        
+        <div id="nameSearchResults" style="min-height: 100px;">
+            <p style="color: #999; font-style: italic; text-align: center;">Enter a name to search</p>
+        </div>
+        
+        <div style="text-align:center; margin-top: 30px;">
+            <button class="pill-btn back-to-cal">← Back to Calendar</button>
+        </div>
+    </div>
 </section>
 
     <footer class="info-panel">

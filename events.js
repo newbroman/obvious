@@ -57,7 +57,8 @@ if (meetingBtn) {
         const sections = {
             'calendar': document.getElementById('calendarSection'),
             'culture': document.getElementById('culturalHub'),
-            'rules': document.getElementById('rulesPage')
+            'rules': document.getElementById('rulesPage'),
+            'search': document.getElementById('nameSearchPage')
         };
         const infoPanel = document.querySelector('.info-panel');
 
@@ -98,6 +99,11 @@ if (meetingBtn) {
     document.getElementById('navRules').onclick = () => {
         showSection('rules');
         renderRulesPage(state);
+    };
+
+    document.getElementById('navSearch').onclick = () => {
+        showSection('search');
+        renderSearchPage(state);
     };
 
     document.getElementById('prevMonth').onclick = () => {
@@ -245,6 +251,125 @@ export function renderRulesPage(state) {
             </div>
         </div>`;
     page.querySelector('.back-to-cal').onclick = () => document.getElementById('navCalendar').click();
+}
+
+
+function renderSearchPage(state) {
+    const page = document.getElementById('nameSearchPage');
+    if (!page) return;
+    
+    // Set up search button handler
+    const searchBtn = document.getElementById('nameSearchBtn');
+    const searchInput = document.getElementById('nameSearchInput');
+    const resultsDiv = document.getElementById('nameSearchResults');
+    const backBtn = page.querySelector('.back-to-cal');
+    
+    if (backBtn) {
+        backBtn.onclick = () => document.getElementById('navCalendar').click();
+    }
+    
+    // Handle search button click
+    searchBtn.onclick = async () => {
+        const searchName = searchInput.value.trim();
+        
+        if (!searchName) {
+            resultsDiv.innerHTML = '<p style="color: #999; font-style: italic; text-align: center;">Please enter a name to search</p>';
+            return;
+        }
+        
+        // Show loading state
+        resultsDiv.innerHTML = '<p style="color: #666; text-align: center;">Searching...</p>';
+        
+        try {
+            // Call the global searchNameDays function from namedays.js
+            if (typeof window.searchNameDays === 'function') {
+                const results = await window.searchNameDays(searchName);
+                
+                if (results.length === 0) {
+                    resultsDiv.innerHTML = `<p style="color: #999; text-align: center;">No dates found for "${searchName}"</p>`;
+                } else {
+                    // Build results HTML
+                    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                                       'July', 'August', 'September', 'October', 'November', 'December'];
+                    
+                    let html = `<h3 style="margin-bottom: 15px;">Found ${results.length} date${results.length > 1 ? 's' : ''} for "${searchName}":</h3>`;
+                    html += '<div style="max-height: 400px; overflow-y: auto;">';
+                    
+                    results.forEach(result => {
+                        const monthName = monthNames[result.month - 1];
+                        const dateStr = `${result.day} ${monthName}`;
+                        
+                        html += `
+                            <div class="nameday-result-item" data-day="${result.day}" data-month="${result.month}" 
+                                 style="padding: 12px; margin-bottom: 10px; background: rgba(128,128,128,0.05); border-radius: 8px; border-left: 4px solid var(--primary-color); cursor: pointer; transition: background 0.2s;"
+                                 onmouseover="this.style.background='rgba(128,128,128,0.1)'" 
+                                 onmouseout="this.style.background='rgba(128,128,128,0.05)'">
+                                <strong style="color: var(--primary-color); font-size: 1.1em;">📅 ${dateStr}</strong>
+                                <p style="margin: 5px 0 0 0; color: #666;">
+                                    ${result.matchingNames.join(', ')}
+                                </p>
+                                <p style="margin: 5px 0 0 0; color: #999; font-size: 0.85em; font-style: italic;">
+                                    Click to practice pronunciation
+                                </p>
+                            </div>`;
+                    });
+                    
+                    html += '</div>';
+                    
+                    // Add grammar note
+                    html += `
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(255, 193, 7, 0.1); border-left: 4px solid #FFC107; border-radius: 8px;">
+                            <p style="margin: 0; color: #666; font-size: 0.9em;">
+                                <strong>📝 Note:</strong> When you click a date, the app will switch to genitive case grammar 
+                                (changing "Dzisiaj jest" to show the date in context: "It's on..."). 
+                                This helps you practice the correct grammatical form for referring to specific dates.
+                            </p>
+                        </div>`;
+                    
+                    resultsDiv.innerHTML = html;
+                    
+                    // Add click handlers to all result items
+                    const resultItems = resultsDiv.querySelectorAll('.nameday-result-item');
+                    resultItems.forEach(item => {
+                        item.onclick = () => {
+                            const day = parseInt(item.dataset.day);
+                            const month = parseInt(item.dataset.month);
+                            
+                            // Create date object for the selected day (using current year)
+                            const selectedDate = new Date();
+                            selectedDate.setMonth(month - 1); // month is 0-indexed
+                            selectedDate.setDate(day);
+                            
+                            // Update state
+                            state.selectedDate = selectedDate;
+                            state.viewDate = new Date(selectedDate);
+                            state.isFormal = true; // Switch to formal/genitive case
+                            
+                            // Navigate back to calendar and render
+                            document.getElementById('navCalendar').click();
+                        };
+                    });
+                }
+            } else {
+                resultsDiv.innerHTML = '<p style="color: red; text-align: center;">Search function not available</p>';
+            }
+        } catch (error) {
+            console.error('Search error:', error);
+            resultsDiv.innerHTML = '<p style="color: red; text-align: center;">Error performing search</p>';
+        }
+    };
+    
+    // Allow Enter key to trigger search
+    searchInput.onkeypress = (e) => {
+        if (e.key === 'Enter') {
+            searchBtn.click();
+        }
+    };
+    
+    // Clear results and focus input when page is shown
+    searchInput.value = '';
+    resultsDiv.innerHTML = '<p style="color: #999; font-style: italic; text-align: center;">Enter a name to search</p>';
+    setTimeout(() => searchInput.focus(), 100);
 }
 
 function getSeasonIcon(season) {

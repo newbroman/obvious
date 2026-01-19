@@ -35,10 +35,21 @@
     }
     
     .nav-icon-btn {
-        font-size: 1.1rem;
-        padding: 6px 10px;
+        font-size: 1rem;
+        padding: 4px 6px;
     }
     
+
+    /* Ensure navigation doesn't overflow */
+    .main-nav-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .utility-controls {
+        min-width: min-content;
+        justify-content: flex-start;
+    }
     /* Reduce calendar container spacing */
     .calendar-container {
         max-width: 100%;
@@ -117,10 +128,31 @@
         padding: 3px 6px !important;
     }
     
-    /* Utility controls */
+    /* Utility controls - tighter spacing */
     .utility-controls {
-        gap: 8px;
+        gap: 4px;
+        padding: 0 4px;
     }
+
+    /* Make mode button more compact on mobile */
+    .mode-btn-written,
+    .mode-btn-spoken {
+        font-size: 0.75rem !important;
+        padding: 4px 8px !important;
+        white-space: nowrap;
+    }
+    
+    .pill-btn-sm {
+        font-size: 0.7rem !important;
+        padding: 4px 6px !important;
+        min-width: 32px;
+    }
+    
+    /* Hide divider on very small screens */
+    .divider {
+        display: none;
+    }
+
     
     /* Reduce holiday display */
     .holiday-name {
@@ -283,10 +315,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-.nav-icon-btn { background: none; border: none; font-size: 1.3rem; cursor: pointer; transition: transform 0.2s; }
+.nav-icon-btn { background: none; border: none; font-size: 1.1rem; cursor: pointer; transition: transform 0.2s; padding: 4px 8px; }
 .nav-icon-btn:active { transform: scale(0.9); }
 .divider { width: 1px; height: 18px; background: var(--border-color); }
 

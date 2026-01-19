@@ -1,53 +1,44 @@
-const CACHE_NAME = 'pl-date-v1191
-  ';
-const ASSETS = [
-  './',
-  './index.html',
-  './styles.css',
-  './app.js',
-  './events.js',
-  './ui-renderer.js',
-  './phonetics.js',
-  './numbers.js',
-  './audio.js',
-  './holiday.js',
-  './cultural.js',
-  './rules.js',
-  './manifest.json',
-  './icon-192.png',
-  './icon-512.png',
-  './namedays.js',
-  './namedays.json'
+const CACHE_NAME = 'pl-date-v1175';
+const urlsToCache = [
+    './',
+    './index.html',
+    './styles.css',
+    './app.js',
+    './audio.js',
+    './events.js',
+    './ui-renderer.js',
+    './rules.js',
+    './color-utils.js',
+    './namedays.js',
+    './phonetics.js',
+    './holiday.js',
+    './namedays.json'
 ];
 
-// Install Event
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(
-        keys.filter(key => key !== CACHE_NAME)
-            .map(key => caches.delete(key))
-      );
-    }).then(() => self.clients.claim()) // Add this line!
-  );
+self.addEventListener('install', event => {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => cache.addAll(urlsToCache))
+    );
 });
 
-// Activate Event
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(
-        keys.filter(key => key !== CACHE_NAME)
-            .map(key => caches.delete(key))
-      );
-    })
-  );
-});
-
-// Fetch Event
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-  );
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => response || fetch(event.request))
+    );
+});
+
+self.addEventListener('activate', event => {
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (cacheName !== CACHE_NAME) {
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
+    );
 });

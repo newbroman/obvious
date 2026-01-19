@@ -1,32 +1,9 @@
 /**
- * rules.js - Grammar rules with color coding
+ * rules.js - Comprehensive Polish Date Grammar
+ * Focus: Cardinal vs Ordinal, Nominative vs Genitive
  */
 
 import { COLORS } from './color-utils.js';
-
-
-
-const grammarRules = {
-    ordinalNumbers: {
-        title: "1. Ordinal Numbers",
-        explanation: "In English, we say 'January first'. In Polish, we always use ordinal numbers (1st, 2nd, 3rd) for the day. These must match the gender of the word 'day' (dzień), which is masculine.",
-        rule: "Day numbers usually end in -y or -i.",
-        example: "1st = pierwszy, 2nd = drugi, 3rd = trzeci"
-    },
-    monthCasing: {
-        title: "2. The 'Of' Case (Genitive)",
-        explanation: "This is the most important rule. We don't say '1 January'. We say '1st day OF January'. This possessive relationship changes the ending of the month name.",
-        rule: "Most months change their ending to -a or -ego.",
-        example: "Styczeń (January) becomes Stycznia (of January)"
-    },
-    yearStructure: {
-        title: "3. Including the Year",
-        explanation: "When saying a full date, Poles use the Genitive form for the year (answering 'of which year?'). We add the word 'roku' (of the year) at the end.",
-        rule: "[Ordinal Number in -ego] + roku",
-        example: "2026 = dwa tysiące dwudziestego szóstego roku"
-    }
-};
-
 
 // Helper function to colorize grammatical terms and examples
 function colorTerm(text, type) {
@@ -45,126 +22,252 @@ export function getRulesHTML(state) {
     const monthKeysPl = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"];
     const dynamicMonth = monthKeysPl[monthIndex];
 
-    // Part 2 Rules - Now updated with the current year
-    const grammarRules = {
-        ordinalNumbers: {
-            title: "1. Ordinal Numbers (Blue)",
-            explanation: "In English, we say 'January first'. In Polish, we always use ordinal numbers (1st, 2nd, 3rd) for the day. These must match the gender of the word 'day' (dzień), which is masculine.",
-            rule: "Day numbers usually end in -y or -i.",
-            example: `1st = ${colorTerm('pierwszy', 'ordinal')}, 2nd = ${colorTerm('drugi', 'ordinal')}, 3rd = ${colorTerm('trzeci', 'ordinal')}`
-        },
-        monthCasing: {
-            title: "2. The 'Of' Case (Genitive - Gold)",
-            explanation: "This is the most important rule. We don't say '1 January'. We say '1st day OF January'. This possessive relationship changes the ending of the month name.",
-            rule: "Most months change their ending to -a or -ego.",
-            example: `Styczeń (January) becomes ${colorTerm(dynamicMonth, 'genitive')} (of ${dynamicMonth.slice(0,-1)})`
-        },
-       yearStructure: {
-            title: "3. Including the Year (Purple + Red)",
-            explanation: `When saying a full date, Poles use the Genitive form for the year. We add the word '${colorTerm('roku', 'roku')}' (of the year) at the end.`,
-            rule: `[Ordinal Number in -ego] + ${colorTerm('roku', 'roku')}`,
-            example: `The year ${currentYear} is spoken in its 'of' form ending in ${colorTerm('roku', 'roku')}.`
-        },
-        proTip: {
-            title: "💡 Pro-Tip: The 'Tens & Units' Rule",
-            explanation: `Only the last two numbers of a year change their endings. For ${currentYear}, the 'Two Thousand' stays the same, but the '${currentYear % 100}' becomes ${colorTerm('ordinal', 'year')}.`,
-            rule: "Keep the thousands basic, change the tens and units to -ego.",
-            example: `${currentYear} = ...${colorTerm('dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}`
-        }
-    };
-
     let html = `
         <article class="rules-container">
             <header class="rules-header">
-                <h2>🇵🇱 Polish Date Mastery</h2>
-                <p>Understand the logic behind the endings.</p>
+                <h2>🇵🇱 Polish Date Grammar Explained</h2>
+                <p>Master the two key transformations: Cardinal → Ordinal, Nominative → Genitive</p>
             </header>
             
             <section class="color-legend" style="background: rgba(128,128,128,0.05); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
                 <h3 style="margin-top: 0;">🎨 Color Coding Guide</h3>
-                <p style="margin-bottom: 15px;">Throughout the app, Polish date components are color-coded by their grammatical function:</p>
+                <p style="margin-bottom: 15px;">Polish date components are color-coded by their grammatical function:</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.ordinal}; background: rgba(52, 152, 219, 0.05);">
-                        <strong style="color: ${COLORS.ordinal};">Blue</strong> = Ordinal Numbers<br>
-                        <small style="color: #666;">Day numbers (pierwszy, drugiego)</small>
+                        <strong style="color: ${COLORS.ordinal};">Blue</strong> = Ordinal Day Numbers<br>
+                        <small style="color: #666;">pierwszy, drugiego, trzeciego</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.genitive}; background: rgba(243, 156, 18, 0.05);">
-                        <strong style="color: ${COLORS.genitive};">Gold</strong> = Genitive Case<br>
-                        <small style="color: #666;">Month names (stycznia, lutego)</small>
+                        <strong style="color: ${COLORS.genitive};">Gold</strong> = Genitive Months<br>
+                        <small style="color: #666;">stycznia, lutego, marca</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.year}; background: rgba(155, 89, 182, 0.05);">
-                        <strong style="color: ${COLORS.year};">Purple</strong> = Year Numbers<br>
-                        <small style="color: #666;">Year components (dwa tysiące...)</small>
+                        <strong style="color: ${COLORS.year};">Purple</strong> = Year Components<br>
+                        <small style="color: #666;">dwa tysiące dwudziestego szóstego</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.genitiveMark}; background: rgba(231, 76, 60, 0.05);">
                         <strong style="color: ${COLORS.genitiveMark};">Red</strong> = Genitive Marker<br>
-                        <small style="color: #666;">The word "roku"</small>
+                        <small style="color: #666;">roku (of the year)</small>
                     </div>
                 </div>
             </section>
+
+            <h3 class="section-divider">🔑 The Two Key Transformations</h3>
             
-            <h3 class="section-divider">🔄 Part 1: Contextual Ending Changes</h3>
-            
-            <section class="rule-block spoken-mode">
-                <h3>📅 Mode: (It is...) — Nominative (The Map)</h3>
-                <p>Used for simply <strong>identifying</strong> a date on a calendar. (Answers: <em>What day is it?</em>)</p>
-                <div class="full-example">
-                    <span class="highlight">${colorTerm('Dziesiąty', 'ordinal')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm(currentYear, 'year')} ${colorTerm('roku', 'roku')}</span>
+            <section class="rule-block" style="background: rgba(52, 152, 219, 0.08); border-left: 5px solid ${COLORS.ordinal}; padding: 20px; margin-bottom: 25px; border-radius: 0 8px 8px 0;">
+                <h3>Transformation 1️⃣: Cardinal → Ordinal (Number Type)</h3>
+                <p><strong>English equivalent:</strong> "one" → "first", "two" → "second", "three" → "third"</p>
+                <p>In Polish, dates ALWAYS use ordinal numbers for days, never cardinals.</p>
+                
+                <div style="background: white; padding: 15px; border-radius: 6px; margin: 15px 0;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #ddd;">
+                                <th style="text-align: left; padding: 8px;">Cardinal (Counting)</th>
+                                <th style="text-align: left; padding: 8px;">Ordinal Nominative</th>
+                                <th style="text-align: left; padding: 8px;">Ordinal Genitive</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">jeden (one)</td>
+                                <td style="padding: 8px;">${colorTerm('pierwszy', 'ordinal')} (first)</td>
+                                <td style="padding: 8px;">${colorTerm('pierwszego', 'ordinal')} (of the first)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">dwa (two)</td>
+                                <td style="padding: 8px;">${colorTerm('drugi', 'ordinal')} (second)</td>
+                                <td style="padding: 8px;">${colorTerm('drugiego', 'ordinal')} (of the second)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">trzy (three)</td>
+                                <td style="padding: 8px;">${colorTerm('trzeci', 'ordinal')} (third)</td>
+                                <td style="padding: 8px;">${colorTerm('trzeciego', 'ordinal')} (of the third)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">dziesięć (ten)</td>
+                                <td style="padding: 8px;">${colorTerm('dziesiąty', 'ordinal')} (tenth)</td>
+                                <td style="padding: 8px;">${colorTerm('dziesiątego', 'ordinal')} (of the tenth)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px;">piętnaście (fifteen)</td>
+                                <td style="padding: 8px;">${colorTerm('piętnasty', 'ordinal')} (fifteenth)</td>
+                                <td style="padding: 8px;">${colorTerm('piętnastego', 'ordinal')} (of the fifteenth)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p><strong>Pattern:</strong> Ordinal nominative ends in <code>-y</code> or <code>-i</code>, ordinal genitive ends in <code>-ego</code></p>
+            </section>
+
+            <section class="rule-block" style="background: rgba(243, 156, 18, 0.08); border-left: 5px solid ${COLORS.genitive}; padding: 20px; margin-bottom: 25px; border-radius: 0 8px 8px 0;">
+                <h3>Transformation 2️⃣: Nominative → Genitive (Case)</h3>
+                <p><strong>English equivalent:</strong> "January" → "of January", "the year 2026" → "of the year 2026"</p>
+                <p>The genitive case expresses possession or relationship ("of"). In dates, it answers "when?" by saying "on the [date] OF [month] OF [year]".</p>
+                
+                <div style="background: white; padding: 15px; border-radius: 6px; margin: 15px 0;">
+                    <h4 style="margin-top: 0;">Months Transform:</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #ddd;">
+                                <th style="text-align: left; padding: 8px;">Nominative (Name)</th>
+                                <th style="text-align: left; padding: 8px;">Genitive (Of...)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">Styczeń (January)</td>
+                                <td style="padding: 8px;">${colorTerm('stycznia', 'genitive')} (of January)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">Luty (February)</td>
+                                <td style="padding: 8px;">${colorTerm('lutego', 'genitive')} (of February)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">Marzec (March)</td>
+                                <td style="padding: 8px;">${colorTerm('marca', 'genitive')} (of March)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px;">Kwiecień (April)</td>
+                                <td style="padding: 8px;">${colorTerm('kwietnia', 'genitive')} (of April)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4 style="margin-top: 15px;">Year Marker Transforms:</h4>
+                    <p style="margin: 10px 0;">
+                        rok (year) → ${colorTerm('roku', 'roku')} (of the year)
+                    </p>
+                    <p style="color: #666; font-size: 0.9em;">
+                        The word "roku" is ALWAYS added after the year number in dates to mark the genitive case.
+                    </p>
+                </div>
+                
+                <p><strong>Pattern:</strong> Most months end in <code>-a</code>, some in <code>-ego</code>. Year always gets ${colorTerm('roku', 'roku')} suffix.</p>
+            </section>
+
+            <hr class="rule-divider">
+            <h3 class="section-divider">📅 Putting It Together: The Two Modes</h3>
+
+            <section class="rule-block spoken-mode" style="border-left: 5px solid #4a90e2; background: rgba(74, 144, 226, 0.08); padding: 20px; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
+                <h3>Mode A: Nominative (Identifying - "It is...")</h3>
+                <p>Used when simply naming or identifying a date. Like pointing at a calendar square.</p>
+                <p><strong>Question answered:</strong> <em>What day is it?</em></p>
+                
+                <div style="background: white; padding: 15px; border-radius: 6px; margin: 15px 0;">
+                    <p style="margin: 0 0 10px 0;"><strong>Structure:</strong></p>
+                    <p style="font-size: 1.1em; margin: 10px 0;">
+                        [Day Name] + ${colorTerm('Ordinal-Nominative', 'ordinal')} + ${colorTerm('Month-Genitive', 'genitive')} + ${colorTerm('Year', 'year')} ${colorTerm('roku', 'roku')}
+                    </p>
+                    <p style="margin: 15px 0 5px 0;"><strong>Example (10th ${dynamicMonth} ${currentYear}):</strong></p>
+                    <p style="font-size: 1.2em; margin: 5px 0;">
+                        Wtorek, ${colorTerm('dziesiąty', 'ordinal')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
+                    </p>
+                    <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
+                        Notice: ${colorTerm('dziesiąty', 'ordinal')} (nominative ending: -y)
+                    </p>
                 </div>
             </section>
 
-            <section class="rule-block written-mode">
-                <h3>🎉 Mode: (It's on...) — Genitive (The Event)</h3>
-                <p><strong>Primary Mode.</strong> Used for scheduling, parties, and appointments. (Answers: <em>When?</em>)</p>
-                <div class="full-example">
-                    <span class="highlight">${colorTerm('Dziesiątego', 'ordinal')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm(currentYear, 'year')} ${colorTerm('roku', 'roku')}</span>
+            <section class="rule-block written-mode" style="border-left: 5px solid #ffd700; background: rgba(255, 215, 0, 0.08); padding: 20px; margin-bottom: 25px; border-radius: 0 8px 8px 0;">
+                <h3>Mode B: Genitive (Scheduling - "It's on...")</h3>
+                <p><strong>PRIMARY MODE for dates.</strong> Used for events, appointments, birthdays - anything happening "on" a date.</p>
+                <p><strong>Question answered:</strong> <em>When is it?</em> (On what date?)</p>
+                
+                <div style="background: white; padding: 15px; border-radius: 6px; margin: 15px 0;">
+                    <p style="margin: 0 0 10px 0;"><strong>Structure:</strong></p>
+                    <p style="font-size: 1.1em; margin: 10px 0;">
+                        [Day Name] + ${colorTerm('Ordinal-GENITIVE', 'ordinal')} + ${colorTerm('Month-Genitive', 'genitive')} + ${colorTerm('Year', 'year')} ${colorTerm('roku', 'roku')}
+                    </p>
+                    <p style="margin: 15px 0 5px 0;"><strong>Example (10th ${dynamicMonth} ${currentYear}):</strong></p>
+                    <p style="font-size: 1.2em; margin: 5px 0;">
+                        Wtorek, ${colorTerm('dziesiątego', 'ordinal')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
+                    </p>
+                    <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
+                        Notice: ${colorTerm('dziesiątego', 'ordinal')} (genitive ending: -ego)
+                    </p>
+                </div>
+                
+                <div style="background: #fffbf0; border: 2px solid #ffd700; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                    <h4 style="margin-top: 0;">🎯 The Critical Difference</h4>
+                    <p style="margin-bottom: 8px;"><strong>Nominative:</strong> ${colorTerm('dziesiąty', 'ordinal')} (tenth) - ends in <code>-y</code></p>
+                    <p style="margin-bottom: 0;"><strong>Genitive:</strong> ${colorTerm('dziesiątego', 'ordinal')} (of the tenth) - ends in <code>-ego</code></p>
+                    <p style="margin-top: 12px; color: #666; font-size: 0.9em;">
+                        This is the hardest part of Polish dates! The day number changes from -y to -ego when you're talking about an event happening "on" that date.
+                    </p>
                 </div>
             </section>
 
             <hr class="rule-divider">
-            <h3 class="section-divider">📖 Part 2: Core Principles</h3>
-    `;
-
-    // Render Part 2 with the dynamic examples
-    Object.values(grammarRules).forEach(item => {
-        html += `
-            <section class="rule-block core-rule">
-                <h4>${item.title}</h4>
-                <p>${item.explanation}</p>
-                <p><strong>Rule:</strong> ${item.rule}</p>
-                <p><em>Example: ${item.example}</em></p>
+            <h3 class="section-divider">🧮 Quick Reference: Common Day Numbers</h3>
+            
+            <section class="rule-block" style="padding: 20px;">
+                <div style="background: white; padding: 15px; border-radius: 6px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #ddd;">
+                                <th style="text-align: left; padding: 8px;">Day</th>
+                                <th style="text-align: left; padding: 8px;">Nominative (It is...)</th>
+                                <th style="text-align: left; padding: 8px;">Genitive (On the...)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">1st</td>
+                                <td style="padding: 8px;">${colorTerm('pierwszy', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('pierwszego', 'ordinal')}</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">5th</td>
+                                <td style="padding: 8px;">${colorTerm('piąty', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('piątego', 'ordinal')}</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">10th</td>
+                                <td style="padding: 8px;">${colorTerm('dziesiąty', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('dziesiątego', 'ordinal')}</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">15th</td>
+                                <td style="padding: 8px;">${colorTerm('piętnasty', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('piętnastego', 'ordinal')}</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;">20th</td>
+                                <td style="padding: 8px;">${colorTerm('dwudziesty', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('dwudziestego', 'ordinal')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px;">31st</td>
+                                <td style="padding: 8px;">${colorTerm('trzydziesty pierwszy', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('trzydziestego pierwszego', 'ordinal')}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
-        `;
-    });
 
-    html += `
             <hr class="rule-divider">
-            <h3 class="section-divider">🏠 Part 3: The "Address" Analogy</h3>
-            <section class="rule-block analogy-section">
-                <p>Think of Polish grammar like <strong>arranging furniture in a room.</strong> Here is how it works with the year included:</p>
-
-                <div class="analogy-box" style="border-left: 4px solid var(--text-dim); background: rgba(0,0,0,0.02); margin-bottom: 10px;">
-                     <h4>🪧 The Signpost (Day of the Week)</h4>
-                     <p>The day name (like <em>Wtorek</em> or <em>Sobota</em>) is just the signpost at the end of the driveway. It always stays in its basic name form (Nominative) because it's just a label.</p>
-                </div>
-
-                <div class="analogy-box" style="background: rgba(128,128,128,0.05); border-left: 4px solid #666; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                    <h4>🏗️ The Building (The Year)</h4>
-                    <p>The <strong>Year (${currentYear})</strong> is the building. It never moves. Because everything happens "of that year," it is always locked in the possessive case: <strong>${currentYear} roku</strong>.</p>
-                </div>
-
-                <div class="analogy-box" style="border-left: 4px solid #ffd700; padding: 15px; background: rgba(255, 215, 0, 0.05);">
-                    <h4>🎉 Mode: (It's on...) — The Event</h4>
-                    <p>You are actually <strong>using</strong> the room for a party. Because an action is happening "on" the day, the <strong>Day</strong> furniture shifts to the Genitive to match the room.</p>
-                    <p><strong>Result:</strong> <em>${colorTerm('Dziesiątego', 'ordinal')} ${colorTerm(dynamicMonth, 'genitive')}...</em></p>
-                </div>
-
-                <div class="analogy-box" style="border-left: 4px solid #4a90e2; margin-top: 15px; padding: 15px; background: rgba(74, 144, 226, 0.05);">
-                    <h4>📅 Mode: (It is...) — The Map</h4>
-                    <p>You are standing outside the building looking at a map. You are just naming the coordinates. The <strong>Day</strong> furniture stays in its basic form.</p>
-                    <p><strong>Result:</strong> <em>${colorTerm('Dziesiąty', 'ordinal')} ${colorTerm(dynamicMonth, 'genitive')}...</em></p>
-                </div>
+            <h3 class="section-divider">💡 Memory Tips</h3>
+            
+            <section class="rule-block" style="background: rgba(128,128,128,0.05); padding: 20px;">
+                <h4>🎯 Tip 1: Think "OF"</h4>
+                <p>Genitive = "of". When you say an event is "on the 15th OF January", both the day and month need the "of" form (genitive).</p>
+                <p style="margin-top: 10px;">
+                    ✅ ${colorTerm('piętnastego', 'ordinal')} ${colorTerm('stycznia', 'genitive')} = "of the fifteenth of January"
+                </p>
+                
+                <h4 style="margin-top: 20px;">🎯 Tip 2: Listen for -ego</h4>
+                <p>The sound <code>-ego</code> at the end of the day number is your signal that you're in genitive mode (scheduling/event mode).</p>
+                
+                <h4 style="margin-top: 20px;">🎯 Tip 3: ${colorTerm('roku', 'roku')} is Always There</h4>
+                <p>When you include the year in a date, you ALWAYS add ${colorTerm('roku', 'roku')} at the end. No exceptions.</p>
+                
+                <h4 style="margin-top: 20px;">🎯 Tip 4: Months are ALWAYS Genitive</h4>
+                <p>Whether you're in nominative or genitive mode for the day, the month is ALWAYS in genitive form (${colorTerm('stycznia', 'genitive')}, ${colorTerm('lutego', 'genitive')}, etc.).</p>
             </section>
+
         </article>
     `;
 

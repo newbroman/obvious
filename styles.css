@@ -25,7 +25,7 @@
     }
     
     .brand-header h1 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         line-height: 1.1;
     }
     
@@ -168,7 +168,7 @@
     }
     
     .content-page h1 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
     .content-page h2 {
@@ -307,7 +307,7 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.brand-header h1 { font-size: 1.8rem; font-weight: 900; color: #000; text-transform: uppercase; line-height: 1.2; }
+.brand-header h1 { font-size: 1.5rem; font-weight: 900; color: #000; text-transform: uppercase; line-height: 1.2; }
 
 .main-nav-container { padding: 8px 0; border-bottom: 1px solid var(--border-color); }
 
@@ -429,7 +429,7 @@ body {
 }
 
 .phrase-display { text-align: center; width: 100%; max-width: 400px; margin-bottom: 15px; }
-.phrase-pl { font-size: 1.3rem; font-weight: 800; margin-bottom: 4px; }
+.phrase-pl { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; }
 .phrase-phonetic { font-size: 0.95rem; color: var(--tan); font-style: italic; display: block; margin-bottom: 4px; }
 .phrase-en { font-size: 0.85rem; color: var(--text-dim); }
 

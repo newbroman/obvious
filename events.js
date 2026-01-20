@@ -187,12 +187,12 @@ export function renderCulturalHub(state) {
     <div class="content-body">
         <header class="content-header">
             <h1>${day}. ${displayMonth} ${year}</h1>
-            <div class="season-box">
-                <span class="season-icon">${getSeasonIcon(monthInfo.season)}</span>
-                <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 
-                <span class="season-text">${monthInfo.season}</span>
-            </div>
         </header>
+        <div class="season-box">
+            <span class="season-icon">${getSeasonIcon(monthInfo.season)}</span>
+            <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 
+            <span class="season-text">${monthInfo.season}</span>
+        </div>
         <section class="info-block">
             <h3>📜 ${state.isPolish ? 'Etymologia' : 'Etymology'}</h3>
             <p class="derivation-text">${monthInfo.derivation}</p>

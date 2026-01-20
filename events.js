@@ -183,6 +183,7 @@ export function renderCulturalHub(state) {
     const displayMonth = monthInfo.pl.charAt(0).toUpperCase() + monthInfo.pl.slice(1);
     
     let html = `
+    <button class="pill-btn back-to-cal">← Back to Calendar</button>
     <div class="content-body">
         <header class="content-header">
             <h1>${day}. ${displayMonth} ${year}</h1>

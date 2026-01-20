@@ -823,3 +823,690 @@ button.back-to-cal {
     visibility: visible !important;
     pointer-events: auto !important;
 }
+
+/* ========================================
+@media (max-width: 480px) {
+    .section-divider {
+        font-size: 1rem !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        font-size: 0.75rem !important;
+        padding: 4px 2px !important;
+    }
+    
+    .rule-block h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .rule-block h4 {
+        font-size: 1rem !important;
+    }
+}
+
+/* ========================================
+   AGGRESSIVE MOBILE TABLE FIXES FOR RULES PAGE
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Fix section headings - reduce size dramatically */
+    .rules-container .section-divider {
+        font-size: 1rem !important;
+        line-height: 1.3 !important;
+        margin: 15px 0 10px 0 !important;
+    }
+    
+    /* Fix all h3 headings in rules */
+    .rules-container h3 {
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+        word-wrap: break-word !important;
+    }
+    
+    .rules-container h4 {
+        font-size: 1rem !important;
+    }
+    
+    /* Make tables responsive - convert to block layout */
+    .rule-block table {
+        font-size: 0.85rem !important;
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        white-space: nowrap !important;
+    }
+    
+    .rule-block table thead,
+    .rule-block table tbody {
+        display: block !important;
+    }
+    
+    .rule-block table tr {
+        display: table !important;
+        width: 100% !important;
+        table-layout: fixed !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        display: table-cell !important;
+        padding: 8px 4px !important;
+        font-size: 0.8rem !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        vertical-align: top !important;
+    }
+    
+    /* Ensure all columns are visible with proper widths */
+    .rule-block table th:nth-child(1),
+    .rule-block table td:nth-child(1) {
+        width: 20% !important;
+        min-width: 50px !important;
+    }
+    
+    .rule-block table th:nth-child(2),
+    .rule-block table td:nth-child(2) {
+        width: 40% !important;
+    }
+    
+    .rule-block table th:nth-child(3),
+    .rule-block table td:nth-child(3) {
+        width: 40% !important;
+    }
+    
+    /* Prevent colored text from overflowing */
+    .rule-block table span[style*="color"] {
+        display: inline !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        max-width: 100% !important;
+    }
+    
+    /* Add scroll indicator shadow */
+    .rule-block > div[style*="background: white"] {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Reduce padding in rule blocks */
+    .rule-block {
+        padding: 12px 8px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Fix example text size */
+    .rule-block p[style*="font-size: 1.1em"],
+    .rule-block p[style*="font-size: 1.2em"] {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Fix color legend grid */
+    .color-legend div[style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+    
+    /* Reduce color legend box padding */
+    .color-legend div > div {
+        padding: 8px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Fix structure examples in white boxes */
+    .rule-block div[style*="background: white"] p {
+        font-size: 0.85rem !important;
+        margin: 8px 0 !important;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .rules-container .section-divider {
+        font-size: 0.95rem !important;
+    }
+    
+    .rules-container h3 {
+        font-size: 1rem !important;
+    }
+    
+    .rule-block table {
+        font-size: 0.75rem !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        font-size: 0.7rem !important;
+        padding: 6px 2px !important;
+    }
+}
+
+/* ========================================
+   FINAL MOBILE FIX FOR RULES PAGE TABLES
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Drastically reduce section heading size */
+    .rules-container .section-divider {
+        font-size: 0.95rem !important;
+        line-height: 1.2 !important;
+        margin: 12px 0 8px 0 !important;
+        word-wrap: break-word !important;
+    }
+    
+    /* Fix all headings */
+    .rules-container h3 {
+        font-size: 1rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .rules-container h4 {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Make table containers horizontally scrollable */
+    .rule-block > div[style*="background: white"] {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        margin: 10px -10px !important;
+        padding: 10px !important;
+    }
+    
+    /* Force tables to maintain structure with scroll */
+    .rule-block table {
+        min-width: 500px !important;
+        width: 100% !important;
+        font-size: 0.75rem !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+    }
+    
+    /* Fixed column widths to prevent overflow */
+    .rule-block table th:nth-child(1),
+    .rule-block table td:nth-child(1) {
+        width: 80px !important;
+        min-width: 80px !important;
+    }
+    
+    .rule-block table th:nth-child(2),
+    .rule-block table td:nth-child(2) {
+        width: 180px !important;
+        min-width: 180px !important;
+    }
+    
+    .rule-block table th:nth-child(3),
+    .rule-block table td:nth-child(3) {
+        width: 180px !important;
+        min-width: 180px !important;
+    }
+    
+    /* Ensure text wraps within cells */
+    .rule-block table th,
+    .rule-block table td {
+        padding: 8px 6px !important;
+        font-size: 0.75rem !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        vertical-align: top !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Prevent colored spans from breaking layout */
+    .rule-block table span[style*="color"] {
+        display: inline !important;
+        word-break: break-word !important;
+        max-width: 100% !important;
+        white-space: normal !important;
+    }
+    
+    /* Reduce example text size */
+    .rule-block p[style*="font-size: 1.1em"],
+    .rule-block p[style*="font-size: 1.2em"] {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Fix structure text in white boxes */
+    .rule-block div[style*="background: white"] > p {
+        font-size: 0.8rem !important;
+        margin: 6px 0 !important;
+    }
+    
+    /* Reduce rule block padding */
+    .rule-block {
+        padding: 10px 8px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    /* Fix color legend */
+    .color-legend div[style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+    
+    .color-legend div > div {
+        padding: 8px !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Add scroll hint shadow */
+    .rule-block > div[style*="background: white"]:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to left, rgba(255,255,255,0.9), transparent);
+        pointer-events: none;
+    }
+}
+
+/* Extra small screens - even more aggressive */
+@media (max-width: 480px) {
+    .rules-container .section-divider {
+        font-size: 0.85rem !important;
+    }
+    
+    .rule-block table {
+        font-size: 0.7rem !important;
+        min-width: 450px !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        font-size: 0.7rem !important;
+        padding: 6px 4px !important;
+    }
+}
+
+/* ========================================
+
+/* ========================================
+   FINAL AGGRESSIVE MOBILE TABLE FIX
+   Force horizontal scroll, ensure all columns visible
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Make ALL table containers scrollable */
+    .rule-block div[style*="background: white"],
+    .rule-block > div {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    /* Force tables to be wider than container to trigger scroll */
+    .rule-block table {
+        min-width: 600px !important;
+        width: 600px !important;
+        display: table !important;
+        table-layout: fixed !important;
+        margin: 0 !important;
+    }
+    
+    /* Fixed column widths - ensure all 3 columns are equal and visible */
+    .rule-block table th,
+    .rule-block table td {
+        width: 33.33% !important;
+        min-width: 180px !important;
+        padding: 10px 8px !important;
+        font-size: 0.75rem !important;
+        word-wrap: break-word !important;
+        white-space: normal !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* First column should be narrower for day numbers */
+    .rule-block table th:first-child,
+    .rule-block table td:first-child {
+        width: 15% !important;
+        min-width: 80px !important;
+    }
+    
+    /* Middle and last columns split remaining space */
+    .rule-block table th:nth-child(2),
+    .rule-block table td:nth-child(2),
+    .rule-block table th:nth-child(3),
+    .rule-block table td:nth-child(3) {
+        width: 42.5% !important;
+        min-width: 200px !important;
+    }
+    
+    /* Ensure colored text doesn't break layout */
+    .rule-block table span[style*="color"] {
+        display: inline-block !important;
+        max-width: 100% !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* Add visible scroll indicator */
+    .rule-block div[style*="background: white"] {
+        border: 1px solid #e0e0e0 !important;
+        position: relative !important;
+    }
+    
+    /* Add shadow to indicate scrollable content */
+    .rule-block div[style*="background: white"]::after {
+        content: '→ Scroll →';
+        position: sticky;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,215,0,0.9);
+        color: #333;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        pointer-events: none;
+        opacity: 0.8;
+        float: right;
+        margin: -20px 5px 0 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .rule-block table {
+        min-width: 550px !important;
+        width: 550px !important;
+        font-size: 0.7rem !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        font-size: 0.7rem !important;
+        padding: 8px 6px !important;
+    }
+}
+
+/* ========================================
+   ULTIMATE MOBILE TABLE FIX - FORCE SCROLL
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Remove all previous conflicting mobile table styles */
+    .rule-block table {
+        min-width: 100% !important;
+        width: 100% !important;
+        table-layout: auto !important;
+        font-size: 0.7rem !important;
+    }
+    
+    /* Make table container scrollable with visible scroll */
+    .rule-block > div[style*="background: white"] {
+        overflow-x: scroll !important;
+        overflow-y: visible !important;
+        -webkit-overflow-scrolling: touch !important;
+        width: calc(100vw - 40px) !important;
+        max-width: 100% !important;
+        margin: 10px 0 !important;
+        padding: 10px !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Give table fixed minimum width to force scroll */
+    .rule-block table {
+        min-width: 500px !important;
+        width: auto !important;
+    }
+    
+    /* Ensure all 3 columns have equal minimum width */
+    .rule-block table th,
+    .rule-block table td {
+        min-width: 140px !important;
+        padding: 8px 6px !important;
+        font-size: 0.7rem !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+    }
+    
+    /* First column (Day) can be narrower */
+    .rule-block table th:first-child,
+    .rule-block table td:first-child {
+        min-width: 70px !important;
+    }
+    
+    /* Ensure colored text doesn't cause overflow */
+    .rule-block span[style*="color"] {
+        word-break: break-word !important;
+        display: inline !important;
+    }
+    
+    /* Reduce section heading sizes */
+    .rules-container .section-divider {
+        font-size: 0.9rem !important;
+        line-height: 1.2 !important;
+        margin: 10px 0 8px 0 !important;
+    }
+    
+    .rules-container h3 {
+        font-size: 0.95rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .rules-container h4 {
+        font-size: 0.85rem !important;
+    }
+    
+    /* Reduce example text size */
+    .rule-block p[style*="font-size: 1.1em"],
+    .rule-block p[style*="font-size: 1.2em"] {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+    }
+}
+ULTIMATEFIX
+
+echo "✅ Ultimate mobile table scroll fix added"
+
+/* ========================================
+   CLEAN MOBILE TABLE FIX - FORCE HORIZONTAL SCROLL
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Reduce heading sizes */
+    .rules-container .section-divider {
+        font-size: 0.85rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .rules-container h3 {
+        font-size: 0.9rem !important;
+    }
+    
+    .rules-container h4 {
+        font-size: 0.85rem !important;
+    }
+    
+    /* Force table containers to scroll horizontally */
+    .rule-block > div[style*="background: white"] {
+        overflow-x: scroll !important;
+        overflow-y: visible !important;
+        -webkit-overflow-scrolling: touch !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Make tables wider than viewport to force scroll */
+    .rule-block table {
+        min-width: 550px !important;
+        width: 550px !important;
+        table-layout: fixed !important;
+        font-size: 0.75rem !important;
+    }
+    
+    /* Fixed column widths - ensure all visible */
+    .rule-block table th:nth-child(1),
+    .rule-block table td:nth-child(1) {
+        width: 80px !important;
+    }
+    
+    .rule-block table th:nth-child(2),
+    .rule-block table td:nth-child(2) {
+        width: 200px !important;
+    }
+    
+    .rule-block table th:nth-child(3),
+    .rule-block table td:nth-child(3) {
+        width: 200px !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        padding: 8px 6px !important;
+        font-size: 0.75rem !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+    }
+    
+    /* Reduce example text size */
+    .rule-block p[style*="font-size: 1.1em"],
+    .rule-block p[style*="font-size: 1.2em"] {
+        font-size: 0.8rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .rule-block table {
+        min-width: 500px !important;
+        width: 500px !important;
+        font-size: 0.7rem !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* ========================================
+   FINAL MOBILE TABLE FIX - FORCE VISIBLE HORIZONTAL SCROLL
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Reduce heading sizes */
+    .rules-container .section-divider {
+        font-size: 0.9rem !important;
+        line-height: 1.2 !important;
+        margin: 10px 0 8px 0 !important;
+    }
+    
+    .rules-container h3 {
+        font-size: 0.95rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .rules-container h4 {
+        font-size: 0.85rem !important;
+    }
+    
+    /* CRITICAL: Make table wrappers scrollable */
+    .rule-block > div[style*="background: white"],
+    .rule-block > div[style*="background:#fffbf0"] {
+        overflow-x: scroll !important;
+        overflow-y: visible !important;
+        -webkit-overflow-scrolling: touch !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        padding: 10px !important;
+        margin: 10px 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Force tables to be wider than viewport */
+    .rule-block table {
+        min-width: 600px !important;
+        width: 600px !important;
+        display: table !important;
+        table-layout: fixed !important;
+        font-size: 0.75rem !important;
+        margin: 0 !important;
+    }
+    
+    /* Fixed column widths to ensure all 3 columns are visible when scrolled */
+    .rule-block table th:nth-child(1),
+    .rule-block table td:nth-child(1) {
+        width: 100px !important;
+        min-width: 100px !important;
+    }
+    
+    .rule-block table th:nth-child(2),
+    .rule-block table td:nth-child(2) {
+        width: 220px !important;
+        min-width: 220px !important;
+    }
+    
+    .rule-block table th:nth-child(3),
+    .rule-block table td:nth-child(3) {
+        width: 220px !important;
+        min-width: 220px !important;
+    }
+    
+    /* Ensure text wraps properly within cells */
+    .rule-block table th,
+    .rule-block table td {
+        padding: 10px 8px !important;
+        font-size: 0.75rem !important;
+        word-wrap: break-word !important;
+        white-space: normal !important;
+        vertical-align: top !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Ensure colored spans don't break layout */
+    .rule-block table span[style*="color"] {
+        display: inline !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* Add visible scroll indicator */
+    .rule-block > div[style*="background: white"]::before {
+        content: '← Swipe to see all columns →';
+        display: block;
+        text-align: center;
+        font-size: 0.7rem;
+        color: #666;
+        background: #f0f0f0;
+        padding: 4px;
+        margin: -10px -10px 10px -10px;
+        border-radius: 6px 6px 0 0;
+        font-style: italic;
+    }
+    
+    /* Reduce example text size */
+    .rule-block p[style*="font-size: 1.1em"],
+    .rule-block p[style*="font-size: 1.2em"] {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Fix color legend */
+    .color-legend div[style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .rule-block table {
+        min-width: 550px !important;
+        width: 550px !important;
+        font-size: 0.7rem !important;
+    }
+    
+    .rule-block table th,
+    .rule-block table td {
+        font-size: 0.7rem !important;
+        padding: 8px 6px !important;
+    }
+}

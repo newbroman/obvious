@@ -1423,3 +1423,44 @@ button.back-to-cal:hover,
         top: 15px !important;
     }
 }
+/* Firefox compatibility fixes - add at END of CSS */
+
+/* Ensure grid gap works in Firefox */
+#calendarGrid {
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    gap: 5px !important;
+    grid-gap: 5px !important; /* Fallback for older Firefox */
+}
+
+/* Ensure calendar container doesn't expand */
+.calendar-container {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix flex gaps in Firefox */
+.weekdays {
+    gap: 5px;
+    column-gap: 5px; /* Firefox fallback */
+}
+
+/* Ensure body doesn't have extra spacing */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mobile gap fix for Firefox */
+@media (max-width: 768px) {
+    #calendarGrid {
+        gap: 3px !important;
+        grid-gap: 3px !important;
+    }
+    
+    .weekdays {
+        gap: 3px;
+        column-gap: 3px;
+    }
+}

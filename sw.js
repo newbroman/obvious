@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pl-date-v1225';
+const CACHE_NAME = 'pl-date-v1226';
 const ASSETS = [
   './',
   './index.html',
@@ -17,7 +17,6 @@ const ASSETS = [
   './namedays.json'
 ];
 
-// Install Event
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
@@ -26,7 +25,6 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activate Event
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys => {
@@ -38,7 +36,6 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch Event
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)

@@ -1,28 +1,29 @@
 # 🇵🇱 Polish Date Master
 
-**Version:** 1225  
+**Version:** 1226  
 **Last Updated:** January 20, 2026
 
 ---
 
-## 🎯 v1225: RED Button, Top-Right Position
+## 🎯 v1226: TRULY Floating Red Button!
 
-### Button Style ✅
+### Button Fixed ✅
+- **Position:** FIXED (floats on screen, stays while scrolling)
 - **Color:** RED (#E6192E) with white text
-- **Hover:** Darker red (#C0162A)
-- **Position:** Top-RIGHT of content box
+- **Location:** Top-right (20px from top, 20px from right)
 - **Text:** "Back"
+- **Hover:** Darker red (#C0162A)
 
 ---
 
 ## 🚀 Deploy
 
 ```bash
-tar -xzf polish-date-master-v1225.tar.gz
+tar -xzf polish-date-master-v1226.tar.gz
 cd ~/obvious
-cp -r polish-date-master-v1225/* .
+cp -r polish-date-master-v1226/* .
 git add .
-git commit -m "v1225: Red button, top-right position"
+git commit -m "v1226: Floating red button (position: fixed)"
 git push origin main
 ```
 
@@ -30,11 +31,12 @@ git push origin main
 
 ## ✅ What's New
 
-- Button background: RED (#E6192E)
-- Button position: Top-right of content box
-- Hover: Darker red
-- Service worker: v1225
+- position: fixed (was absolute)
+- Button floats while scrolling
+- Red background
+- Top-right of screen
+- Service worker: v1226
 
 ---
 
-**Perfect!** 🎯
+**Now it floats!** 🎯

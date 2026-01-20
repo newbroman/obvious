@@ -1321,8 +1321,9 @@ button.back-to-cal {
         color: #333 !important;
     }
 }
+
 /* ========================================
-   BACK BUTTON - TOP RIGHT OF CONTENT BOX - RED
+   BACK BUTTON - FLOATING TOP RIGHT - RED
    Must be at END of CSS to override everything
    ======================================== */
 
@@ -1333,12 +1334,12 @@ button.back-to-cal,
 .content-page .back-to-cal,
 #culturalHub .back-to-cal,
 #rulesPage .back-to-cal {
-    position: absolute !important;  /* Relative to content-page */
+    position: fixed !important;  /* FIXED - floats on screen */
     top: 20px !important;
-    right: 20px !important;  /* RIGHT not left */
+    right: 20px !important;
     left: auto !important;
     bottom: auto !important;
-    z-index: 100 !important;
+    z-index: 9999 !important;
     
     /* Size */
     padding: 8px 16px !important;
@@ -1366,11 +1367,6 @@ button.back-to-cal,
     transition: all 0.2s ease !important;
     transform: none !important;
     display: inline-block !important;
-}
-
-/* Make sure content-page is positioned */
-.content-page {
-    position: relative !important;
 }
 
 /* Remove any ::before content */

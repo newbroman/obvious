@@ -8,7 +8,8 @@ import { COLORS } from './color-utils.js';
 // Helper function to colorize grammatical terms and examples
 function colorTerm(text, type) {
     const colors = {
-        'ordinal': COLORS.ordinal,
+        'ordinalNom': COLORS.ordinalNominative,
+        'ordinalGen': COLORS.ordinalGenitive,
         'genitive': COLORS.genitive,
         'year': COLORS.year,
         'roku': COLORS.genitiveMark
@@ -58,7 +59,7 @@ export function getRulesHTML(state) {
 
             <h3 class="section-divider">🔑 The Two Key Transformations</h3>
             
-            <section class="rule-block" style="background: rgba(52, 152, 219, 0.08); border-left: 5px solid ${COLORS.ordinal}; padding: 20px; margin-bottom: 25px; border-radius: 0 8px 8px 0;">
+            <section class="rule-block" style="background: rgba(52, 152, 219, 0.08); border-left: 5px solid ${COLORS.ordinalNominative}; padding: 20px; margin-bottom: 25px; border-radius: 0 8px 8px 0;">
                 <h3>Transformation 1️⃣: Cardinal → Ordinal (Number Type)</h3>
                 <p><strong>English equivalent:</strong> "one" → "first", "two" → "second", "three" → "third"</p>
                 <p>In Polish, dates ALWAYS use ordinal numbers for days, never cardinals.</p>
@@ -90,13 +91,13 @@ export function getRulesHTML(state) {
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">dziesięć (ten)</td>
-                                <td style="padding: 8px;">${colorTerm('dziesiąty', 'ordinal')} (tenth)</td>
-                                <td style="padding: 8px;">${colorTerm('dziesiątego', 'ordinal')} (of the tenth)</td>
+                                <td style="padding: 8px;">${colorTerm('dziesiąty', 'ordinalNom')} (tenth)</td>
+                                <td style="padding: 8px;">${colorTerm('dziesiątego', 'ordinalGen')} (of the tenth)</td>
                             </tr>
                             <tr>
                                 <td style="padding: 8px;">piętnaście (fifteen)</td>
-                                <td style="padding: 8px;">${colorTerm('piętnasty', 'ordinal')} (fifteenth)</td>
-                                <td style="padding: 8px;">${colorTerm('piętnastego', 'ordinal')} (of the fifteenth)</td>
+                                <td style="padding: 8px;">${colorTerm('piętnasty', 'ordinalNom')} (fifteenth)</td>
+                                <td style="padding: 8px;">${colorTerm('piętnastego', 'ordinalGen')} (of the fifteenth)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -162,14 +163,14 @@ export function getRulesHTML(state) {
                 <div style="background: white; padding: 15px; border-radius: 6px; margin: 15px 0;">
                     <p style="margin: 0 0 10px 0;"><strong>Structure:</strong></p>
                     <p style="font-size: 1.1em; margin: 10px 0;">
-                        [Day Name] + ${colorTerm('Ordinal-Nominative', 'ordinal')} + ${colorTerm('Month-Genitive', 'genitive')} + ${colorTerm('Year', 'year')} ${colorTerm('roku', 'roku')}
+                        [Day Name] + ${colorTerm('Ordinal-Nominative', 'ordinalNom')} + ${colorTerm('Month-Genitive', 'genitive')} + ${colorTerm('Year', 'year')} ${colorTerm('roku', 'roku')}
                     </p>
                     <p style="margin: 15px 0 5px 0;"><strong>Example (10th ${dynamicMonth} ${currentYear}):</strong></p>
                     <p style="font-size: 1.2em; margin: 5px 0;">
-                        Wtorek, ${colorTerm('dziesiąty', 'ordinal')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
+                        Wtorek, ${colorTerm('dziesiąty', 'ordinalNom')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
                     </p>
                     <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
-                        Notice: ${colorTerm('dziesiąty', 'ordinal')} (nominative ending: -y)
+                        Notice: ${colorTerm('dziesiąty', 'ordinalNom')} (nominative ending: -y)
                     </p>
                 </div>
             </section>
@@ -182,21 +183,21 @@ export function getRulesHTML(state) {
                 <div style="background: white; padding: 15px; border-radius: 6px; margin: 15px 0;">
                     <p style="margin: 0 0 10px 0;"><strong>Structure:</strong></p>
                     <p style="font-size: 1.1em; margin: 10px 0;">
-                        [Day Name] + ${colorTerm('Ordinal-GENITIVE', 'ordinal')} + ${colorTerm('Month-Genitive', 'genitive')} + ${colorTerm('Year', 'year')} ${colorTerm('roku', 'roku')}
+                        [Day Name] + ${colorTerm('Ordinal-GENITIVE', 'ordinalGen')} + ${colorTerm('Month-Genitive', 'genitive')} + ${colorTerm('Year', 'year')} ${colorTerm('roku', 'roku')}
                     </p>
                     <p style="margin: 15px 0 5px 0;"><strong>Example (10th ${dynamicMonth} ${currentYear}):</strong></p>
                     <p style="font-size: 1.2em; margin: 5px 0;">
-                        Wtorek, ${colorTerm('dziesiątego', 'ordinal')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
+                        Wtorek, ${colorTerm('dziesiątego', 'ordinalGen')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
                     </p>
                     <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
-                        Notice: ${colorTerm('dziesiątego', 'ordinal')} (genitive ending: -ego)
+                        Notice: ${colorTerm('dziesiątego', 'ordinalGen')} (genitive ending: -ego)
                     </p>
                 </div>
                 
                 <div style="background: #fffbf0; border: 2px solid #ffd700; padding: 15px; border-radius: 6px; margin-top: 15px;">
                     <h4 style="margin-top: 0;">🎯 The Critical Difference</h4>
-                    <p style="margin-bottom: 8px;"><strong>Nominative:</strong> ${colorTerm('dziesiąty', 'ordinal')} (tenth) - ends in <code>-y</code></p>
-                    <p style="margin-bottom: 0;"><strong>Genitive:</strong> ${colorTerm('dziesiątego', 'ordinal')} (of the tenth) - ends in <code>-ego</code></p>
+                    <p style="margin-bottom: 8px;"><strong>Nominative:</strong> ${colorTerm('dziesiąty', 'ordinalNom')} (tenth) - ends in <code>-y</code></p>
+                    <p style="margin-bottom: 0;"><strong>Genitive:</strong> ${colorTerm('dziesiątego', 'ordinalGen')} (of the tenth) - ends in <code>-ego</code></p>
                     <p style="margin-top: 12px; color: #666; font-size: 0.9em;">
                         This is the hardest part of Polish dates! The day number changes from -y to -ego when you're talking about an event happening "on" that date.
                     </p>
@@ -224,28 +225,28 @@ export function getRulesHTML(state) {
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">5th</td>
-                                <td style="padding: 8px;">${colorTerm('piąty', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('piąty', 'ordinalNom')}</td>
                                 <td style="padding: 8px;">${colorTerm('piątego', 'ordinalGen')}</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">10th</td>
-                                <td style="padding: 8px;">${colorTerm('dziesiąty', 'ordinal')}</td>
-                                <td style="padding: 8px;">${colorTerm('dziesiątego', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('dziesiąty', 'ordinalNom')}</td>
+                                <td style="padding: 8px;">${colorTerm('dziesiątego', 'ordinalGen')}</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">15th</td>
-                                <td style="padding: 8px;">${colorTerm('piętnasty', 'ordinal')}</td>
-                                <td style="padding: 8px;">${colorTerm('piętnastego', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('piętnasty', 'ordinalNom')}</td>
+                                <td style="padding: 8px;">${colorTerm('piętnastego', 'ordinalGen')}</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 8px;">20th</td>
-                                <td style="padding: 8px;">${colorTerm('dwudziesty', 'ordinal')}</td>
-                                <td style="padding: 8px;">${colorTerm('dwudziestego', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('dwudziesty', 'ordinalNom')}</td>
+                                <td style="padding: 8px;">${colorTerm('dwudziestego', 'ordinalGen')}</td>
                             </tr>
                             <tr>
                                 <td style="padding: 8px;">31st</td>
-                                <td style="padding: 8px;">${colorTerm('trzydziesty pierwszy', 'ordinal')}</td>
-                                <td style="padding: 8px;">${colorTerm('trzydziestego pierwszego', 'ordinal')}</td>
+                                <td style="padding: 8px;">${colorTerm('trzydziesty pierwszy', 'ordinalNom')}</td>
+                                <td style="padding: 8px;">${colorTerm('trzydziestego pierwszego', 'ordinalGen')}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -259,14 +260,20 @@ export function getRulesHTML(state) {
                 <h4>🎯 Tip 1: Think "OF"</h4>
                 <p>Genitive = "of". When you say an event is "on the 15th OF January", both the day and month need the "of" form (genitive).</p>
                 <p style="margin-top: 10px;">
-                    ✅ ${colorTerm('piętnastego', 'ordinal')} ${colorTerm('stycznia', 'genitive')} = "of the fifteenth of January"
+                    ✅ ${colorTerm('piętnastego', 'ordinalGen')} ${colorTerm('stycznia', 'genitive')} = "of the fifteenth of January"
                 </p>
                 
                 <h4 style="margin-top: 20px;">🎯 Tip 2: Listen for -ego</h4>
                 <p>The sound <code>-ego</code> at the end of the day number is your signal that you're in genitive mode (scheduling/event mode).</p>
+                <p style="margin-top: 10px;">
+                    Example: ${colorTerm('pierwszego', 'ordinalGen')} (genitive) vs ${colorTerm('pierwszy', 'ordinalNom')} (nominative)
+                </p>
                 
                 <h4 style="margin-top: 20px;">🎯 Tip 3: ${colorTerm('roku', 'roku')} is Always There</h4>
                 <p>When you include the year in a date, you ALWAYS add ${colorTerm('roku', 'roku')} at the end. No exceptions.</p>
+                <p style="margin-top: 10px;">
+                    Example: ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
+                </p>
                 
                 <h4 style="margin-top: 20px;">🎯 Tip 4: Months are ALWAYS Genitive</h4>
                 <p>Whether you're in nominative or genitive mode for the day, the month is ALWAYS in genitive form (${colorTerm('stycznia', 'genitive')}, ${colorTerm('lutego', 'genitive')}, etc.).</p>

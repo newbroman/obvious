@@ -183,7 +183,7 @@ export function renderCulturalHub(state) {
     const displayMonth = monthInfo.pl.charAt(0).toUpperCase() + monthInfo.pl.slice(1);
     
     let html = `
-    <button class="pill-btn back-to-cal">← Back to Calendar</button>
+    <button class="pill-btn back-to-cal">Back</button>
     <div class="content-body">
         <header class="content-header">
             <h1>${day}. ${displayMonth} ${year}</h1>
@@ -252,7 +252,6 @@ export function renderCulturalHub(state) {
     }
 
     html += `</div></section>
-            <button class="floating-close-btn" title="${state.isPolish ? 'Zamknij' : 'Close'}">✕</button>
         </div>`;
 
     hub.innerHTML = html;
@@ -279,7 +278,7 @@ export function renderRulesPage(state) {
         <div class="content-body">
             ${getRulesHTML(state)} 
             <div style="text-align:center;">
-                <button class="pill-btn back-to-cal" style="margin-top:20px">← Back to Calendar</button>
+                <button class="pill-btn back-to-cal" style="margin-top:20px">Back</button>
             </div>
         </div>`;
     page.querySelector('.back-to-cal').onclick = () => document.getElementById('navCalendar').click();

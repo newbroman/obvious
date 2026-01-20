@@ -1322,7 +1322,7 @@ button.back-to-cal {
     }
 }
 /* ========================================
-   FLOATING BACK BUTTON - HIGHEST PRIORITY
+   BACK BUTTON - TOP LEFT OF CONTENT BOX
    Must be at END of CSS to override everything
    ======================================== */
 
@@ -1333,12 +1333,12 @@ button.back-to-cal,
 .content-page .back-to-cal,
 #culturalHub .back-to-cal,
 #rulesPage .back-to-cal {
-    position: fixed !important;
+    position: absolute !important;  /* Relative to content-page */
     top: 20px !important;
-    right: 20px !important;
-    left: auto !important;
+    left: 20px !important;  /* LEFT not right */
+    right: auto !important;
     bottom: auto !important;
-    z-index: 9999 !important;
+    z-index: 100 !important;
     
     /* Size */
     padding: 8px 16px !important;
@@ -1366,6 +1366,11 @@ button.back-to-cal,
     transition: all 0.2s ease !important;
     transform: none !important;
     display: inline-block !important;
+}
+
+/* Make sure content-page is positioned */
+.content-page {
+    position: relative !important;
 }
 
 /* Remove any ::before content */
@@ -1414,6 +1419,6 @@ button.back-to-cal:hover,
         padding: 6px 12px !important;
         font-size: 0.85rem !important;
         top: 15px !important;
-        right: 15px !important;
+        left: 15px !important;
     }
 }

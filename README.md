@@ -1,52 +1,48 @@
 # 🇵🇱 Polish Date Master
 
-**Version:** 1223  
-**Last Updated:** January 20, 2026  
-**Live URL:** https://newbroman.github.io/obvious/
+**Version:** 1224  
+**Last Updated:** January 20, 2026
 
 ---
 
-## 🎯 v1223: TRULY Floating "Back" Button!
+## 🎯 v1224: ALL Issues Fixed!
 
-### Fixed Floating Button
-- ✅ **TRULY FLOATS:** position: fixed with highest z-index (9999)
-- ✅ **Text:** Says "Back" only
-- ✅ **Position:** Top right corner
-- ✅ **CSS Priority:** Placed at END of stylesheet to override conflicts
-- ✅ **Multiple selectors:** Overrides all previous .back-to-cal styles
-- ✅ **Hover:** Turns red
+### 1. Button Text Fixed ✅
+- Says "Back" (not "← Back to Calendar")
+- Fixed in events.js
+
+### 2. Button Position Fixed ✅
+- Top-LEFT of content box (not top-right of screen)
+- position: absolute (relative to .content-page)
+- 20px from top, 20px from left
+
+### 3. Mystery X Removed ✅
+- Removed `<button class="floating-close-btn">✕</button>`
+- Was appearing in season-box
+- Fixed in events.js
 
 ---
 
 ## 🚀 Deploy
 
 ```bash
-tar -xzf polish-date-master-v1223.tar.gz
+tar -xzf polish-date-master-v1224.tar.gz
 cd ~/obvious
-cp -r polish-date-master-v1223/* .
+cp -r polish-date-master-v1224/* .
 git add .
-git commit -m "v1223: FIXED floating Back button (position: fixed)"
+git commit -m "v1224: Fixed button text, position, and removed mystery X"
 git push origin main
 ```
 
-**Test:** https://newbroman.github.io/obvious/
+---
+
+## ✅ What's New
+
+- Button text: "Back" only
+- Button position: Top-left of content box
+- No more mystery X in season-box
+- Service worker: v1224
 
 ---
 
-## ✅ What's Fixed
-
-### CSS Priority Issue Solved
-- Floating button CSS now at **END** of stylesheet
-- Uses multiple selectors for maximum specificity
-- `position: fixed !important` with `z-index: 9999`
-- Overrides ALL previous .back-to-cal definitions
-
-### Button Behavior
-- Stays in top-right while scrolling
-- Always visible
-- Compact pill shape
-- White → Red on hover
-
----
-
-**This time it WILL float!** 🚀
+**All fixed!** 🎯

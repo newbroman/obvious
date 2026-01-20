@@ -1,48 +1,38 @@
 # Polish Date Master - Changelog
 
-## Version 1219 (2026-01-20)
+## Version 1220 (2026-01-20)
 
-### 🎯 UX Improvements
-- **Floating Back Button:** Changed from "← Back to Calendar" to just "Back"
-- **Sticky Positioning:** Back button now floats at bottom of screen (always visible)
-- **Better Shadows:** Added depth with shadows and backdrop blur
-- **Dark Mode Button:** Optimized floating button for dark mode
+### 🎯 Close Button Redesign
+- **Repositioned:** Moved from bottom center to **top right corner**
+- **Smaller size:** 40px circle (36px on mobile) - no longer covers content
+- **Icon-only:** Shows "×" symbol instead of "Back" text
+- **Better styling:** White circle with subtle shadow, red on hover
+- **Dark mode:** Dark background with white X in dark mode
 
-### 📏 Table Width Fixes
-- **Transformation 2 Table:** Reduced width from 580px to 400px (narrower, 2 columns only)
-- **Mode A & Mode B Tables:** Removed horizontal scroll (text wraps naturally)
-- **Scroll Indicators:** Removed from "Putting It Together" section (not needed)
-- **Smarter Layouts:** Tables only scroll when necessary (3+ columns)
+### 📏 Table Width Fixes  
+- **Transformation 2:** Narrower (400px → 350px on mobile, 2 columns only)
+- **Mode A & Mode B:** No horizontal scroll (text wraps naturally)
+- **Smart scrolling:** Only wide tables (3+ columns) scroll
 
 ### 🌙 Dark Mode Support
-- **Auto-detection:** Respects device dark/light mode preference
-- **Dark Backgrounds:** Deep navy (#1a1a2e) replaces white
-- **Readable Text:** Light gray (#e0e0e0) on dark backgrounds
-- **Color Coding:** Blue/Gold/Orange/Purple/Red preserved in both modes
-
-### 📱 Mobile Enhancements
-- **Horizontal Scrolling:** Only on wide tables (Transformation 1, Quick Reference)
-- **Responsive Tables:** Transformation 2 scales to 350px on mobile
-- **Floating Button:** Smaller on tiny screens (480px)
-- **Bottom Padding:** Content doesn't get hidden behind floating button
+- Auto-detects device preference (`prefers-color-scheme`)
+- Dark navy backgrounds (#1a1a2e)
+- Light text (#e0e0e0) for readability
+- Color coding preserved
 
 ### 🔧 Technical Changes
-- Service Worker: v1217 → v1219
-- CSS size: 33KB → 38KB (button fixes + table improvements)
-- HTML: Updated button labels
-- Added `:has()` CSS selector for smart table targeting
+- Service Worker: v1220
+- CSS: 38KB (close button repositioned, dark mode, table fixes)
+- HTML: Button text removed (icon-only now)
+- Files organized in `polish-date-master-v1220/` folder
 
 ---
+
+## Version 1218 (2026-01-20)
+- Dark mode support (superseded by v1220)
 
 ## Version 1217 (2026-01-20)
+- Mobile table scrolling fixes
 
-### 🐛 Bug Fixes
-- Fixed Rules page mobile display
-- Removed 9 duplicate CSS media queries
-- Added horizontal scrolling for grammar tables
-- Fixed column widths (110px + 220px + 220px)
-
----
-
-## Previous Versions
-- v1214: Last version before mobile fixes
+## Version 1214 (Previous)
+- Last version before mobile fixes

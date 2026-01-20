@@ -1,53 +1,37 @@
 # 🇵🇱 Polish Date Master
 
-**Version:** 1218  
+**Version:** 1220  
 **Last Updated:** January 20, 2026  
 **Live URL:** https://newbroman.github.io/obvious/
 
 ---
 
-## 🎯 NEW in v1219: UX Polish & Dark Mode!
+## 🎯 NEW in v1220: Close Button Redesign!
 
-### Floating Back Button
-- ✅ Changed from "← Back to Calendar" to just **"Back"**
-- ✅ **Floats at bottom** of screen (always visible while scrolling)
-- ✅ Removed duplicate buttons at bottom of pages
-- ✅ Better shadows and backdrop blur effect
-- ✅ Works perfectly in both light and dark modes
+### Top-Right Close Button
+- ✅ **Repositioned:** Top right corner (no longer covers content!)
+- ✅ **Compact size:** 40px circle (36px on mobile)
+- ✅ **Icon-only:** Clean "×" symbol
+- ✅ **Smart styling:** White with shadow, turns red on hover
+- ✅ **Dark mode:** Adapts to dark backgrounds
 
 ### Smart Table Widths
-- ✅ **Transformation 2 table:** Narrower (400px → 350px on mobile)
-- ✅ **Mode A & Mode B:** No horizontal scroll (text wraps naturally)
-- ✅ **Transformation 1 & Quick Reference:** Keep horizontal scroll (3 columns)
-- ✅ Scroll indicators only show when needed
+- ✅ **Transformation 2:** Narrower (2 columns, easier to read)
+- ✅ **Mode A & Mode B:** No scroll needed (text wraps)
+- ✅ **Wide tables:** Keep scrolling when needed (3+ columns)
 
-### Dark Mode Support 🌙
+### Dark Mode
 - ✅ Auto-detects device preference
-- ✅ Dark navy backgrounds (#1a1a2e)
-- ✅ Light text (#e0e0e0) for readability
-- ✅ Color coding preserved (Blue/Gold/Orange/Purple/Red)
+- ✅ Dark backgrounds, light text
+- ✅ Color coding preserved
 
 ---
 
-## 📦 Deployment Package Contents
+## 📦 Files Organized
 
-### Core Files
-- `index.html` - **UPDATED** (Back button text changed, bottom buttons removed)
-- `styles.css` - **ENHANCED** (38KB: dark mode + floating button + table fixes)
-- `sw.js` - Service Worker **v1219**
-- `manifest.json` - PWA manifest
+All files now in folder: **`polish-date-master-v1220/`**
 
-### JavaScript Modules
-- All JS files unchanged from v1217
-
-### Assets
-- `icon-192.png`, `icon-512.png`
-- `debug-button.css`
-
-### Documentation
-- `CHANGELOG.md` - Full version history
-- `DEPLOYMENT_GUIDE.md` - Deploy instructions
-- `README.md` - This file
+This makes deployment cleaner - just copy the whole folder!
 
 ---
 
@@ -55,16 +39,15 @@
 
 ```bash
 # 1. Extract
-tar -xzf polish-date-master-v1219.tar.gz
-cd polish-date-app-deploy
+tar -xzf polish-date-master-v1220.tar.gz
 
-# 2. Copy to repo
+# 2. Copy to repo (folder is already named correctly!)
 cd ~/obvious
-cp -r ../polish-date-app-deploy/* .
+cp -r polish-date-master-v1220/* .
 
 # 3. Commit and push
 git add .
-git commit -m "v1219: Floating back button, dark mode, table fixes"
+git commit -m "v1220: Top-right close button, smart tables, dark mode"
 git push origin main
 
 # 4. Test: https://newbroman.github.io/obvious/
@@ -72,98 +55,57 @@ git push origin main
 
 ---
 
-## ✅ What's New in v1219
+## ✅ What's New
 
-### UX Improvements 🎯
-- **Floating "Back" button** at bottom (sticky, always visible)
-- **Shorter label:** "← Back to Calendar" → "Back"
-- **Removed duplicates:** No more bottom buttons
-- **Better styling:** Shadows, blur, hover effects
+### Close Button 🎯
+- **Position:** Top right corner (fixed)
+- **Size:** 40px × 40px circle
+- **Icon:** "×" symbol (1.8rem)
+- **Hover:** Turns red (#E6192E)
+- **Mobile:** 36px × 36px
+- **No longer blocks content!**
 
-### Table Improvements 📏
-- **Transformation 2:** Narrower table (2 columns, 400px)
-- **Mode A & Mode B:** No scroll needed (single column tables)
-- **Smart scrolling:** Only wide tables (3+ columns) scroll
-- **Mobile optimized:** Transformation 2 scales to 350px
+### Tables 📏
+- Transformation 2: Narrower
+- Mode A/B: No scroll
+- Smart targeting with `:has()` selector
 
 ### Dark Mode 🌙
-- Respects `prefers-color-scheme`
-- Dark backgrounds replace white
-- Perfect text contrast
-- Floating button optimized for dark mode
+- Automatic detection
+- Dark backgrounds
+- Perfect contrast
 
 ---
 
 ## 🧪 Testing Checklist
 
-### Floating Button
-- [ ] Navigate to Rules page (⚖️ icon)
-- [ ] **Scroll down** - button should stay at bottom
-- [ ] Button says "Back" (not "← Back to Calendar")
-- [ ] Click button - returns to calendar
-- [ ] Navigate to Cultural page (📖 icon)
-- [ ] Floating button works there too
+### Close Button
+- [ ] Navigate to Rules page (⚖️)
+- [ ] **Close button in top right** (small circle with ×)
+- [ ] Doesn't cover any content
+- [ ] Hover turns it red
+- [ ] Click returns to calendar
+- [ ] Try Cultural page (📖) - same behavior
 
-### Table Widths
-- [ ] **Transformation 1 table:** Scrolls horizontally (3 columns)
-- [ ] **Transformation 2 table:** Narrower, easier to read (2 columns)
-- [ ] **Mode A table:** No scroll, text wraps
-- [ ] **Mode B table:** No scroll, text wraps
-- [ ] **Quick Reference table:** Scrolls horizontally (3 columns)
-- [ ] Scroll indicators only on wide tables
+### Tables
+- [ ] Transformation 2 narrower than before
+- [ ] Mode A/B sections don't scroll
+- [ ] Wide tables still scroll (Transformation 1, Quick Reference)
 
 ### Dark Mode
-- [ ] Set device to dark mode
-- [ ] Rules page background is dark
-- [ ] Content boxes are dark slate (not white)
-- [ ] Floating button visible and readable
-- [ ] Switch to light mode - everything looks normal
-
----
-
-## 🎨 Color Coding System
-
-Works in both light and dark modes:
-
-- 🔵 **Blue (#4a90e2)** - Nominative Ordinals
-- 🟡 **Gold (#ffd700)** - Genitive Ordinals
-- 🟠 **Orange (#f39c12)** - Genitive Months
-- 🟣 **Purple (#9b59b6)** - Year Components
-- 🔴 **Red (#e74c3c)** - Genitive Marker
-
----
-
-## 📱 Supported Devices
-
-- ✅ iPhone (Safari) - Light & dark mode
-- ✅ Android (Chrome) - Light & dark mode
-- ✅ iPad (Safari) - Light & dark mode
-- ✅ Desktop browsers - Respects OS theme
-
----
-
-## 🔄 Service Worker Cache
-
-**Version:** v1219  
-Caches all app files including updated HTML and enhanced CSS.
+- [ ] Enable dark mode on device
+- [ ] Close button visible (dark background, white ×)
+- [ ] Content has dark backgrounds
+- [ ] Switch to light mode - works normally
 
 ---
 
 ## 📊 File Sizes
 
-- **styles.css:** 38KB (was 33KB, +5KB for button/table fixes)
-- **index.html:** 7KB (button text updated, duplicates removed)
+- **styles.css:** 38KB
+- **index.html:** 7KB  
+- **sw.js:** 1KB (v1220)
 - **Total package:** ~295KB
-
----
-
-## 🔧 Browser Support
-
-**Floating button (position: fixed):** All browsers ✅  
-**Dark mode (prefers-color-scheme):** Safari 12.1+, Chrome 76+, Firefox 67+ ✅  
-**Table targeting (:has() selector):** Safari 15.4+, Chrome 105+, Firefox 121+ ✅
-
-Graceful degradation for older browsers.
 
 ---
 

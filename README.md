@@ -1,24 +1,25 @@
 # 🇵🇱 Polish Date Master
 
-**Version:** 1220  
+**Version:** 1221  
 **Last Updated:** January 20, 2026  
 **Live URL:** https://newbroman.github.io/obvious/
 
 ---
 
-## 🎯 NEW in v1220: Close Button Redesign!
+## 🎯 NEW in v1221: Floating "Back" Button!
 
-### Top-Right Close Button
-- ✅ **Repositioned:** Top right corner (no longer covers content!)
-- ✅ **Compact size:** 40px circle (36px on mobile)
-- ✅ **Icon-only:** Clean "×" symbol
-- ✅ **Smart styling:** White with shadow, turns red on hover
-- ✅ **Dark mode:** Adapts to dark backgrounds
+### Floating Close Button
+- ✅ **Position:** Top right corner (fixed, floats while scrolling)
+- ✅ **Text:** Says "Back" (as requested!)
+- ✅ **Compact:** Small pill shape (padding: 8px 16px)
+- ✅ **Hover:** Turns red (#E6192E)
+- ✅ **Dark mode:** Dark background, white text
+- ✅ **Always visible:** Floats above content
 
-### Smart Table Widths
-- ✅ **Transformation 2:** Narrower (2 columns, easier to read)
-- ✅ **Mode A & Mode B:** No scroll needed (text wraps)
-- ✅ **Wide tables:** Keep scrolling when needed (3+ columns)
+### Smart Tables
+- ✅ Transformation 2: Narrower (2 columns)
+- ✅ Mode A & Mode B: No scroll
+- ✅ Wide tables: Keep scrolling
 
 ### Dark Mode
 - ✅ Auto-detects device preference
@@ -29,83 +30,64 @@
 
 ## 📦 Files Organized
 
-All files now in folder: **`polish-date-master-v1220/`**
-
-This makes deployment cleaner - just copy the whole folder!
+Folder: **`polish-date-master-v1221/`**
 
 ---
 
 ## 🚀 Quick Deploy
 
 ```bash
-# 1. Extract
-tar -xzf polish-date-master-v1220.tar.gz
+# Extract
+tar -xzf polish-date-master-v1221.tar.gz
 
-# 2. Copy to repo (folder is already named correctly!)
+# Copy to repo
 cd ~/obvious
-cp -r polish-date-master-v1220/* .
+cp -r polish-date-master-v1221/* .
 
-# 3. Commit and push
+# Commit and push
 git add .
-git commit -m "v1220: Top-right close button, smart tables, dark mode"
+git commit -m "v1221: Floating Back button (top-right), smart tables, dark mode"
 git push origin main
 
-# 4. Test: https://newbroman.github.io/obvious/
+# Test: https://newbroman.github.io/obvious/
 ```
 
 ---
 
 ## ✅ What's New
 
-### Close Button 🎯
-- **Position:** Top right corner (fixed)
-- **Size:** 40px × 40px circle
-- **Icon:** "×" symbol (1.8rem)
-- **Hover:** Turns red (#E6192E)
-- **Mobile:** 36px × 36px
-- **No longer blocks content!**
+### Close Button
+- **Text:** "Back" (not × symbol)
+- **Position:** Top right, position: fixed
+- **Size:** Compact pill (8px 16px padding)
+- **Hover:** White → Red
+- **Mobile:** Slightly smaller (6px 12px)
 
-### Tables 📏
+### Tables
 - Transformation 2: Narrower
 - Mode A/B: No scroll
-- Smart targeting with `:has()` selector
+- Smart targeting
 
-### Dark Mode 🌙
-- Automatic detection
+### Dark Mode
+- Auto-detection
 - Dark backgrounds
 - Perfect contrast
 
 ---
 
-## 🧪 Testing Checklist
+## 🧪 Testing
 
-### Close Button
-- [ ] Navigate to Rules page (⚖️)
-- [ ] **Close button in top right** (small circle with ×)
-- [ ] Doesn't cover any content
-- [ ] Hover turns it red
+### Back Button
+- [ ] Navigate to Rules page
+- [ ] **Button says "Back"** (top right)
+- [ ] **Floats while scrolling**
+- [ ] Hover turns red
 - [ ] Click returns to calendar
-- [ ] Try Cultural page (📖) - same behavior
-
-### Tables
-- [ ] Transformation 2 narrower than before
-- [ ] Mode A/B sections don't scroll
-- [ ] Wide tables still scroll (Transformation 1, Quick Reference)
 
 ### Dark Mode
-- [ ] Enable dark mode on device
-- [ ] Close button visible (dark background, white ×)
-- [ ] Content has dark backgrounds
-- [ ] Switch to light mode - works normally
-
----
-
-## 📊 File Sizes
-
-- **styles.css:** 38KB
-- **index.html:** 7KB  
-- **sw.js:** 1KB (v1220)
-- **Total package:** ~295KB
+- [ ] Enable dark mode
+- [ ] Button visible (dark bg, white text)
+- [ ] Still says "Back"
 
 ---
 

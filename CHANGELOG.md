@@ -1,38 +1,36 @@
 # Polish Date Master - Changelog
 
-## Version 1220 (2026-01-20)
+## Version 1221 (2026-01-20)
 
-### 🎯 Close Button Redesign
-- **Repositioned:** Moved from bottom center to **top right corner**
-- **Smaller size:** 40px circle (36px on mobile) - no longer covers content
-- **Icon-only:** Shows "×" symbol instead of "Back" text
-- **Better styling:** White circle with subtle shadow, red on hover
-- **Dark mode:** Dark background with white X in dark mode
+### 🎯 Floating Back Button
+- **Position:** Top right corner (position: fixed)
+- **Text:** Says "Back" (as requested)
+- **Floating:** Stays in top-right while scrolling
+- **Compact size:** Small pill shape (8px 16px padding)
+- **Hover effect:** White → Red (#E6192E)
+- **Dark mode:** Dark background with white text
 
-### 📏 Table Width Fixes  
-- **Transformation 2:** Narrower (400px → 350px on mobile, 2 columns only)
-- **Mode A & Mode B:** No horizontal scroll (text wraps naturally)
-- **Smart scrolling:** Only wide tables (3+ columns) scroll
+### 📏 Table Width Fixes
+- **Transformation 2:** Narrower (400px → 350px, 2 columns)
+- **Mode A & Mode B:** No horizontal scroll (text wraps)
+- **Smart scrolling:** Only wide tables (3+ columns)
 
 ### 🌙 Dark Mode Support
-- Auto-detects device preference (`prefers-color-scheme`)
+- Auto-detects device preference
 - Dark navy backgrounds (#1a1a2e)
-- Light text (#e0e0e0) for readability
+- Light text (#e0e0e0)
 - Color coding preserved
 
 ### 🔧 Technical Changes
-- Service Worker: v1220
-- CSS: 38KB (close button repositioned, dark mode, table fixes)
-- HTML: Button text removed (icon-only now)
-- Files organized in `polish-date-master-v1220/` folder
+- Service Worker: v1221
+- CSS: Floating button with position: fixed
+- Button text: "Back" (removed × symbol)
+- Files organized in `polish-date-master-v1221/`
 
 ---
 
-## Version 1218 (2026-01-20)
-- Dark mode support (superseded by v1220)
-
-## Version 1217 (2026-01-20)
-- Mobile table scrolling fixes
-
-## Version 1214 (Previous)
-- Last version before mobile fixes
+## Previous Versions
+- v1219: Bottom floating button (superseded)
+- v1218: Dark mode only (superseded)
+- v1217: Mobile table fixes
+- v1214: Before fixes

@@ -269,17 +269,17 @@ export function renderCulturalHub(state) {
 /**
  * Renders the Grammar Rules page
  */
+
 export function renderRulesPage(state) {
     const page = document.getElementById('rulesPage');
     if (!page) return;
     
-    // Pass state here so we can access viewDate
+    // Put button at TOP, outside content-body (like Cultural page)
     page.innerHTML = `
+        <button class="pill-btn back-to-cal">Back</button>
+        <h1>Grammar Rules</h1>
         <div class="content-body">
-            ${getRulesHTML(state)} 
-            <div style="text-align:center;">
-                <button class="pill-btn back-to-cal" style="margin-top:20px">Back</button>
-            </div>
+            ${getRulesHTML(state)}
         </div>`;
     page.querySelector('.back-to-cal').onclick = () => document.getElementById('navCalendar').click();
 }

@@ -1321,3 +1321,120 @@ button.back-to-cal {
         color: #333 !important;
     }
 }
+/* ========================================
+   FLOATING BACK BUTTON & TABLE WIDTH FIXES
+   ======================================== */
+
+/* Floating back button - sticky at bottom */
+.back-to-cal {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 1000 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    padding: 12px 24px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    background-color: rgba(74, 144, 226, 0.95) !important;
+    color: white !important;
+    border: none !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.back-to-cal:hover {
+    background-color: rgba(74, 144, 226, 1) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Dark mode floating button */
+@media (prefers-color-scheme: dark) {
+    .back-to-cal {
+        background-color: rgba(74, 144, 226, 0.9) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+    }
+    
+    .back-to-cal:hover {
+        background-color: rgba(74, 144, 226, 1) !important;
+    }
+}
+
+/* Add bottom padding to content pages so floating button doesn't cover content */
+.content-page {
+    padding-bottom: 100px !important;
+}
+
+.content-body {
+    padding-bottom: 80px !important;
+}
+
+/* ========================================
+   FIX SPECIFIC TABLE WIDTHS
+   ======================================== */
+
+/* Transformation 2 - Months table (4 rows, 2 columns) - narrower */
+.rule-block table:has(tbody tr:nth-child(4):last-child) {
+    min-width: 400px !important;
+    width: 400px !important;
+}
+
+/* "Putting It Together" section - Mode A & Mode B tables (no scroll needed) */
+.spoken-mode table,
+.written-mode table {
+    min-width: 100% !important;
+    width: 100% !important;
+    table-layout: auto !important;
+}
+
+.spoken-mode > div[style*="background: white"],
+.written-mode > div[style*="background: white"] {
+    overflow-x: visible !important;
+}
+
+/* Remove scroll indicator from Mode A & Mode B sections */
+.spoken-mode > div[style*="background: white"]::after,
+.written-mode > div[style*="background: white"]::after {
+    display: none !important;
+}
+
+/* Mobile adjustments for specific tables */
+@media (max-width: 768px) {
+    /* Transformation 2 table - smaller on mobile */
+    .rule-block table:has(tbody tr:nth-child(4):last-child) {
+        min-width: 350px !important;
+        width: 350px !important;
+    }
+    
+    .rule-block table:has(tbody tr:nth-child(4):last-child) th:nth-child(1),
+    .rule-block table:has(tbody tr:nth-child(4):last-child) td:nth-child(1) {
+        width: 140px !important;
+        min-width: 140px !important;
+    }
+    
+    .rule-block table:has(tbody tr:nth-child(4):last-child) th:nth-child(2),
+    .rule-block table:has(tbody tr:nth-child(4):last-child) td:nth-child(2) {
+        width: 180px !important;
+        min-width: 180px !important;
+    }
+    
+    /* Mode A & Mode B - no scroll, just wrap text */
+    .spoken-mode table,
+    .written-mode table {
+        font-size: 0.85rem !important;
+    }
+    
+    .spoken-mode table td,
+    .written-mode table td {
+        word-wrap: break-word !important;
+        white-space: normal !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Floating button smaller on tiny screens */
+    .back-to-cal {
+        padding: 10px 20px !important;
+        font-size: 0.9rem !important;
+        bottom: 15px !important;
+    }
+}

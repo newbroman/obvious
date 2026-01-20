@@ -6,50 +6,47 @@
 
 ---
 
-## 🌙 NEW in v1218: Dark Mode Support!
+## 🎯 NEW in v1219: UX Polish & Dark Mode!
 
-The app now **automatically matches your device's dark/light mode preference**!
+### Floating Back Button
+- ✅ Changed from "← Back to Calendar" to just **"Back"**
+- ✅ **Floats at bottom** of screen (always visible while scrolling)
+- ✅ Removed duplicate buttons at bottom of pages
+- ✅ Better shadows and backdrop blur effect
+- ✅ Works perfectly in both light and dark modes
 
-### Dark Mode Features:
-- ✅ Respects system `prefers-color-scheme` setting
-- ✅ Dark backgrounds on all Rules page content
-- ✅ Perfect contrast for readability
-- ✅ Color-coded grammar preserved (Blue/Gold/Orange/Purple/Red)
-- ✅ Seamless switching between light and dark modes
-- ✅ No manual toggle needed - follows your device
+### Smart Table Widths
+- ✅ **Transformation 2 table:** Narrower (400px → 350px on mobile)
+- ✅ **Mode A & Mode B:** No horizontal scroll (text wraps naturally)
+- ✅ **Transformation 1 & Quick Reference:** Keep horizontal scroll (3 columns)
+- ✅ Scroll indicators only show when needed
+
+### Dark Mode Support 🌙
+- ✅ Auto-detects device preference
+- ✅ Dark navy backgrounds (#1a1a2e)
+- ✅ Light text (#e0e0e0) for readability
+- ✅ Color coding preserved (Blue/Gold/Orange/Purple/Red)
 
 ---
 
 ## 📦 Deployment Package Contents
 
 ### Core Files
-- `index.html` - Main HTML structure
-- `styles.css` - **WITH DARK MODE** (33KB, includes dark/light mode)
-- `sw.js` - Service Worker **v1218** (updated cache version)
+- `index.html` - **UPDATED** (Back button text changed, bottom buttons removed)
+- `styles.css` - **ENHANCED** (38KB: dark mode + floating button + table fixes)
+- `sw.js` - Service Worker **v1219**
 - `manifest.json` - PWA manifest
 
 ### JavaScript Modules
-- `app.js` - Main application logic
-- `events.js` - Event handlers
-- `ui-renderer.js` - UI updates
-- `audio.js` - Text-to-speech
-- `holiday.js` - Holiday data
-- `cultural.js` - Cultural explanations
-- `rules.js` - Grammar rules
-- `numbers.js` - Number formatting
-- `phonetics.js` - Phonetic transcriptions
-- `color-utils.js` - Color utilities
-- `namedays.js` - Name day logic
-- `namedays.json` - Name day database
+- All JS files unchanged from v1217
 
 ### Assets
-- `icon-192.png` - App icon (192x192)
-- `icon-512.png` - App icon (512x512)
-- `debug-button.css` - Debug styling
+- `icon-192.png`, `icon-512.png`
+- `debug-button.css`
 
 ### Documentation
-- `CHANGELOG.md` - Version history
-- `DEPLOYMENT_GUIDE.md` - Deployment instructions
+- `CHANGELOG.md` - Full version history
+- `DEPLOYMENT_GUIDE.md` - Deploy instructions
 - `README.md` - This file
 
 ---
@@ -57,113 +54,117 @@ The app now **automatically matches your device's dark/light mode preference**!
 ## 🚀 Quick Deploy
 
 ```bash
-# 1. Navigate to your GitHub repo
-cd ~/path/to/obvious
+# 1. Extract
+tar -xzf polish-date-master-v1219.tar.gz
+cd polish-date-app-deploy
 
-# 2. Extract and copy all files from this package
-# (Replace existing files)
+# 2. Copy to repo
+cd ~/obvious
+cp -r ../polish-date-app-deploy/* .
 
 # 3. Commit and push
 git add .
-git commit -m "v1218: Add dark mode support for Rules page"
+git commit -m "v1219: Floating back button, dark mode, table fixes"
 git push origin main
 
-# 4. Wait 1-2 minutes for GitHub Pages to rebuild
-# 5. Test at: https://newbroman.github.io/obvious/
+# 4. Test: https://newbroman.github.io/obvious/
 ```
 
 ---
 
-## ✅ What's New in v1218
+## ✅ What's New in v1219
 
-### Dark Mode Support 🌙
-- ✅ Auto-detects device dark/light mode preference
-- ✅ Dark backgrounds replace white boxes in dark mode
-- ✅ All text readable with proper contrast (#e0e0e0 on dark)
-- ✅ Headings bright white (#f0f0f0)
-- ✅ Tables with dark backgrounds and subtle borders
-- ✅ Color coding intact (Blue/Gold/Orange/Purple/Red)
-- ✅ Light mode unchanged (original design preserved)
+### UX Improvements 🎯
+- **Floating "Back" button** at bottom (sticky, always visible)
+- **Shorter label:** "← Back to Calendar" → "Back"
+- **Removed duplicates:** No more bottom buttons
+- **Better styling:** Shadows, blur, hover effects
 
-### From v1217: Mobile Table Scrolling
-- ✅ Tables scroll horizontally on mobile
-- ✅ All 3 columns visible with swipe
-- ✅ Scroll indicator added
-- ✅ Optimized CSS (removed duplicates)
+### Table Improvements 📏
+- **Transformation 2:** Narrower table (2 columns, 400px)
+- **Mode A & Mode B:** No scroll needed (single column tables)
+- **Smart scrolling:** Only wide tables (3+ columns) scroll
+- **Mobile optimized:** Transformation 2 scales to 350px
+
+### Dark Mode 🌙
+- Respects `prefers-color-scheme`
+- Dark backgrounds replace white
+- Perfect text contrast
+- Floating button optimized for dark mode
 
 ---
 
 ## 🧪 Testing Checklist
 
-After deployment, verify:
-
-### Dark Mode Testing (Priority!)
-- [ ] **Set device to dark mode**
+### Floating Button
 - [ ] Navigate to Rules page (⚖️ icon)
-- [ ] Background should be dark navy (#1a1a2e)
-- [ ] Content boxes should be dark slate (not white!)
-- [ ] Text should be light gray (readable)
-- [ ] Tables should have dark backgrounds
-- [ ] Color coding visible (Blue/Gold/Orange/Purple/Red)
-- [ ] **Switch device to light mode**
-- [ ] Rules page should show original light design
-- [ ] White backgrounds should appear
-- [ ] Text should be dark
+- [ ] **Scroll down** - button should stay at bottom
+- [ ] Button says "Back" (not "← Back to Calendar")
+- [ ] Click button - returns to calendar
+- [ ] Navigate to Cultural page (📖 icon)
+- [ ] Floating button works there too
 
-### Mobile Testing
-- [ ] Tables scroll horizontally
-- [ ] All 3 columns visible when swiping
-- [ ] Scroll indicator appears
-- [ ] Color coding intact in both modes
+### Table Widths
+- [ ] **Transformation 1 table:** Scrolls horizontally (3 columns)
+- [ ] **Transformation 2 table:** Narrower, easier to read (2 columns)
+- [ ] **Mode A table:** No scroll, text wraps
+- [ ] **Mode B table:** No scroll, text wraps
+- [ ] **Quick Reference table:** Scrolls horizontally (3 columns)
+- [ ] Scroll indicators only on wide tables
 
-### General Testing
-- [ ] App loads at https://newbroman.github.io/obvious/
-- [ ] Calendar displays current month
-- [ ] Audio playback works
-- [ ] Mode toggle works (Today is / It's on)
-- [ ] Language toggle works (EN / PL)
+### Dark Mode
+- [ ] Set device to dark mode
+- [ ] Rules page background is dark
+- [ ] Content boxes are dark slate (not white)
+- [ ] Floating button visible and readable
+- [ ] Switch to light mode - everything looks normal
 
 ---
 
 ## 🎨 Color Coding System
 
-The app uses color-coded grammar highlighting (works in both light and dark modes):
+Works in both light and dark modes:
 
-- 🔵 **Blue (#4a90e2)** - Nominative Ordinals (pierwszy, drugi, trzeci)
-- 🟡 **Gold (#ffd700)** - Genitive Ordinals (pierwszego, drugiego, trzeciego)
-- 🟠 **Orange (#f39c12)** - Genitive Months (stycznia, lutego, marca)
-- 🟣 **Purple (#9b59b6)** - Year Components (dwa tysiące dwudziestego szóstego)
-- 🔴 **Red (#e74c3c)** - Genitive Marker (roku)
+- 🔵 **Blue (#4a90e2)** - Nominative Ordinals
+- 🟡 **Gold (#ffd700)** - Genitive Ordinals
+- 🟠 **Orange (#f39c12)** - Genitive Months
+- 🟣 **Purple (#9b59b6)** - Year Components
+- 🔴 **Red (#e74c3c)** - Genitive Marker
 
 ---
 
 ## 📱 Supported Devices
 
-- ✅ iPhone (Safari) - All sizes, light & dark mode
-- ✅ Android (Chrome) - All sizes, light & dark mode
+- ✅ iPhone (Safari) - Light & dark mode
+- ✅ Android (Chrome) - Light & dark mode
 - ✅ iPad (Safari) - Light & dark mode
-- ✅ Desktop browsers (Chrome, Firefox, Safari, Edge) - Respects OS theme
+- ✅ Desktop browsers - Respects OS theme
 
 ---
 
 ## 🔄 Service Worker Cache
 
-**Version:** v1218  
-The service worker caches all app files for offline use. Dark mode CSS is now included in the cache.
+**Version:** v1219  
+Caches all app files including updated HTML and enhanced CSS.
 
 ---
 
 ## 📊 File Sizes
 
-- styles.css: 33KB (was 30KB in v1217, +3KB for dark mode)
-- Total package: ~295KB
+- **styles.css:** 38KB (was 33KB, +5KB for button/table fixes)
+- **index.html:** 7KB (button text updated, duplicates removed)
+- **Total package:** ~295KB
 
 ---
 
-## 📄 License
+## 🔧 Browser Support
 
-Independent educational project by Martin Hollingham.
+**Floating button (position: fixed):** All browsers ✅  
+**Dark mode (prefers-color-scheme):** Safari 12.1+, Chrome 76+, Firefox 67+ ✅  
+**Table targeting (:has() selector):** Safari 15.4+, Chrome 105+, Firefox 121+ ✅
+
+Graceful degradation for older browsers.
 
 ---
 
-**Ready to deploy with dark mode!** 🚀🌙
+**Ready to deploy!** 🚀

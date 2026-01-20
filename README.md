@@ -1,36 +1,28 @@
 # 🇵🇱 Polish Date Master
 
-**Version:** 1224  
+**Version:** 1225  
 **Last Updated:** January 20, 2026
 
 ---
 
-## 🎯 v1224: ALL Issues Fixed!
+## 🎯 v1225: RED Button, Top-Right Position
 
-### 1. Button Text Fixed ✅
-- Says "Back" (not "← Back to Calendar")
-- Fixed in events.js
-
-### 2. Button Position Fixed ✅
-- Top-LEFT of content box (not top-right of screen)
-- position: absolute (relative to .content-page)
-- 20px from top, 20px from left
-
-### 3. Mystery X Removed ✅
-- Removed `<button class="floating-close-btn">✕</button>`
-- Was appearing in season-box
-- Fixed in events.js
+### Button Style ✅
+- **Color:** RED (#E6192E) with white text
+- **Hover:** Darker red (#C0162A)
+- **Position:** Top-RIGHT of content box
+- **Text:** "Back"
 
 ---
 
 ## 🚀 Deploy
 
 ```bash
-tar -xzf polish-date-master-v1224.tar.gz
+tar -xzf polish-date-master-v1225.tar.gz
 cd ~/obvious
-cp -r polish-date-master-v1224/* .
+cp -r polish-date-master-v1225/* .
 git add .
-git commit -m "v1224: Fixed button text, position, and removed mystery X"
+git commit -m "v1225: Red button, top-right position"
 git push origin main
 ```
 
@@ -38,11 +30,11 @@ git push origin main
 
 ## ✅ What's New
 
-- Button text: "Back" only
-- Button position: Top-left of content box
-- No more mystery X in season-box
-- Service worker: v1224
+- Button background: RED (#E6192E)
+- Button position: Top-right of content box
+- Hover: Darker red
+- Service worker: v1225
 
 ---
 
-**All fixed!** 🎯
+**Perfect!** 🎯

@@ -1156,3 +1156,168 @@ button.back-to-cal {
 
 /* End of Rules Table Mobile Fix */
 
+/* ========================================
+   DARK MODE SUPPORT FOR RULES PAGE
+   Respects system preference (prefers-color-scheme)
+   ======================================== */
+
+/* Dark mode media query */
+@media (prefers-color-scheme: dark) {
+    
+    /* Main page background */
+    body {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* Rules container */
+    .rules-container {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* All rule blocks - dark background */
+    .rule-block {
+        background-color: rgba(30, 30, 50, 0.6) !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* White background boxes inside rule blocks -> dark */
+    .rule-block > div[style*="background: white"],
+    .rule-block > div[style*="background:#fffbf0"] {
+        background: rgba(40, 40, 60, 0.8) !important;
+        color: #e0e0e0 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* Tables - dark background */
+    .rule-block table {
+        background-color: rgba(30, 30, 50, 0.9) !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* Table headers */
+    .rule-block table thead tr {
+        background-color: rgba(50, 50, 70, 0.9) !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    .rule-block table th {
+        color: #f0f0f0 !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    /* Table rows */
+    .rule-block table tbody tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    .rule-block table td {
+        color: #e0e0e0 !important;
+    }
+    
+    /* Color legend section */
+    .color-legend {
+        background: rgba(40, 40, 60, 0.5) !important;
+        color: #e0e0e0 !important;
+    }
+    
+    .color-legend div[style*="background: rgba"] {
+        background: rgba(50, 50, 70, 0.3) !important;
+    }
+    
+    .color-legend small {
+        color: #b0b0b0 !important;
+    }
+    
+    /* Section dividers */
+    .section-divider {
+        color: #ffd700 !important;
+        border-bottom-color: rgba(255, 215, 0, 0.4) !important;
+    }
+    
+    /* Headings */
+    .rules-container h2,
+    .rules-container h3,
+    .rules-container h4 {
+        color: #f0f0f0 !important;
+    }
+    
+    /* Paragraphs */
+    .rules-container p {
+        color: #d0d0d0 !important;
+    }
+    
+    /* Code elements */
+    .rules-container code {
+        background-color: rgba(60, 60, 80, 0.8) !important;
+        color: #ffd700 !important;
+        border: 1px solid rgba(255, 215, 0, 0.3) !important;
+    }
+    
+    /* Scroll indicator - adjust for dark mode */
+    .rule-block > div[style*="background: white"]::after {
+        background: linear-gradient(to right, rgba(255,215,0,0.2), rgba(74,144,226,0.2)) !important;
+        color: #b0b0b0 !important;
+        border-top-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    /* Critical difference box (yellow box) */
+    .rule-block > div[style*="background: #fffbf0"] {
+        background: rgba(60, 50, 30, 0.6) !important;
+        border-color: rgba(255, 215, 0, 0.5) !important;
+    }
+    
+    /* Ensure colored text remains visible in dark mode */
+    /* These colors are already bright enough, but ensure they stand out */
+    .rule-block span[style*="color: #4a90e2"] {
+        /* Blue - Nominative Ordinals - already good */
+    }
+    
+    .rule-block span[style*="color: #ffd700"] {
+        /* Gold - Genitive Ordinals - already good */
+    }
+    
+    .rule-block span[style*="color: #f39c12"] {
+        /* Orange - Genitive Months - already good */
+    }
+    
+    .rule-block span[style*="color: #9b59b6"] {
+        /* Purple - Year - already good */
+    }
+    
+    .rule-block span[style*="color: #e74c3c"] {
+        /* Red - Genitive Marker - already good */
+    }
+    
+    /* Content pages general dark mode */
+    .content-page {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+    
+    .content-body {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* Back button */
+    .pill-btn.back-to-cal {
+        background-color: rgba(74, 144, 226, 0.3) !important;
+        color: #4a90e2 !important;
+        border: 1px solid rgba(74, 144, 226, 0.5) !important;
+    }
+    
+    .pill-btn.back-to-cal:hover {
+        background-color: rgba(74, 144, 226, 0.5) !important;
+    }
+}
+
+/* Light mode - ensure original colors are preserved */
+@media (prefers-color-scheme: light) {
+    /* Keep existing light mode styles */
+    body {
+        background-color: #f8f9fa !important;
+        color: #333 !important;
+    }
+}

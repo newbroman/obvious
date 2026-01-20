@@ -1,19 +1,31 @@
 # 🇵🇱 Polish Date Master
 
-**Version:** 1217  
+**Version:** 1218  
 **Last Updated:** January 20, 2026  
 **Live URL:** https://newbroman.github.io/obvious/
 
 ---
 
-## 📦 Deployment Package Contents
+## 🌙 NEW in v1218: Dark Mode Support!
 
-This package contains all files needed to deploy the Polish Date Master app to GitHub Pages.
+The app now **automatically matches your device's dark/light mode preference**!
+
+### Dark Mode Features:
+- ✅ Respects system `prefers-color-scheme` setting
+- ✅ Dark backgrounds on all Rules page content
+- ✅ Perfect contrast for readability
+- ✅ Color-coded grammar preserved (Blue/Gold/Orange/Purple/Red)
+- ✅ Seamless switching between light and dark modes
+- ✅ No manual toggle needed - follows your device
+
+---
+
+## 📦 Deployment Package Contents
 
 ### Core Files
 - `index.html` - Main HTML structure
-- `styles.css` - **FIXED** CSS (30KB, optimized from 40KB)
-- `sw.js` - Service Worker **v1217** (updated cache version)
+- `styles.css` - **WITH DARK MODE** (33KB, includes dark/light mode)
+- `sw.js` - Service Worker **v1218** (updated cache version)
 - `manifest.json` - PWA manifest
 
 ### JavaScript Modules
@@ -53,7 +65,7 @@ cd ~/path/to/obvious
 
 # 3. Commit and push
 git add .
-git commit -m "v1217: Fix Rules page mobile table scrolling"
+git commit -m "v1218: Add dark mode support for Rules page"
 git push origin main
 
 # 4. Wait 1-2 minutes for GitHub Pages to rebuild
@@ -62,15 +74,22 @@ git push origin main
 
 ---
 
-## ✅ What's New in v1217
+## ✅ What's New in v1218
 
-### Rules Page Mobile Fix
-- ✅ Tables now scroll horizontally on mobile
-- ✅ All 3 columns visible with swipe gesture
-- ✅ Text no longer cut off
-- ✅ Color coding preserved
+### Dark Mode Support 🌙
+- ✅ Auto-detects device dark/light mode preference
+- ✅ Dark backgrounds replace white boxes in dark mode
+- ✅ All text readable with proper contrast (#e0e0e0 on dark)
+- ✅ Headings bright white (#f0f0f0)
+- ✅ Tables with dark backgrounds and subtle borders
+- ✅ Color coding intact (Blue/Gold/Orange/Purple/Red)
+- ✅ Light mode unchanged (original design preserved)
+
+### From v1217: Mobile Table Scrolling
+- ✅ Tables scroll horizontally on mobile
+- ✅ All 3 columns visible with swipe
 - ✅ Scroll indicator added
-- ✅ CSS optimized (40KB → 30KB)
+- ✅ Optimized CSS (removed duplicates)
 
 ---
 
@@ -78,14 +97,29 @@ git push origin main
 
 After deployment, verify:
 
+### Dark Mode Testing (Priority!)
+- [ ] **Set device to dark mode**
+- [ ] Navigate to Rules page (⚖️ icon)
+- [ ] Background should be dark navy (#1a1a2e)
+- [ ] Content boxes should be dark slate (not white!)
+- [ ] Text should be light gray (readable)
+- [ ] Tables should have dark backgrounds
+- [ ] Color coding visible (Blue/Gold/Orange/Purple/Red)
+- [ ] **Switch device to light mode**
+- [ ] Rules page should show original light design
+- [ ] White backgrounds should appear
+- [ ] Text should be dark
+
+### Mobile Testing
+- [ ] Tables scroll horizontally
+- [ ] All 3 columns visible when swiping
+- [ ] Scroll indicator appears
+- [ ] Color coding intact in both modes
+
+### General Testing
 - [ ] App loads at https://newbroman.github.io/obvious/
 - [ ] Calendar displays current month
-- [ ] Click a date - Polish phrase appears with colors
-- [ ] Navigate to Rules page (⚖️ icon)
-- [ ] **On mobile:** Swipe tables horizontally
-- [ ] **On mobile:** All 3 columns visible
-- [ ] **On mobile:** Scroll indicator appears
-- [ ] Audio playback works (🔊 Listen button)
+- [ ] Audio playback works
 - [ ] Mode toggle works (Today is / It's on)
 - [ ] Language toggle works (EN / PL)
 
@@ -93,29 +127,36 @@ After deployment, verify:
 
 ## 🎨 Color Coding System
 
-The app uses color-coded grammar highlighting:
+The app uses color-coded grammar highlighting (works in both light and dark modes):
 
-- 🔵 **Blue** - Nominative Ordinals (pierwszy, drugi, trzeci)
-- 🟡 **Gold** - Genitive Ordinals (pierwszego, drugiego, trzeciego)
-- 🟠 **Orange** - Genitive Months (stycznia, lutego, marca)
-- 🟣 **Purple** - Year Components (dwa tysiące dwudziestego szóstego)
-- 🔴 **Red** - Genitive Marker (roku)
+- 🔵 **Blue (#4a90e2)** - Nominative Ordinals (pierwszy, drugi, trzeci)
+- 🟡 **Gold (#ffd700)** - Genitive Ordinals (pierwszego, drugiego, trzeciego)
+- 🟠 **Orange (#f39c12)** - Genitive Months (stycznia, lutego, marca)
+- 🟣 **Purple (#9b59b6)** - Year Components (dwa tysiące dwudziestego szóstego)
+- 🔴 **Red (#e74c3c)** - Genitive Marker (roku)
 
 ---
 
 ## 📱 Supported Devices
 
-- ✅ iPhone (Safari) - All sizes
-- ✅ Android (Chrome) - All sizes
-- ✅ iPad (Safari)
-- ✅ Desktop browsers (Chrome, Firefox, Safari, Edge)
+- ✅ iPhone (Safari) - All sizes, light & dark mode
+- ✅ Android (Chrome) - All sizes, light & dark mode
+- ✅ iPad (Safari) - Light & dark mode
+- ✅ Desktop browsers (Chrome, Firefox, Safari, Edge) - Respects OS theme
 
 ---
 
 ## 🔄 Service Worker Cache
 
-**Version:** v1217  
-The service worker automatically caches all app files for offline use. When you deploy a new version, the cache version increments automatically.
+**Version:** v1218  
+The service worker caches all app files for offline use. Dark mode CSS is now included in the cache.
+
+---
+
+## 📊 File Sizes
+
+- styles.css: 33KB (was 30KB in v1217, +3KB for dark mode)
+- Total package: ~295KB
 
 ---
 
@@ -125,4 +166,4 @@ Independent educational project by Martin Hollingham.
 
 ---
 
-**Ready to deploy!** 🚀
+**Ready to deploy with dark mode!** 🚀🌙

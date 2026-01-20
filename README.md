@@ -1,94 +1,52 @@
 # 🇵🇱 Polish Date Master
 
-**Version:** 1221  
+**Version:** 1223  
 **Last Updated:** January 20, 2026  
 **Live URL:** https://newbroman.github.io/obvious/
 
 ---
 
-## 🎯 NEW in v1221: Floating "Back" Button!
+## 🎯 v1223: TRULY Floating "Back" Button!
 
-### Floating Close Button
-- ✅ **Position:** Top right corner (fixed, floats while scrolling)
-- ✅ **Text:** Says "Back" (as requested!)
-- ✅ **Compact:** Small pill shape (padding: 8px 16px)
-- ✅ **Hover:** Turns red (#E6192E)
-- ✅ **Dark mode:** Dark background, white text
-- ✅ **Always visible:** Floats above content
-
-### Smart Tables
-- ✅ Transformation 2: Narrower (2 columns)
-- ✅ Mode A & Mode B: No scroll
-- ✅ Wide tables: Keep scrolling
-
-### Dark Mode
-- ✅ Auto-detects device preference
-- ✅ Dark backgrounds, light text
-- ✅ Color coding preserved
+### Fixed Floating Button
+- ✅ **TRULY FLOATS:** position: fixed with highest z-index (9999)
+- ✅ **Text:** Says "Back" only
+- ✅ **Position:** Top right corner
+- ✅ **CSS Priority:** Placed at END of stylesheet to override conflicts
+- ✅ **Multiple selectors:** Overrides all previous .back-to-cal styles
+- ✅ **Hover:** Turns red
 
 ---
 
-## 📦 Files Organized
-
-Folder: **`polish-date-master-v1221/`**
-
----
-
-## 🚀 Quick Deploy
+## 🚀 Deploy
 
 ```bash
-# Extract
-tar -xzf polish-date-master-v1221.tar.gz
-
-# Copy to repo
+tar -xzf polish-date-master-v1223.tar.gz
 cd ~/obvious
-cp -r polish-date-master-v1221/* .
-
-# Commit and push
+cp -r polish-date-master-v1223/* .
 git add .
-git commit -m "v1221: Floating Back button (top-right), smart tables, dark mode"
+git commit -m "v1223: FIXED floating Back button (position: fixed)"
 git push origin main
-
-# Test: https://newbroman.github.io/obvious/
 ```
 
----
-
-## ✅ What's New
-
-### Close Button
-- **Text:** "Back" (not × symbol)
-- **Position:** Top right, position: fixed
-- **Size:** Compact pill (8px 16px padding)
-- **Hover:** White → Red
-- **Mobile:** Slightly smaller (6px 12px)
-
-### Tables
-- Transformation 2: Narrower
-- Mode A/B: No scroll
-- Smart targeting
-
-### Dark Mode
-- Auto-detection
-- Dark backgrounds
-- Perfect contrast
+**Test:** https://newbroman.github.io/obvious/
 
 ---
 
-## 🧪 Testing
+## ✅ What's Fixed
 
-### Back Button
-- [ ] Navigate to Rules page
-- [ ] **Button says "Back"** (top right)
-- [ ] **Floats while scrolling**
-- [ ] Hover turns red
-- [ ] Click returns to calendar
+### CSS Priority Issue Solved
+- Floating button CSS now at **END** of stylesheet
+- Uses multiple selectors for maximum specificity
+- `position: fixed !important` with `z-index: 9999`
+- Overrides ALL previous .back-to-cal definitions
 
-### Dark Mode
-- [ ] Enable dark mode
-- [ ] Button visible (dark bg, white text)
-- [ ] Still says "Back"
+### Button Behavior
+- Stays in top-right while scrolling
+- Always visible
+- Compact pill shape
+- White → Red on hover
 
 ---
 
-**Ready to deploy!** 🚀
+**This time it WILL float!** 🚀

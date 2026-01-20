@@ -8,6 +8,9 @@ import { getRulesHTML } from './rules.js';
 import { updateNamedaysDisplay } from './ui-renderer.js';
 
 export function setupListeners(state, render) {
+    // Audio playback state
+    let lastPlayTime = 0;
+    let playbackSpeed = 0.85;
     
     // --- 1. Audio and Logic Toggles ---
     const triggerAudioUnlock = () => {

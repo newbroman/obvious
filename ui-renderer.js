@@ -54,12 +54,12 @@ export function updateInfoPanel(selectedDate, includeYear, isFormal) {
     const capitalizedDayPhonetic = dayPhonetic.charAt(0).toUpperCase() + dayPhonetic.slice(1);
     
     // We add the Signpost (Day Name) at the start
-    let fullPl = `${dayNamePl}, ${capitalizedDaySpelling} ${currentMonthKey}`;
+    let fullPl = `${dayNamePl}, ${daySpelling} ${currentMonthKey}`;
     let fullEn = `${dayNameEn}, ${monthEn} ${day}${getEnglishSuffix(day)}`;
     
     // For phonetics, we need to add the day name pronunciation if you have it, 
     // otherwise, we start with the day number:
-    let fullPhonetic = `${capitalizedDayPhonetic} ${monthPhonetic}`;
+    let fullPhonetic = `${dayPhonetic} ${monthPhonetic}`;
 
     // 4. Year Logic
     if (includeYear) {
@@ -69,9 +69,9 @@ export function updateInfoPanel(selectedDate, includeYear, isFormal) {
         const suffixPl = "roku";
         const suffixPhonetic = "ro-koo";
 
-        fullPl += ` ${yearSpelling} ${suffixPl}`;
+        fullPl += `, ${yearSpelling} ${suffixPl}`;
         fullEn += `, ${year}`;
-        fullPhonetic += ` ${yearPhonetic} ${suffixPhonetic}`;
+        fullPhonetic += `, ${yearPhonetic} ${suffixPhonetic}`;
     }
     
   // 5. Holiday Display

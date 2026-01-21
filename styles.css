@@ -1466,12 +1466,12 @@ body {
 }
 /* Fix 1: Constrain calendar width on desktop */
 #calendarView {
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
 .calendar-container {
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
@@ -1492,5 +1492,26 @@ body {
     #namedaysSection button#navSearch {
         font-size: 1.2rem !important;
         padding: 4px !important;
+    }
+}
+/* Make calendar 20% smaller on desktop (500px -> 400px) */
+#calendarView {
+    max-width: 400px !important;
+    margin: 0 auto;
+}
+
+.calendar-container {
+    max-width: 400px !important;
+    margin: 0 auto;
+}
+
+/* Ensure calendar doesn't expand beyond this on any screen */
+@media (min-width: 769px) {
+    #calendarView {
+        max-width: 400px !important;
+    }
+    
+    .calendar-container {
+        max-width: 400px !important;
     }
 }

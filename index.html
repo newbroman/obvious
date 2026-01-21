@@ -64,16 +64,18 @@
         <button class="pill-btn back-to-cal">Back</button>
         <h1>Polish Cultural Traditions</h1>
         <div class="content-body">
-            <h2>Imieniny (Name Days)</h2>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h2 style="margin: 0;">Imieniny (Name Days)</h2>
+                <button id="navSearch" class="nav-icon-btn" title="Name Search" style="font-size: 1.5rem; padding: 8px;">🔍</button>
+            </div>
             <p>In Poland, <strong>Name Days</strong> are often more important than birthdays. Most Polish calendars list the names associated with each day.</p>
             
             <div id="namedaysSection" class="namedays-display">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;"><h3 style="margin: 0;">Names for Selected Date</h3><button id="navSearch" class="nav-icon-btn" title="Name Search" style="font-size: 1.5rem; padding: 8px;">🔍</button></div>
+                <h3>Names for Selected Date</h3>
                 <div id="namedaysList" class="namedays-list">
                     <p class="namedays-placeholder">Select a date in the calendar to see name days</p>
                 </div>
             </div>
-            
             <h2>Holidays & Customs</h2>
             <p>Look for days with <em>red borders</em> in the calendar to identify national holidays and significant celebrations.</p>
         </div>

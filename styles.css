@@ -1464,3 +1464,33 @@ body {
         column-gap: 3px;
     }
 }
+/* Fix 1: Constrain calendar width on desktop */
+#calendarView {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.calendar-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Fix 2: Ensure search button is visible on mobile in Cultural page */
+.namedays-display {
+    display: block !important;
+}
+
+/* Make search button more visible on mobile */
+@media (max-width: 768px) {
+    #namedaysSection button#navSearch {
+        font-size: 1.3rem !important;
+        padding: 6px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #namedaysSection button#navSearch {
+        font-size: 1.2rem !important;
+        padding: 4px !important;
+    }
+}

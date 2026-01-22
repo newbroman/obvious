@@ -184,7 +184,6 @@ export function renderCulturalHub(state) {
     
     let html = `
     <button class="pill-btn back-to-cal">Back</button>
-    <button id="navSearch" class="nav-icon-btn" title="Name Search" style="position: absolute; top: 15px; right: 15px; width: 50px; height: 50px; font-size: 1.5rem; padding: 0; background: white; border: 2px solid #333; border-radius: 50%; z-index: 100; display: flex; align-items: center; justify-content: center; cursor: pointer;">🔍</button>
     <div class="content-body">
         <header class="content-header">
             <h1>${day}. ${displayMonth} ${year}</h1>
@@ -214,7 +213,7 @@ export function renderCulturalHub(state) {
             </div>
         </section>
         <section class="info-block">
-            <h3>🎂 ${state.isPolish ? 'Imieniny' : 'Name Days'}</h3>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;"><h3 style="margin: 0;">🎂 ${state.isPolish ? 'Imieniny' : 'Name Days'}</h3><button id="navSearch" class="nav-icon-btn" title="Name Search" style="font-size: 1.5rem; padding: 8px; background: white; border: 2px solid #333; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer;">🔍</button></div>
             <div id="namedaysList" class="namedays-list" style="padding: 15px; background: rgba(128,128,128,0.05); border-radius: 8px;">
                 <p class="namedays-placeholder" style="color: #999; font-style: italic;">Select a date to see name days</p>
             </div>

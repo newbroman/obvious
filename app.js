@@ -42,10 +42,9 @@ const featGram = document.getElementById('featGram');
 const modalDevNote = document.getElementById('modalDevNote');
 const feedbackBtn = document.getElementById('feedbackBtn');
 
-        updateHelpPage(state.isPolish);
-        featGram.innerHTML = "⚖️ <b>Grammar:</b> Master the numeral cases.";
-        modalDevNote.innerText = "Independent project. Your feedback helps me improve!";
-        feedbackBtn.innerText = "Send Feedback";
+if (modalTitle) {
+    if (state.isPolish) {
+    updateHelpPage(state.isPolish);
     }
 }
     

@@ -1,11 +1,12 @@
-# Polish Language App - v1255
+# Polish Language App - v1257
 
-✅ Expanded Help page - FIXED (modalAboutHeader added back)
-✅ Feedback button preserved
-✅ No console errors
+✅ Added pronunciation modes explanation to help page
+✅ References Grammar page for detailed case information
+✅ Help page scrolls properly
+✅ Back button in help modal
 ✅ All features working
 
 Deploy:
-tar -xzf polish-date-master-v1255.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1255/* .
-git add . && git commit -m "v1255: Fixed modalAboutHeader error" && git push
+tar -xzf polish-date-master-v1257.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1257/* .
+git add . && git commit -m "v1257: Added pronunciation modes to help" && git push

@@ -1541,3 +1541,16 @@ body {
 .phrase-display {
     font-size: 1.1em !important;
 }
+
+/* Fix help modal scrolling */
+.modal-overlay .modal-content {
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    position: relative;
+}
+
+.modal-overlay .about-body {
+    max-height: calc(90vh - 60px) !important;
+    overflow-y: auto !important;
+    padding-right: 10px;
+}

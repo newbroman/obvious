@@ -1,20 +1,17 @@
-# Polish Language App - v1246
+# Polish Language App - v1248
 
-**FIXED VERSION** - All content restored, button working correctly
-
-## Changes in v1246:
-1. ✅ Added spacing below season box and meaning sections
-2. ✅ Changed heading to use nominative month (e.g., "22. Styczeń")
-3. ✅ Renamed "Etymology" to "Meaning of the Month" with styled box
-4. ✅ ALL CONTENT PRESERVED - holidays, traditions, etc.
-5. ✅ Search button working correctly
+## Changes in v1248:
+1. ✅ Moved "Today's Name Days are:" text INSIDE the name days box (not as heading)
+2. ✅ Text appears when names are displayed
+3. ✅ Expanded Help page with cultural information
+4. ✅ All content from v1246 preserved
 
 ## Deploy:
 ```bash
-tar -xzf polish-date-master-v1246.tar.gz
+tar -xzf polish-date-master-v1248.tar.gz
 cd ~/obvious
-cp -r polish-date-master-v1246/* .
+cp -r polish-date-master-v1248/* .
 git add .
-git commit -m "v1246: FIXED - Cultural page improvements with all content"
+git commit -m "v1248: Name days text in box, expanded help"
 git push origin main
 ```

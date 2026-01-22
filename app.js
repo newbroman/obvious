@@ -1,4 +1,5 @@
 import { renderHelpModal } from './help.js';
+
 /**
  * app.js - Final Integration Fixed
  */
@@ -41,7 +42,8 @@ const featGram = document.getElementById('featGram');
 const modalDevNote = document.getElementById('modalDevNote');
 const feedbackBtn = document.getElementById('feedbackBtn');
 
-    renderHelpModal(state.isPolish);
+        renderHelpModal(state.isPolish);
+    }
         modalDevNote.innerText = "Independent project. Your feedback helps me improve!";
         feedbackBtn.innerText = "Send Feedback";
     }

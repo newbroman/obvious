@@ -94,7 +94,6 @@
 
 <!-- Name Search Page -->
 <section id="nameSearchPage" style="display: none;">
-    <button class="pill-btn back-to-cal" style="position: absolute; top: 0.5rem; left: 1rem;">Back</button>
     <div class="content-body">
         <h2>🔍 Name Day Search</h2>
         <p style="color: #666; margin-bottom: 10px;">Search for a name to find which dates it's celebrated</p>

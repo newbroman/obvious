@@ -1577,3 +1577,31 @@ body {
     width: 100%;
     margin-top: 15px;
 }
+
+/* Hide the old × close button */
+.modal-overlay .close-btn {
+    display: none !important;
+}
+
+/* Fix scrollbar to be at edge of content */
+.modal-overlay .modal-content {
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+.modal-overlay .about-body {
+    padding: 60px 25px 25px 25px !important; /* Top padding for Back button */
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Make feedback button visible on desktop - force display */
+.modal-overlay #feedbackBtn,
+.modal-overlay .pill-btn-feedback {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+}

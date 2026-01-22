@@ -278,7 +278,17 @@ export function renderCulturalHub(state) {
         </div>`;
 
     hub.innerHTML = html;
-    hub.querySelector('.back-to-cal').onclick = () => document.getElementById('navCalendar').click();
+    
+    // Translate back button and search button
+    const cultureBackBtn = document.getElementById('cultureBackBtn');
+    const cultureSearchBtn = hub.querySelector('#navSearch');
+    if (cultureBackBtn) {
+        cultureBackBtn.onclick = () => document.getElementById('navCalendar').click();
+        cultureBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
+    }
+    if (cultureSearchBtn) {
+        cultureSearchBtn.innerHTML = state.isPolish ? "🔍 Szukaj Imienin" : "🔍 Name Day Search";
+    }
     
     // Update namedays display after HTML is inserted
     if (state.selectedDate) {
@@ -304,7 +314,11 @@ export function renderRulesPage(state) {
         <div class="content-body">
             ${getRulesHTML(state)}
         </div>`;
-    page.querySelector('.back-to-cal').onclick = () => document.getElementById('navCalendar').click();
+    const rulesBackBtn = document.getElementById('rulesBackBtn');
+    if (rulesBackBtn) {
+        rulesBackBtn.onclick = () => document.getElementById('navCalendar').click();
+        rulesBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
+    }
 }
 
 
@@ -316,10 +330,20 @@ function renderSearchPage(state) {
     const searchBtn = document.getElementById('nameSearchBtn');
     const searchInput = document.getElementById('nameSearchInput');
     const resultsDiv = document.getElementById('nameSearchResults');
-    const backBtn = page.querySelector('.back-to-cal');
+    const backBtn = document.getElementById('searchBackBtn');
     
     if (backBtn) {
         backBtn.onclick = () => document.getElementById('navCalendar').click();
+        backBtn.innerText = state.isPolish ? "Wróć" : "Back";
+    }
+    
+    // Translate search page title and button
+    const searchTitle = page.querySelector('h2');
+    if (searchTitle) {
+        searchTitle.textContent = state.isPolish ? "🔍 Szukaj Imienin" : "🔍 Name Day Search";
+    }
+    if (searchBtn) {
+        searchBtn.textContent = state.isPolish ? "Szukaj" : "Search";
     }
     
     // Handle search button click

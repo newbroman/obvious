@@ -117,11 +117,13 @@ export function speakPolish() {
     window.speechSynthesis.speak(utterance);
 }
 
-
-// Update namedays display when date changes
-export async function updateNamedaysDisplay(selectedDate) {
-    console.log('updateNamedaysDisplay called with date:', selectedDate);
-    const list = document.getElementById('namedaysList');
+        const sections = {
+            'calendar': document.getElementById('calendarSection'),
+            'culture': document.getElementById('culturalHub'),
+            'rules': document.getElementById('rulesPage'),
+            'search': document.getElementById('nameSearchPage'),
+            'help': document.getElementById('helpPage')
+        };
     console.log('Found namedaysList element:', list);
     
     if (!list || !selectedDate) {

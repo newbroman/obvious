@@ -149,7 +149,7 @@ if (meetingBtn) {
         
         // Setup Back button in help modal
         setTimeout(() => {
-            const modalBackBtn = document.querySelector("#helpPage .back-to-cal");
+            const modalBackBtn = document.querySelector("#aboutModal .back-to-cal");
             if (modalBackBtn) {
                 modalBackBtn.onclick = () => {
                     document.getElementById("helpPage").style.display = "none";

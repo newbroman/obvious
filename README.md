@@ -1,10 +1,10 @@
-# Polish Language App - v1291
+# Polish Language App - v1300
 
-✅ showSection() now supports 'help' case
-✅ navInfo button handler added
-✅ Help page navigation fully working
+✅ ui-renderer.js: sections object manually corrected
+✅ Help page in correct location
+✅ All syntax validated
 
 Deploy:
-tar -xzf polish-date-master-v1291.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1291/* .
-git add . && git commit -m "v1291: Help page shows" && git push
+tar -xzf polish-date-master-v1300.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1300/* .
+git add . && git commit -m "v1300: Help page working" && git push

@@ -141,8 +141,6 @@ export const showSection = (sectionName) => {
     }
 }
 
-                console.log('Setting innerHTML to:', html);
-                list.innerHTML = html;
             } else {
                 list.innerHTML = '<p class="namedays-placeholder">No name days found for this date</p>';
             }

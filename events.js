@@ -193,11 +193,11 @@ export function renderCulturalHub(state) {
             <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 
             <span class="season-text">${monthInfo.season}</span>
         </div>
-        <section class="info-block">
+        <section class="info-block" style="margin-bottom: 20px;">
             <h3>📜 ${state.isPolish ? 'Etymologia' : 'Etymology'}</h3>
             <p class="derivation-text">${monthInfo.derivation}</p>
         </section>
-        <section class="info-block">
+        <section class="info-block" style="margin-bottom: 20px;">
             <h3>📅 ${state.isPolish ? 'Znaczenie dzisiejszego dnia' : 'Meaning of Today'}</h3>
             <div class="culture-grid-mini">
                 ${(() => {
@@ -212,13 +212,13 @@ export function renderCulturalHub(state) {
                 })()}
             </div>
         </section>
-        <section class="info-block">
+        <section class="info-block" style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;"><h3 style="margin: 0;">🎂 ${state.isPolish ? 'Imieniny' : 'Name Days'}</h3><button id="navSearch" class="pill-btn" title="Name Day Search" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">Name Day Search</button></div>
             <div id="namedaysList" class="namedays-list" style="padding: 15px; background: rgba(128,128,128,0.05); border-radius: 8px;">
                 <p class="namedays-placeholder" style="color: #999; font-style: italic;">Select a date to see name days</p>
             </div>
         </section>
-        <section class="info-block">
+        <section class="info-block" style="margin-bottom: 20px;">
             <h3>🎈 ${state.isPolish ? 'Wydarzenia i Święta' : 'Holidays & Traditions'}</h3>
             <div class="holiday-list">`;
 

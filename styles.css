@@ -1526,18 +1526,18 @@ body {
 
 /* Increase calendar phrase font sizes to 150% */
 #plPhrase, .phrase-pl {
-    font-size: 1.5em !important; /* 150% of base */
+    font-size: 1.1em !important; /* 150% of base */
 }
 
 #phoneticPhrase, .phrase-phonetic {
-    font-size: 1.5em !important; /* 150% of base */
+    font-size: 1.1em !important; /* 150% of base */
 }
 
 #enPhrase, .phrase-en {
-    font-size: 1.5em !important; /* 150% of base */
+    font-size: 1.1em !important; /* 150% of base */
 }
 
 /* Also increase the phrase display container if it exists */
 .phrase-display {
-    font-size: 1.5em !important;
+    font-size: 1.1em !important;
 }

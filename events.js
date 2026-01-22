@@ -175,13 +175,12 @@ if (meetingBtn) {
  */
 export function renderCulturalHub(state) {
     const hub = document.getElementById('culturalHub');
-    const nominativeMonths = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", 
-                              "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
-    const nominativeMonth = nominativeMonths[monthIndex];
     const monthIndex = state.viewDate.getMonth();
     const year = state.viewDate.getFullYear();
     const day = state.viewDate.getDate();
     const monthInfo = culturalData.months[monthIndex] || { pl: "Miesiąc", derivation: "N/A", season: "N/A" };
+    const nominativeMonths = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
+    const nominativeMonth = nominativeMonths[monthIndex];
     const holidays = holidayData.getHolidaysForYear(year);
     const displayMonth = monthInfo.pl.charAt(0).toUpperCase() + monthInfo.pl.slice(1);
     

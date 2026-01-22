@@ -1,95 +1,20 @@
-# Polish Language App - Deployment Package v1245
+# Polish Language App - v1246
 
-**Version:** 1245  
-**Date:** 2026-01-22  
-**Service Worker Cache:** pl-date-v1245
+**FIXED VERSION** - All content restored, button working correctly
 
----
+## Changes in v1246:
+1. ✅ Added spacing below season box and meaning sections
+2. ✅ Changed heading to use nominative month (e.g., "22. Styczeń")
+3. ✅ Renamed "Etymology" to "Meaning of the Month" with styled box
+4. ✅ ALL CONTENT PRESERVED - holidays, traditions, etc.
+5. ✅ Search button working correctly
 
-## What's in This Package
-
-This is the complete deployment package for the Polish Language App.
-
-### Files Included:
-- `index.html` - Main application page
-- `styles.css` - All styling (calendar fonts at 110%)
-- `events.js` - Event handlers and page rendering (with spacing fixes)
-- `ui-renderer.js` - Date formatting and display
-- `app.js` - Main application logic
-- `sw.js` - Service worker for offline support
-- `manifest.json` - PWA manifest
-- All JavaScript modules (audio, cultural, holiday, namedays, etc.)
-- Icon files (192px and 512px)
-
----
-
-## Changes in v1245
-
-1. **Spacing Fix:** Added 20px margin below sections on Cultural page to prevent text from being scrunched
-2. **Calendar Font Size:** Reduced from 150% to 110% for better readability (was too large)
-3. **README:** Added this README.md to deployment package
-
----
-
-## How to Deploy
-
+## Deploy:
 ```bash
-# Extract the package
-tar -xzf polish-date-master-v1245.tar.gz
-
-# Navigate to your repo
+tar -xzf polish-date-master-v1246.tar.gz
 cd ~/obvious
-
-# Copy all files
-cp -r polish-date-master-v1245/* .
-
-# Commit and push
+cp -r polish-date-master-v1246/* .
 git add .
-git commit -m "v1245: Spacing fix, 110% calendar fonts, added README"
+git commit -m "v1246: FIXED - Cultural page improvements with all content"
 git push origin main
 ```
-
----
-
-## After Deployment
-
-1. Wait 1-2 minutes for GitHub Pages to rebuild
-2. Clear browser cache (Ctrl+Shift+R)
-3. Visit: https://newbroman.github.io/obvious/
-
----
-
-## Testing
-
-### Cultural Page Spacing:
-- Go to Cultural page (📖)
-- Check spacing between "Meaning of Today" and "🎂 Imieniny" sections
-- Should have comfortable spacing (not scrunched)
-
-### Calendar Font Size:
-- Go to Calendar page (📅)
-- Select any date
-- Polish, phonetic, and English text should be 10% larger than v1242
-- Should be readable but not overwhelming
-
-### Search Button:
-- Red button with "Name Day Search" text
-- Located in Name Days section, right-aligned
-
----
-
-## Version History
-
-- v1245 ← Current (spacing fix, 110% fonts, README added)
-- v1243 ← Red button, 150% fonts (too large)
-- v1242 ← Button positioned correctly
-- v1241 ← Button in JavaScript render
-- v1240 ← Explicit button sizing
-
----
-
-## Support
-
-For issues or questions, refer to the Deployment Instructions document in the Obvious project.
-
-**Live Site:** https://newbroman.github.io/obvious/

@@ -1,3 +1,4 @@
+import { renderHelpModal } from './help.js';
 /**
  * app.js - Final Integration Fixed
  */
@@ -40,19 +41,7 @@ const featGram = document.getElementById('featGram');
 const modalDevNote = document.getElementById('modalDevNote');
 const feedbackBtn = document.getElementById('feedbackBtn');
 
-if (modalTitle) {
-    if (state.isPolish) {
-        modalAboutHeader.innerText = "O aplikacji:";
-        featCal.innerHTML = "📅 <b>Kalendarz:</b> Kliknij datę, by usłyszeć wymowę.";
-        featCult.innerHTML = "📖 <b>Kultura:</b> Poznaj polskie tradycje i imieniny.";
-        featGram.innerHTML = "⚖️ <b>Gramatyka:</b> Opanuj odmianę liczebników.";
-        modalDevNote.innerText = "Projekt niezależny. Twoja opinia pomaga mi w rozwoju!";
-        feedbackBtn.innerText = "Prześlij opinię (Feedback)";
-    } else {
-        modalAboutHeader.innerText = "About the app:";
-        featCal.innerHTML = "📅 <b>Calendar:</b> Click a date to hear pronunciation.";
-        featCult.innerHTML = "📖 <b>Culture:</b> Explore Polish traditions and Name Days.";
-        featGram.innerHTML = "⚖️ <b>Grammar:</b> Master the numeral cases.";
+    renderHelpModal(state.isPolish);
         modalDevNote.innerText = "Independent project. Your feedback helps me improve!";
         feedbackBtn.innerText = "Send Feedback";
     }

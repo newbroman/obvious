@@ -148,7 +148,7 @@ if (meetingBtn) {
             const modalBackBtn = document.querySelector("#aboutModal .back-to-cal");
             if (modalBackBtn) {
                 modalBackBtn.onclick = () => {
-                    document.getElementById("aboutModal").style.display = "none";
+                    document.getElementById("helpPage").style.display = "none";
                 };
             }
         }, 100);

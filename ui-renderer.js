@@ -115,31 +115,31 @@ export function speakPolish() {
     utterance.lang = 'pl-PL';
     utterance.rate = 0.85; 
     window.speechSynthesis.speak(utterance);
+
+export const showSection = (sectionName) => {
+    window.scrollTo(0, 0);
+    const sections = {
+        'calendar': document.getElementById('calendarSection'),
+        'culture': document.getElementById('culturalHub'),
+        'rules': document.getElementById('rulesPage'),
+        'search': document.getElementById('nameSearchPage'),
+        'help': document.getElementById('helpPage')
+    };
+    const infoPanel = document.querySelector('.info-panel');
+
+    Object.values(sections).forEach(s => {
+        if (s) s.style.setProperty('display', 'none', 'important');
+    });
+
+    if (sections[sectionName]) {
+        sections[sectionName].style.setProperty('display', 'block', 'important');
+    }
+
+    if (infoPanel) {
+        infoPanel.style.display = (sectionName === 'calendar') ? 'flex' : 'none';
+    }
 }
 
-        const sections = {
-            'calendar': document.getElementById('calendarSection'),
-            'culture': document.getElementById('culturalHub'),
-            'rules': document.getElementById('rulesPage'),
-            'search': document.getElementById('nameSearchPage'),
-            'help': document.getElementById('helpPage')
-        };
-    console.log('Found namedaysList element:', list);
-    
-    if (!list || !selectedDate) {
-        console.log('Early return - list or selectedDate missing');
-        return;
-    }
-    
-    try {
-        // Call the global function from namedays.js
-        if (typeof window.getNamesForDate === 'function') {
-            console.log('Calling window.getNamesForDate...');
-            const names = await window.getNamesForDate(selectedDate);
-            console.log('Received names:', names);
-            
-            if (names && names.length > 0) {
-                const html = `<p style="font-weight: bold; margin: 0 0 8px 0; color: #666;">Today's Name Days are:</p><p class="namedays-names">${names.join(', ')}</p>`;
                 console.log('Setting innerHTML to:', html);
                 list.innerHTML = html;
             } else {

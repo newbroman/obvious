@@ -1552,5 +1552,10 @@ body {
 .modal-overlay .about-body {
     max-height: calc(90vh - 60px) !important;
     overflow-y: auto !important;
-    padding-right: 10px;
+}
+
+/* Fix modal content box-sizing */
+.modal-overlay .modal-content,
+.modal-overlay .about-body {
+    box-sizing: border-box !important;
 }

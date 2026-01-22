@@ -1605,3 +1605,17 @@ body {
     width: 100% !important;
     margin-top: 15px !important;
 }
+
+/* COMPLETE FIX for modal scrollbar positioning */
+.modal-overlay .modal-content {
+    padding: 25px !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+.modal-overlay .about-body {
+    padding: 40px 0 0 0 !important; /* Only top padding for Back button space */
+    max-height: none !important;
+    overflow-y: visible !important;
+}

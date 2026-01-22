@@ -1,12 +1,11 @@
-# Polish Language App - v1262
+# Polish Language App - v1264
 
-✅ Updated calendar description with pronunciation modes text
-✅ Hidden old × close button
-✅ Fixed scrollbar position
-✅ Red Back button works
-✅ Feedback button visible on desktop
+✅ Back button moved down (top: 45px)
+✅ Back button handler fixed - now works!
+✅ Scrollbar at content edge (no wide margin)
+✅ Color coding section removed
 
 Deploy:
-tar -xzf polish-date-master-v1262.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1262/* .
-git add . && git commit -m "v1262: Calendar text and modal fixes" && git push
+tar -xzf polish-date-master-v1264.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1264/* .
+git add . && git commit -m "v1264: Fixed back button and scrollbar" && git push

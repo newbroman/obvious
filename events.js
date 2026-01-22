@@ -142,17 +142,20 @@ if (meetingBtn) {
         state.viewDate.setMonth(state.viewDate.getMonth() - 1);
         render();
     };
+        
+        // Setup Back button in help modal
+        setTimeout(() => {
+            const modalBackBtn = document.querySelector("#aboutModal .back-to-cal");
+            if (modalBackBtn) {
+                modalBackBtn.onclick = () => {
+                    document.getElementById("aboutModal").style.display = "none";
+                };
+            }
+        }, 100);
 
     document.getElementById('nextMonth').onclick = () => {
         state.viewDate.setMonth(state.viewDate.getMonth() + 1);
     
-    // Handle Back button in help modal
-    const helpModalBackBtn = document.querySelector("#aboutModal .back-to-cal");
-    if (helpModalBackBtn) {
-        helpModalBackBtn.addEventListener("click", () => {
-            document.getElementById("aboutModal").style.display = "none";
-        });
-    }
         render();
     };
 

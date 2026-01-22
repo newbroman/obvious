@@ -133,6 +133,7 @@ if (meetingBtn) {
     
     document.getElementById('navInfo').onclick = () => {
         showSection('help');
+        import('./help.js').then(m => m.updateHelpPage(state.isPolish));
     };
         showSection('rules');
         renderRulesPage(state);

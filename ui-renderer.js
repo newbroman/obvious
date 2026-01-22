@@ -137,8 +137,8 @@ export async function updateNamedaysDisplay(selectedDate) {
             console.log('Received names:', names);
             
             if (names && names.length > 0) {
-                const html = `<p class="namedays-names">${names.join(', ')}</p>`;
                 const html = `<p style="font-weight: bold; margin: 0 0 8px 0; color: #666;">Today's Name Days are:</p><p class="namedays-names">${names.join(', ')}</p>`;
+                console.log('Setting innerHTML to:', html);
                 list.innerHTML = html;
             } else {
                 list.innerHTML = '<p class="namedays-placeholder">No name days found for this date</p>';

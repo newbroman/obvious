@@ -1619,3 +1619,20 @@ body {
     max-height: none !important;
     overflow-y: visible !important;
 }
+
+/* Fix horizontal scroll on rules page */
+#rulesPage {
+    overflow-x: hidden !important;
+}
+
+#rulesPage .content-body {
+    overflow-x: hidden !important;
+    max-width: 100%;
+}
+
+#rulesPage p, 
+#rulesPage .rule-block {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    max-width: 100%;
+}

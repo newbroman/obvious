@@ -1,10 +1,10 @@
-# Polish Language App - v1265
+# Polish Language App - v1266
 
-✅ Back button position: 1.5rem (~25px) from top
-✅ Using rem units instead of px
-✅ All v1264 fixes preserved
+✅ Help back button: 1rem from top (using rem units)
+✅ Fixed horizontal scroll on rules page
+✅ All previous fixes preserved
 
 Deploy:
-tar -xzf polish-date-master-v1265.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1265/* .
-git add . && git commit -m "v1265: Back button 1.5rem, using rem units" && git push
+tar -xzf polish-date-master-v1266.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1266/* .
+git add . && git commit -m "v1266: Help button 1rem, rules scroll fixed" && git push

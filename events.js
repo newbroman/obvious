@@ -216,6 +216,7 @@ export function renderCulturalHub(state) {
         </section>
         <section class="info-block" style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;"><h3 style="margin: 0;">🎂 ${state.isPolish ? 'Imieniny' : 'Name Days'}</h3><button id="navSearch" class="pill-btn" title="Name Day Search" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">Name Day Search</button></div>
+            <div id="namedaysList" class="namedays-list" style="padding: 15px; background: rgba(128,128,128,0.05); border-radius: 8px;">
                 <p class="namedays-placeholder" style="color: #999; font-style: italic;">Select a date to see name days</p>
             </div>
         </section>

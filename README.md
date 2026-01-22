@@ -1,8 +1,8 @@
-# Polish Language App - Deployment Package v1244
+# Polish Language App - Deployment Package v1245
 
-**Version:** 1244  
+**Version:** 1245  
 **Date:** 2026-01-22  
-**Service Worker Cache:** pl-date-v1244
+**Service Worker Cache:** pl-date-v1245
 
 ---
 
@@ -23,7 +23,7 @@ This is the complete deployment package for the Polish Language App.
 
 ---
 
-## Changes in v1244
+## Changes in v1245
 
 1. **Spacing Fix:** Added 20px margin below sections on Cultural page to prevent text from being scrunched
 2. **Calendar Font Size:** Reduced from 150% to 110% for better readability (was too large)
@@ -35,17 +35,17 @@ This is the complete deployment package for the Polish Language App.
 
 ```bash
 # Extract the package
-tar -xzf polish-date-master-v1244.tar.gz
+tar -xzf polish-date-master-v1245.tar.gz
 
 # Navigate to your repo
 cd ~/obvious
 
 # Copy all files
-cp -r polish-date-master-v1244/* .
+cp -r polish-date-master-v1245/* .
 
 # Commit and push
 git add .
-git commit -m "v1244: Spacing fix, 110% calendar fonts, added README"
+git commit -m "v1245: Spacing fix, 110% calendar fonts, added README"
 git push origin main
 ```
 
@@ -80,7 +80,7 @@ git push origin main
 
 ## Version History
 
-- v1244 ← Current (spacing fix, 110% fonts, README added)
+- v1245 ← Current (spacing fix, 110% fonts, README added)
 - v1243 ← Red button, 150% fonts (too large)
 - v1242 ← Button positioned correctly
 - v1241 ← Button in JavaScript render

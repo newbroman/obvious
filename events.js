@@ -175,6 +175,9 @@ if (meetingBtn) {
  */
 export function renderCulturalHub(state) {
     const hub = document.getElementById('culturalHub');
+    const nominativeMonths = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", 
+                              "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
+    const nominativeMonth = nominativeMonths[monthIndex];
     const monthIndex = state.viewDate.getMonth();
     const year = state.viewDate.getFullYear();
     const day = state.viewDate.getDate();
@@ -186,16 +189,16 @@ export function renderCulturalHub(state) {
     <button class="pill-btn back-to-cal">Back</button>
     <div class="content-body">
         <header class="content-header">
-            <h1>${day}. ${displayMonth} ${year}</h1>
+            <h1>${day}. ${nominativeMonth} ${year}</h1>
         </header>
-        <div class="season-box">
+        <div class="season-box" style="margin-bottom: 20px;">
             <span class="season-icon">${getSeasonIcon(monthInfo.season)}</span>
             <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 
             <span class="season-text">${monthInfo.season}</span>
         </div>
         <section class="info-block" style="margin-bottom: 20px;">
-            <h3>📜 ${state.isPolish ? 'Etymologia' : 'Etymology'}</h3>
-            <p class="derivation-text">${monthInfo.derivation}</p>
+            <h3>📜 ${state.isPolish ? 'Znaczenie Miesiąca' : 'Meaning of the Month'}</h3>
+            <div style="padding: 15px; border: 2px solid var(--accent-color); border-radius: 8px; background: rgba(128,128,128,0.05);"><strong style="font-size: 1.1rem; color: var(--accent-color);">${nominativeMonth}:</strong> <span style="font-size: 1rem;">${monthInfo.derivation}</span></div>
         </section>
         <section class="info-block" style="margin-bottom: 20px;">
             <h3>📅 ${state.isPolish ? 'Znaczenie dzisiejszego dnia' : 'Meaning of Today'}</h3>

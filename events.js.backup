@@ -139,14 +139,10 @@ if (meetingBtn) {
         renderRulesPage(state);
     };
 
-    // Use event delegation for dynamically created navSearch buttons (culture page + help page)
-    document.addEventListener('click', (e) => {
-        if (e.target.id === 'navSearch' || e.target.id === 'helpNavSearch' || 
-            e.target.closest('#navSearch') || e.target.closest('#helpNavSearch')) {
-            showSection('search');
-            renderSearchPage(state);
-        }
-    });
+    document.getElementById('navSearch').onclick = () => {
+        showSection('search');
+        renderSearchPage(state);
+    };
 
     document.getElementById('prevMonth').onclick = () => {
         state.viewDate.setMonth(state.viewDate.getMonth() - 1);

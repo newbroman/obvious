@@ -94,7 +94,6 @@
 
 <!-- Name Search Page -->
 <section id="nameSearchPage" style="display: none;">
-    <button class="pill-btn back-to-cal" style="position: absolute; top: 0.5rem; left: 1rem;">Back</button>
     <div class="content-body">
         <h2>🔍 Name Day Search</h2>
         <p style="color: #666; margin-bottom: 10px;">Search for a name to find which dates it's celebrated</p>
@@ -161,10 +160,6 @@
         <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
         
         <h3 style="margin-bottom: 0.5rem;">🎂 Name Days (Imieniny)</h3>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-            <div></div>
-            <button id="helpNavSearch" class="pill-btn" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">🔍 Name Day Search</button>
-        </div>
         <p style="font-size: 0.9rem; line-height: 1.5;">
             <strong>In Poland, Name Days are often more important than birthdays!</strong> 
             Each day of the year is dedicated to one or more saints or historical figures. 

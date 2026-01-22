@@ -115,6 +115,7 @@ export function speakPolish() {
     utterance.lang = 'pl-PL';
     utterance.rate = 0.85; 
     window.speechSynthesis.speak(utterance);
+}
 
 export const showSection = (sectionName) => {
     window.scrollTo(0, 0);
@@ -139,6 +140,7 @@ export const showSection = (sectionName) => {
         infoPanel.style.display = (sectionName === 'calendar') ? 'flex' : 'none';
     }
 }
+
                 console.log('Setting innerHTML to:', html);
                 list.innerHTML = html;
             } else {

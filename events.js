@@ -90,7 +90,8 @@ if (meetingBtn) {
             'calendar': document.getElementById('calendarSection'),
             'culture': document.getElementById('culturalHub'),
             'rules': document.getElementById('rulesPage'),
-            'search': document.getElementById('nameSearchPage')
+            'search': document.getElementById('nameSearchPage'),
+            'help': document.getElementById('helpPage')
         };
         const infoPanel = document.querySelector('.info-panel');
 

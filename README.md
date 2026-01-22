@@ -1,10 +1,10 @@
-# Polish Language App - v1308
+# Polish Language App - v1314
 
-✅ ui-renderer.js: 154 lines (no duplication)
-✅ Original showSection completely replaced
+✅ events.js: help added to sections object
+✅ ui-renderer.js: ORIGINAL (no changes needed!)
 ✅ Syntax validated
 
 Deploy:
-tar -xzf polish-date-master-v1308.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1308/* .
-git add . && git commit -m "v1308: Help working!" && git push
+tar -xzf polish-date-master-v1314.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1314/* .
+git add . && git commit -m "v1314: Help page!" && git push

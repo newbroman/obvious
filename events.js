@@ -184,6 +184,7 @@ export function renderCulturalHub(state) {
     
     let html = `
     <button class="pill-btn back-to-cal">Back</button>
+    <button id="navSearch" class="nav-icon-btn" title="Name Search" style="position: absolute; top: 15px; right: 15px; width: 50px; height: 50px; font-size: 1.5rem; padding: 0; background: white; border: 2px solid #333; border-radius: 50%; z-index: 100; display: flex; align-items: center; justify-content: center; cursor: pointer;">🔍</button>
     <div class="content-body">
         <header class="content-header">
             <h1>${day}. ${displayMonth} ${year}</h1>

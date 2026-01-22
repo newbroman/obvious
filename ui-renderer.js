@@ -139,7 +139,6 @@ export const showSection = (sectionName) => {
         infoPanel.style.display = (sectionName === 'calendar') ? 'flex' : 'none';
     }
 }
-
                 console.log('Setting innerHTML to:', html);
                 list.innerHTML = html;
             } else {

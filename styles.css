@@ -1515,3 +1515,11 @@ body {
         max-width: 400px !important;
     }
 }
+
+/* Force search button to be visible on Cultural page */
+#culturalHub #navSearch {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}

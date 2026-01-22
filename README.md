@@ -1,10 +1,12 @@
-# Polish Language App - v1259
+# Polish Language App - v1260
 
-✅ Fixed wide right margin in help page
-✅ Proper box-sizing for modal content
-✅ All v1258 features preserved
+✅ Fixed scrollbar position (now at edge of content)
+✅ Fixed "times:-" stray text (close button corruption)
+✅ Back button now works to close modal
+✅ Feedback button visible on desktop
+✅ All features working
 
 Deploy:
-tar -xzf polish-date-master-v1259.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1259/* .
-git add . && git commit -m "v1259: Fixed help page margin" && git push
+tar -xzf polish-date-master-v1260.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1260/* .
+git add . && git commit -m "v1260: Help page fixes" && git push

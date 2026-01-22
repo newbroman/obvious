@@ -1559,3 +1559,21 @@ body {
 .modal-overlay .about-body {
     box-sizing: border-box !important;
 }
+
+/* Fix scrollbar positioning - remove padding from modal-content, add to about-body */
+.modal-overlay .modal-content {
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.modal-overlay .about-body {
+    padding: 25px !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure feedback button is visible on desktop */
+#feedbackBtn, .pill-btn-feedback {
+    display: block !important;
+    width: 100%;
+    margin-top: 15px;
+}

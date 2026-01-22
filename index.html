@@ -134,22 +134,28 @@
 <div id="aboutModal" class="modal-overlay">
     <div class="modal-content">
         <span class="close-btn">&times;</span>
-        <button class="pill-btn back-to-cal" style="position: absolute; top: 0.5rem; left: 1rem;">Back</button>
+        <button class="pill-btn back-to-cal" style="position: absolute; top: 0.2rem; left: 1rem;">Back</button>
         <div class="about-body">
             <h2 id="modalTitle">Say the Date in Polish</h2>
             
-            <p><b id="modalAboutHeader">O aplikacji:</b></p>
+            <p style="display: none;"><b id="modalAboutHeader">O aplikacji:</b></p>
             
-            <h3>🎯 How to Use This App</h3>
-            <ul style="list-style: none; padding: 10px 0;">
-                <li id="featCal">📅 <b>Kalendarz:</b> Click a date to hear pronunciation. How to say the day is and how to say the date when arranging a meeting.</li>
-                <li id="featCult">📖 <b>Kultura:</b> Poznaj polskie...</li>
-                <li id="featGram">⚖️ <b>Gramatyka:</b> Opanuj odmianę...</li>
-            </ul>
+            <h3 style="margin-bottom: 0.5rem;">🎯 How to Use This App</h3>
+            <table style="width: 100%; border: none; font-size: 0.9rem; line-height: 1.5;">
+                <tr>
+                    <td id="featCal" style="border: none; padding: 4px 0;">📅 <b>Kalendarz:</b> Click a date to hear pronunciation. How to say the day is and how to say the date when arranging a meeting.</td>
+                </tr>
+                <tr>
+                    <td id="featCult" style="border: none; padding: 4px 0;">📖 <b>Kultura:</b> Poznaj polskie...</td>
+                </tr>
+                <tr>
+                    <td id="featGram" style="border: none; padding: 4px 0;">⚖️ <b>Gramatyka:</b> Opanuj odmianę...</td>
+                </tr>
+            </table>
             
             <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
             
-            <h3>🔊 Pronunciation Modes</h3>
+            <h3 style="margin-bottom: 0.5rem;">🔊 Pronunciation Modes</h3>
             <p style="font-size: 0.9rem; line-height: 1.5;">
                 The calendar page has <strong>two pronunciation modes</strong> for dates. 
                 Refer to the <strong>Grammar page (⚖️)</strong> for detailed explanations.
@@ -157,20 +163,7 @@
             
             <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
             
-            <h3>🔊 Audio Troubleshooting</h3>
-            <p style="font-size: 0.9rem; line-height: 1.5;">
-                If you don't hear audio when clicking dates:
-            </p>
-            <ul style="font-size: 0.9rem; line-height: 1.5; padding-left: 20px;">
-                <li><strong>Check your device volume</strong> is turned up</li>
-                <li><strong>Enable Polish voice:</strong> Go to Settings → Accessibility → Spoken Content → Voices → Download Polish voice</li>
-                <li><strong>Browser support:</strong> Chrome, Safari, and Edge have the best Polish voice support</li>
-                <li><strong>Mobile:</strong> iOS and Android have built-in Polish voices</li>
-            </ul>
-            
-            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
-            
-            <h3>🎂 Name Days (Imieniny)</h3>
+            <h3 style="margin-bottom: 0.5rem;">🎂 Name Days (Imieniny)</h3>
             <p style="font-size: 0.9rem; line-height: 1.5;">
                 <strong>In Poland, Name Days are often more important than birthdays!</strong> 
                 Each day of the year is dedicated to one or more saints or historical figures. 
@@ -184,7 +177,7 @@
             
             <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
             
-            <h3>🎉 Polish Holidays & Traditions</h3>
+            <h3 style="margin-bottom: 0.5rem;">🎉 Polish Holidays & Traditions</h3>
             <p style="font-size: 0.9rem; line-height: 1.5;">
                 <strong>Poland has a rich calendar of holidays and traditions</strong> that reflect 
                 its Catholic heritage and Slavic roots.
@@ -202,6 +195,28 @@
                 Look for days with <strong>red borders</strong> in the calendar to identify national holidays 
                 and significant celebrations.
             </p>
+            
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+            
+            <h3 style="margin-bottom: 0.5rem;">🔊 Audio Troubleshooting</h3>
+            <table style="width: 100%; border: none; font-size: 0.9rem; line-height: 1.5;">
+                <tr>
+                    <td style="border: none; padding: 4px 8px 4px 0; vertical-align: top; white-space: nowrap;"><strong>Volume:</strong></td>
+                    <td style="border: none; padding: 4px 0;">Check your device volume is turned up</td>
+                </tr>
+                <tr>
+                    <td style="border: none; padding: 4px 8px 4px 0; vertical-align: top; white-space: nowrap;"><strong>Polish voice:</strong></td>
+                    <td style="border: none; padding: 4px 0;">Settings → Accessibility → Spoken Content → Voices → Download Polish</td>
+                </tr>
+                <tr>
+                    <td style="border: none; padding: 4px 8px 4px 0; vertical-align: top; white-space: nowrap;"><strong>Browsers:</strong></td>
+                    <td style="border: none; padding: 4px 0;">Chrome, Safari, and Edge have best Polish support</td>
+                </tr>
+                <tr>
+                    <td style="border: none; padding: 4px 8px 4px 0; vertical-align: top; white-space: nowrap;"><strong>Mobile:</strong></td>
+                    <td style="border: none; padding: 4px 0;">iOS and Android have built-in Polish voices</td>
+                </tr>
+            </table>
             
             <hr style="margin: 15px 0; border: 0; border-top: 1px solid var(--border-color);">
             <p id="modalDevNote" style="font-size: 0.85rem; color: var(--text-dim);">

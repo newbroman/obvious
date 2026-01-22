@@ -1,12 +1,13 @@
-# Polish Language App - v1271
+# Polish Language App - v1272
 
-✅ CLEAN rebuild of help page
-✅ Back button: 0.5rem from top
+✅ Back button: 0.2rem from top
+✅ "About this app:" line hidden
+✅ Audio Troubleshooting moved to bottom (above feedback)
+✅ Tables for How to Use and Audio sections
+✅ 0.5rem spacing below each section header
 ✅ 5 horizontal lines between sections
-✅ Voice troubleshooting instructions
-✅ No duplicate content or broken HTML
 
 Deploy:
-tar -xzf polish-date-master-v1271.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1271/* .
-git add . && git commit -m "v1271: Clean help page rebuild" && git push
+tar -xzf polish-date-master-v1272.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1272/* .
+git add . && git commit -m "v1272: Help page layout improvements" && git push

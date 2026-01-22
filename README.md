@@ -1,10 +1,10 @@
-# Polish Language App - v1278
+# Polish Language App - v1279
 
-✅ app.js manually rebuilt - clean syntax
-✅ help.js module working
-✅ All help page features ready
+✅ app.js completely rewritten from scratch
+✅ Syntax validated with Node
+✅ help.js module integrated properly
 
 Deploy:
-tar -xzf polish-date-master-v1278.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1278/* .
-git add . && git commit -m "v1278: Clean app.js rebuild" && git push
+tar -xzf polish-date-master-v1279.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1279/* .
+git add . && git commit -m "v1279: app.js rewritten" && git push

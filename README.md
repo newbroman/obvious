@@ -1,10 +1,11 @@
-# Polish Language App - v1253
+# Polish Language App - v1254
 
-✅ "Today's Name Days are:" text INSIDE name days box
-✅ Fixed duplicate const html error
-✅ All v1246 features working
+✅ Expanded Help page with cultural information
+✅ Feedback button preserved
+✅ "Today's Name Days are:" text in box
+✅ All features working
 
 Deploy:
-tar -xzf polish-date-master-v1253.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1253/* .
-git add . && git commit -m "v1253: Name days text (no duplicate const)" && git push
+tar -xzf polish-date-master-v1254.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1254/* .
+git add . && git commit -m "v1254: Expanded help page" && git push

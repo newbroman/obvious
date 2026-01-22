@@ -131,24 +131,72 @@
 
     <script src="namedays.js"></script>
     <script type="module" src="app.js"></script>
+    </div>
 <div id="aboutModal" class="modal-overlay">
     <div class="modal-content">
         <span class="close-btn">&times;</span>
         <div class="about-body">
             <h2 id="modalTitle">Say the Date in Polish</h2>
-            <p><b id="modalAboutHeader">O aplikacji:</b></p>
+            
+            <h3>🎯 How to Use This App</h3>
             <ul style="list-style: none; padding: 10px 0;">
-                <li id="featCal">📅 <b>Kalendarz:</b> Kliknij datę...</li>
-                <li id="featCult">📖 <b>Kultura:</b> Poznaj polskie...</li>
-                <li id="featGram">⚖️ <b>Gramatyka:</b> Opanuj odmianę...</li>
+                <li id="featCal">📅 <b>Kalendarz:</b> Click any date to see it in Polish with color-coded grammar</li>
+                <li id="featCult">📖 <b>Kultura:</b> Learn about Polish months, name days, and holidays</li>
+                <li id="featGram">⚖️ <b>Gramatyka:</b> Study ordinal numbers and grammar cases</li>
+                <li>🔍 <b>Name Search:</b> Find which dates celebrate specific names</li>
             </ul>
+            
+            <h3>🎂 Name Days (Imieniny)</h3>
+            <p style="font-size: 0.9rem; line-height: 1.5;">
+                <strong>In Poland, Name Days are often more important than birthdays!</strong> 
+                Each day of the year is dedicated to one or more saints or historical figures. 
+                If your name matches the saint of the day, it's your <em>imieniny</em> (name day), 
+                and friends and family celebrate you with flowers, cards, and well-wishes.
+            </p>
+            <p style="font-size: 0.9rem; line-height: 1.5;">
+                Most Polish calendars prominently display name days, and it's common to remember 
+                someone's name day even if you forget their birthday!
+            </p>
+            
+            <h3>🎉 Polish Holidays & Traditions</h3>
+            <p style="font-size: 0.9rem; line-height: 1.5;">
+                <strong>Poland has a rich calendar of holidays and traditions</strong> that reflect 
+                its Catholic heritage and Slavic roots.
+            </p>
+            <p style="font-size: 0.9rem; line-height: 1.5;">
+                <strong>Official Holidays:</strong> Days like <em>Wszystkich Świętych</em> (All Saints' Day) 
+                when millions of candles light up cemeteries, and <em>Wigilia</em> (Christmas Eve) 
+                with its sacred 12-dish meatless supper.
+            </p>
+            <p style="font-size: 0.9rem; line-height: 1.5;">
+                <strong>Cultural Traditions:</strong> Celebrations like <em>Andrzejki</em> (fortune-telling night), 
+                <em>Tłusty Czwartek</em> (Fat Thursday - donut day!), and <em>Dzień Babci</em> (Grandmothers' Day).
+            </p>
+            <p style="font-size: 0.9rem; line-height: 1.5;">
+                Look for days with <strong>red borders</strong> in the calendar to identify national holidays 
+                and significant celebrations.
+            </p>
+            
+            <h3>🎨 Color Coding</h3>
+            <p style="font-size: 0.9rem; line-height: 1.5;">
+                The app uses colors to help you understand Polish grammar:
+            </p>
+            <ul style="font-size: 0.9rem; line-height: 1.5; padding-left: 20px;">
+                <li><strong style="color: #4A90E2;">Blue:</strong> Nominative ordinals (pierwszy, drugi)</li>
+                <li><strong style="color: #F5A623;">Gold:</strong> Genitive ordinals (pierwszego, drugiego)</li>
+                <li><strong style="color: #E67E22;">Orange:</strong> Genitive months (stycznia, lutego)</li>
+                <li><strong style="color: #9B59B6;">Purple:</strong> Year components (dwa tysiące...)</li>
+                <li><strong style="color: #E74C3C;">Red:</strong> Genitive marker (roku)</li>
+            </ul>
+            
             <hr style="margin: 15px 0; border: 0; border-top: 1px solid var(--border-color);">
             <p id="modalDevNote" style="font-size: 0.85rem; color: var(--text-dim);">
-                Projekt niezależny...
+                Projekt niezależny dla uczących się języka polskiego
             </p>
             <button id="feedbackBtn" class="pill-btn-feedback">Prześlij opinię</button>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>

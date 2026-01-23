@@ -1,5 +1,17 @@
 # Polish Calendar Learning App - Changelog
 
+## v1343 - Dark Mode Fix for Historical Boxes
+**Date**: January 23, 2026
+
+### Bug Fixes
+- **Dark mode historical/anniversary boxes**: Fixed white background boxes in cultural page
+  - Now uses `var(--card-bg)` CSS variable
+  - Light mode: white background
+  - Dark mode: `#1e1e1e` dark background
+  - Properly respects device display mode settings
+
+---
+
 ## v1342 - Anniversary Display & Double-Click Navigation
 **Date**: January 23, 2026
 
@@ -11,10 +23,11 @@
 - Added `hasAnniversary()` and `getAnniversaryCount()` calls to calendar rendering
 - Purple theme for anniversary dates (distinct from bronze historical events)
 - Anniversary badge shows count when multiple anniversaries on same date
-- Double-click triggers navCulture button to show cultural hub
+- Double-click uses timer pattern (250ms delay) to prevent single-click interference
 
 ### Bug Fixes
 - Fixed anniversaries not appearing on calendar (functions were imported but not called)
+- Fixed double-click not working due to single-click interference
 - Proper integration with existing navigation system
 
 ---

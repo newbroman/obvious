@@ -297,7 +297,7 @@ export function renderCulturalHub(state) {
                         : anniv.originalYear;
                     
                     annivHtml += `
-                        <div style="padding: 12px; background: white; border-radius: 6px; border-left: 3px solid ${era.color};">
+                        <div style="padding: 12px; background: var(--card-bg, white); border-radius: 6px; border-left: 3px solid ${era.color};">
                             <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;">
                                 <span style="font-size: 1.2rem;">${era.icon}</span>
                                 <div style="flex: 1;">

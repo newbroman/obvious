@@ -230,13 +230,33 @@ if (holidayName) {
                        year === selectedDate.getFullYear();
     if (isSelected) daySquare.classList.add('selected');
 
+    let clickTimer = null;
+    
     daySquare.onclick = () => {
-        const newSelected = new Date(year, month, day);
-        onDateClick(newSelected);
+        // Clear any existing timer
+        if (clickTimer) {
+            clearTimeout(clickTimer);
+            clickTimer = null;
+            return; // This is actually a double-click, let ondblclick handle it
+        }
+        
+        // Set a timer for single click
+        clickTimer = setTimeout(() => {
+            const newSelected = new Date(year, month, day);
+            onDateClick(newSelected);
+            clickTimer = null;
+        }, 250); // 250ms delay to detect double-click
     };
     
     // Double-click to navigate to cultural page
-    daySquare.ondblclick = () => {
+    daySquare.ondblclick = (e) => {
+        e.preventDefault();
+        // Clear the single-click timer
+        if (clickTimer) {
+            clearTimeout(clickTimer);
+            clickTimer = null;
+        }
+        
         const newSelected = new Date(year, month, day);
         state.selectedDate = newSelected;
         

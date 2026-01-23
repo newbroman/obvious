@@ -4,7 +4,7 @@ import { updateHelpPage } from './help.js';
  * app.js - Final Integration Fixed
  */
 import { updateInfoPanel, updateNamedaysDisplay } from './ui-renderer.js';
-import { setupListeners } from './events.js';
+import { setupListeners, renderCulturalHub } from './events.js';
 import holidayData from './holiday.js';
 import { checkVoices } from './audio.js';
 import culturalData from './cultural.js';
@@ -239,8 +239,12 @@ if (holidayName) {
     daySquare.ondblclick = () => {
         const newSelected = new Date(year, month, day);
         state.selectedDate = newSelected;
-        state.view = 'culture';
-        render();
+        
+        // Trigger the culture navigation button
+        const navCultureBtn = document.getElementById('navCulture');
+        if (navCultureBtn) {
+            navCultureBtn.click();
+        }
     };
 
     grid.appendChild(daySquare);

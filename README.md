@@ -1,48 +1,64 @@
-# Polish Language App - v1327
+# Polish Calendar Learning App - Changelog
 
-✅ events.js: Fixed cultural page to show selected date info
-✅ sw.js: Updated cache version to v1327
+## v1342 - Anniversary Display & Double-Click Navigation
+**Date**: January 23, 2026
 
-## 🐛 Bug Fix: Cultural Page Date Selection
+### New Features
+- **Anniversary visibility on calendar**: Anniversaries now display with purple gradient background and 📅 badge
+- **Double-click navigation**: Double-click any date to jump directly to its cultural information page
 
-### Problem
-When you selected a date on the calendar and navigated to the cultural page, it would show information for **today's date** instead of the **selected date**.
+### Changes
+- Added `hasAnniversary()` and `getAnniversaryCount()` calls to calendar rendering
+- Purple theme for anniversary dates (distinct from bronze historical events)
+- Anniversary badge shows count when multiple anniversaries on same date
+- Double-click triggers navCulture button to show cultural hub
 
-### Root Cause
-The `renderCulturalHub()` function in `events.js` was using `state.viewDate` instead of `state.selectedDate`:
+### Bug Fixes
+- Fixed anniversaries not appearing on calendar (functions were imported but not called)
+- Proper integration with existing navigation system
 
-**Before (Line 239-241):**
-```javascript
-const monthIndex = state.viewDate.getMonth();
-const year = state.viewDate.getFullYear();
-const day = state.viewDate.getDate();
-```
+---
 
-**After:**
-```javascript
-const monthIndex = state.selectedDate.getMonth();
-const year = state.selectedDate.getFullYear();
-const day = state.selectedDate.getDate();
-```
+## v1340 - Anniversary Refinements & Bug Fixes
+**Date**: January 23, 2026
 
-### What's Fixed
-- ✅ Selecting a date on the calendar now shows that date's cultural information
-- ✅ Month meaning, day meaning, and name days all match the selected date
-- ✅ Header shows correct date (e.g., "15. Styczeń 2026" for selected date)
+### Archive Cleanup
+- Removed backup files (README.md.backup, *.backup, *.backup2)
+- Size reduction: 624KB → 568KB (56KB smaller, ~9% reduction)
 
-### User Experience
-1. Click any date on the calendar
-2. Navigate to Cultural page
-3. See information for the **selected date**, not today's date
+### Bug Fixes
+- **BC period fix**: Christian holidays no longer appear in BC years
+- **Future anniversary prevention**: Anniversaries only show for events that have already occurred
 
-### All Previous Features Still Work
-- ✅ Adaptive status bar color (v1326)
-- ✅ Swipe labels on reference tables (v1325)
-- ✅ Dark mode support for all backgrounds (v1324)
-- ✅ Grammar Rules title translates (v1323)
-- ✅ Clean Mode A/B layout without tables (v1323)
+### Visual Improvements
+- **Purple anniversary theme**:
+  - Calendar dates: Light purple gradient (#f3e5f5 → #e1bee7)
+  - Purple border (#ba68c8) and badge
+  - Cultural page: Purple-themed anniversary section
+  - Distinct from bronze historical events (🏛️)
 
-Deploy:
-tar -xzf polish-date-master-v1327.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1327/* .
-git add . && git commit -m "v1327: Fix cultural page date selection" && git push
+---
+
+## v1338 - BC Dates & Historical Database Expansion
+**Date**: January 2026
+
+### Features
+- **BC dates display correctly**: English shows "753 BC" instead of "-753"
+- **Historical database expanded**: 18 → 33 events
+  - Added Polish history: Piast dynasty, Jagiellonian dynasty
+  - Battle of Legnica (1241), Union of Krewo (1385)
+  - Thirteen Years' War and Peace of Thorn (1466)
+
+### Content
+- All Christian holidays restored and working
+- Historical calendar highlighting with 🏛️ icon
+- Bronze gradient for historical event dates
+
+---
+
+## Visual Legend
+
+- 🏛️ **Bronze gradient** = Historical event occurred on this exact date
+- 📅 **Purple gradient** = Anniversary of historical event
+- **Today highlight** = Current date marker
+- **Holiday styling** = Polish cultural holidays and traditions

@@ -4,11 +4,9 @@
 import { speakText, unlockAudio, checkVoices } from './audio.js';
 import holidayData from './holiday.js';
 import culturalData from './cultural.js';
-import historicalData from './historical-events.js';
 import { getRulesHTML } from './rules.js';
 import { updateNamedaysDisplay } from './ui-renderer.js';
-import { getWrittenDay, getPhoneticDay, getYearPolish, getYearPhonetic } from './numbers.js';
-import phonetics from './phonetics.js';
+import historicalData from './historical-events.js';
 
 export function setupListeners(state, render) {
     // Audio playback state
@@ -241,62 +239,17 @@ export function renderCulturalHub(state) {
     const monthIndex = state.selectedDate.getMonth();
     const year = state.selectedDate.getFullYear();
     const day = state.selectedDate.getDate();
-    
-    // Check if we have cultural data for this year (1000 AD onwards)
-    const hasCulturalData = year >= 1000;
-    
     const monthInfo = culturalData.months[monthIndex] || { pl: "Miesiąc", derivation: "N/A", season: "N/A" };
     const nominativeMonths = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
     const nominativeMonth = nominativeMonths[monthIndex];
     const holidays = holidayData.getHolidaysForYear(year);
     const displayMonth = monthInfo.pl.charAt(0).toUpperCase() + monthInfo.pl.slice(1);
     
-    
-    // Generate Polish phrase, phonetics, and English translation
-    const monthsGen = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", 
-                       "lipca", "sierpnia", "września", "października", "listopada", "grudnia"];
-    const monthsNom = ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec",
-                       "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień"];
-    
-    const dayWritten = getWrittenDay(day, "nominative");
-    const dayPhonetic = getPhoneticDay(day, "nominative");
-    const monthGen = monthsGen[monthIndex];
-    const monthNom = monthsNom[monthIndex];
-    const monthPhonetic = phonetics.months.nominative[monthIndex];
-    const yearPolish = getYearPolish(year);
-    const yearPhonetic = getYearPhonetic(year);
-    
-    const polishPhrase = state.isFormal 
-        ? `Jest ${dayWritten} ${monthGen} ${yearPolish} roku`
-        : `${dayWritten} ${monthNom} ${yearPolish} roku`;
-    
-    const phoneticPhrase = state.isFormal
-        ? `yest ${dayPhonetic} ${monthPhonetic} ${yearPhonetic} roh-koo`
-        : `${dayPhonetic} ${monthPhonetic} ${yearPhonetic} roh-koo`;
-    
-    const englishPhrase = state.isFormal
-        ? `It is the ${day}${getDaySuffix(day)} of ${nominativeMonth} ${year}`
-        : `${nominativeMonth} ${day}${getDaySuffix(day)}, ${year}`;
-    
-    function getDaySuffix(d) {
-        if (d > 3 && d < 21) return 'th';
-        switch (d % 10) {
-            case 1: return "st";
-            case 2: return "nd";
-            case 3: return "rd";
-            default: return "th";
-        }
-    }
-        let html = `
+    let html = `
     <button id="cultureBackBtn" class="pill-btn back-to-cal">Back</button>
     <div class="content-body">
         <header class="content-header">
             <h1>${day}. ${nominativeMonth} ${year}${year < 0 ? ' p.n.e.' : ''}</h1>
-            <div class="phrase-display" style="margin-top: 15px; text-align: center;">
-                <p class="phrase-pl" style="font-size: 1.3rem; font-weight: 700; margin: 5px 0; color: var(--text-main);">${polishPhrase}</p>
-                <p class="phrase-phonetic" style="font-size: 1rem; color: var(--tan); font-style: italic; margin: 5px 0;">${phoneticPhrase}</p>
-                <p class="phrase-en" style="font-size: 0.9rem; color: var(--text-dim); margin: 5px 0;">${englishPhrase}</p>
-            </div>
         </header>
         ${(() => {
             // Check for historical event on this date
@@ -308,41 +261,18 @@ export function renderCulturalHub(state) {
                 const eventDesc = state.isPolish ? historicalEvent.descriptionPl : historicalEvent.description;
                 
                 return `
-                <div class="historical-event" style="background: var(--card-bg); border: 3px solid ${era.color}; border-radius: 12px; padding: 25px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
-                        <span style="font-size: 2.5rem;">${era.icon}</span>
-                        <div>
-                            <h3 style="color: ${era.color}; margin: 0; font-size: 1.3rem;">${eventName}</h3>
-                            <p style="color: var(--text-secondary); margin: 5px 0 0 0; font-size: 0.9rem;">
-                                ${state.isPolish ? era.namePl : era.name} • ${era.period}
-                            </p>
+                    <div class="historical-event-banner" style="margin: 20px 0; padding: 20px; background: linear-gradient(135deg, ${era.color}22 0%, ${era.color}11 100%); border-left: 4px solid ${era.color}; border-radius: 8px; animation: slideIn 0.5s ease-out;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <span style="font-size: 2rem;">${era.icon}</span>
+                            <div>
+                                <div style="font-size: 0.85rem; color: ${era.color}; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">${state.isPolish ? era.namePl : era.name}</div>
+                                <h2 style="margin: 4px 0 0 0; font-size: 1.4rem; color: var(--text-main);">${eventName}</h2>
+                            </div>
                         </div>
+                        <p style="margin: 0; font-size: 1rem; line-height: 1.6; color: var(--text-dim);">${eventDesc}</p>
                     </div>
-                    <p style="font-size: 1.05rem; line-height: 1.6; margin: 0;">
-                        ${eventDesc}
-                    </p>
-                </div>
                 `;
             }
-            
-            if (!hasCulturalData) {
-                return `
-                <div class="historical-notice" style="background: var(--card-bg); border: 2px solid var(--accent-color); border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center;">
-                    <h3 style="color: var(--accent-color); margin-top: 0;">⏳ ${state.isPolish ? 'Dane Historyczne' : 'Historical Period'}</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.6;">
-                        ${state.isPolish 
-                            ? 'Dane kulturowe (święta, imieniny) są dostępne tylko dla dat od 1000 roku naszej ery. Ta data jest częścią starożytnej historii.' 
-                            : 'Cultural data (holidays, name days) is only available for dates from year 1000 AD onwards. This date is part of ancient history.'}
-                    </p>
-                    <p style="color: var(--text-secondary); margin-bottom: 0;">
-                        ${state.isPolish
-                            ? 'Możesz nadal ćwiczyć wymowę polskich dat z dowolnego okresu!'
-                            : 'You can still practice Polish date pronunciation from any period!'}
-                    </p>
-                </div>
-                `;
-            }
-            
             return '';
         })()}
         <div class="season-box" style="margin-bottom: 20px;">
@@ -504,43 +434,7 @@ function renderSearchPage(state) {
                     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
                                        'July', 'August', 'September', 'October', 'November', 'December'];
                     
-                    
-    // Generate Polish phrase, phonetics, and English translation
-    const monthsGen = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", 
-                       "lipca", "sierpnia", "września", "października", "listopada", "grudnia"];
-    const monthsNom = ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec",
-                       "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień"];
-    
-    const dayWritten = getWrittenDay(day, "nominative");
-    const dayPhonetic = getPhoneticDay(day, "nominative");
-    const monthGen = monthsGen[monthIndex];
-    const monthNom = monthsNom[monthIndex];
-    const monthPhonetic = phonetics.months.nominative[monthIndex];
-    const yearPolish = getYearPolish(year);
-    const yearPhonetic = getYearPhonetic(year);
-    
-    const polishPhrase = state.isFormal 
-        ? `Jest ${dayWritten} ${monthGen} ${yearPolish} roku`
-        : `${dayWritten} ${monthNom} ${yearPolish} roku`;
-    
-    const phoneticPhrase = state.isFormal
-        ? `yest ${dayPhonetic} ${monthPhonetic} ${yearPhonetic} roh-koo`
-        : `${dayPhonetic} ${monthPhonetic} ${yearPhonetic} roh-koo`;
-    
-    const englishPhrase = state.isFormal
-        ? `It is the ${day}${getDaySuffix(day)} of ${nominativeMonth} ${year}`
-        : `${nominativeMonth} ${day}${getDaySuffix(day)}, ${year}`;
-    
-    function getDaySuffix(d) {
-        if (d > 3 && d < 21) return 'th';
-        switch (d % 10) {
-            case 1: return "st";
-            case 2: return "nd";
-            case 3: return "rd";
-            default: return "th";
-        }
-    }
-        let html = `<h3 style="margin-bottom: 15px;">Found ${results.length} date${results.length > 1 ? 's' : ''} for "${searchName}":</h3>`;
+                    let html = `<h3 style="margin-bottom: 15px;">Found ${results.length} date${results.length > 1 ? 's' : ''} for "${searchName}":</h3>`;
                     html += '<div style="max-height: 400px; overflow-y: auto;">';
                     
                     results.forEach(result => {

@@ -371,31 +371,6 @@ body {
 .calendar-day.today-highlight { background-color: var(--gold) !important; color: #000 !important; border: none !important; font-weight: 800; box-shadow: 0 0 8px rgba(184, 134, 11, 0.5); }
 .calendar-day.selected { background: var(--accent-color) !important; color: white !important; border-color: var(--accent-color) !important; }
 
-/* Historical event highlighting - brown/bronze color */
-.calendar-day.has-historical-event {
-    background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%) !important;
-    color: white !important;
-    font-weight: 700 !important;
-    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.4) !important;
-    position: relative;
-}
-
-.calendar-day.has-historical-event::after {
-    content: "🏛️";
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    font-size: 0.7rem;
-    opacity: 0.8;
-}
-
-.calendar-day.has-historical-event:hover {
-    background: linear-gradient(135deg, #A0522D 0%, #CD853F 100%) !important;
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.6) !important;
-}
-
-
 /* Navigation Row & Arrows */
 .nav-controls-row {
     display: flex !important;
@@ -1682,52 +1657,3 @@ body {
     max-height: none !important;
     overflow-y: visible !important;
 }
-
-/* ===== HISTORICAL EVENTS STYLING ===== */
-
-.historical-event {
-    animation: fadeInScale 0.4s ease-out;
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.historical-event h3 {
-    font-weight: 600;
-    letter-spacing: -0.5px;
-}
-
-.historical-notice {
-    animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Era-specific styling (applied via inline styles in JS) */
-.era-ancient-rome {
-    border-color: #8B4513;
-}
-
-.era-early-poland {
-    border-color: #4A5568;
-}
-
-.era-medieval-poland {
-    border-color: #C41E3A;
-}
-

@@ -7,6 +7,8 @@ import culturalData from './cultural.js';
 import historicalData from './historical-events.js';
 import { getRulesHTML } from './rules.js';
 import { updateNamedaysDisplay } from './ui-renderer.js';
+import { getWrittenDay, getPhoneticDay, getYearPolish, getYearPhonetic } from './numbers.js';
+import phonetics from './phonetics.js';
 
 export function setupListeners(state, render) {
     // Audio playback state
@@ -249,11 +251,52 @@ export function renderCulturalHub(state) {
     const holidays = holidayData.getHolidaysForYear(year);
     const displayMonth = monthInfo.pl.charAt(0).toUpperCase() + monthInfo.pl.slice(1);
     
-    let html = `
+    
+    // Generate Polish phrase, phonetics, and English translation
+    const monthsGen = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", 
+                       "lipca", "sierpnia", "września", "października", "listopada", "grudnia"];
+    const monthsNom = ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec",
+                       "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień"];
+    
+    const dayWritten = getWrittenDay(day, "nominative");
+    const dayPhonetic = getPhoneticDay(day, "nominative");
+    const monthGen = monthsGen[monthIndex];
+    const monthNom = monthsNom[monthIndex];
+    const monthPhonetic = phonetics.months.nominative[monthIndex];
+    const yearPolish = getYearPolish(year);
+    const yearPhonetic = getYearPhonetic(year);
+    
+    const polishPhrase = state.isFormal 
+        ? `Jest ${dayWritten} ${monthGen} ${yearPolish} roku`
+        : `${dayWritten} ${monthNom} ${yearPolish} roku`;
+    
+    const phoneticPhrase = state.isFormal
+        ? `yest ${dayPhonetic} ${monthPhonetic} ${yearPhonetic} roh-koo`
+        : `${dayPhonetic} ${monthPhonetic} ${yearPhonetic} roh-koo`;
+    
+    const englishPhrase = state.isFormal
+        ? `It is the ${day}${getDaySuffix(day)} of ${nominativeMonth} ${year}`
+        : `${nominativeMonth} ${day}${getDaySuffix(day)}, ${year}`;
+    
+    function getDaySuffix(d) {
+        if (d > 3 && d < 21) return 'th';
+        switch (d % 10) {
+            case 1: return "st";
+            case 2: return "nd";
+            case 3: return "rd";
+            default: return "th";
+        }
+    }
+        let html = `
     <button id="cultureBackBtn" class="pill-btn back-to-cal">Back</button>
     <div class="content-body">
         <header class="content-header">
             <h1>${day}. ${nominativeMonth} ${year}${year < 0 ? ' p.n.e.' : ''}</h1>
+            <div class="phrase-display" style="margin-top: 15px; text-align: center;">
+                <p class="phrase-pl" style="font-size: 1.3rem; font-weight: 700; margin: 5px 0; color: var(--text-main);">${polishPhrase}</p>
+                <p class="phrase-phonetic" style="font-size: 1rem; color: var(--tan); font-style: italic; margin: 5px 0;">${phoneticPhrase}</p>
+                <p class="phrase-en" style="font-size: 0.9rem; color: var(--text-dim); margin: 5px 0;">${englishPhrase}</p>
+            </div>
         </header>
         ${(() => {
             // Check for historical event on this date
@@ -461,7 +504,43 @@ function renderSearchPage(state) {
                     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
                                        'July', 'August', 'September', 'October', 'November', 'December'];
                     
-                    let html = `<h3 style="margin-bottom: 15px;">Found ${results.length} date${results.length > 1 ? 's' : ''} for "${searchName}":</h3>`;
+                    
+    // Generate Polish phrase, phonetics, and English translation
+    const monthsGen = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", 
+                       "lipca", "sierpnia", "września", "października", "listopada", "grudnia"];
+    const monthsNom = ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec",
+                       "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień"];
+    
+    const dayWritten = getWrittenDay(day, "nominative");
+    const dayPhonetic = getPhoneticDay(day, "nominative");
+    const monthGen = monthsGen[monthIndex];
+    const monthNom = monthsNom[monthIndex];
+    const monthPhonetic = phonetics.months.nominative[monthIndex];
+    const yearPolish = getYearPolish(year);
+    const yearPhonetic = getYearPhonetic(year);
+    
+    const polishPhrase = state.isFormal 
+        ? `Jest ${dayWritten} ${monthGen} ${yearPolish} roku`
+        : `${dayWritten} ${monthNom} ${yearPolish} roku`;
+    
+    const phoneticPhrase = state.isFormal
+        ? `yest ${dayPhonetic} ${monthPhonetic} ${yearPhonetic} roh-koo`
+        : `${dayPhonetic} ${monthPhonetic} ${yearPhonetic} roh-koo`;
+    
+    const englishPhrase = state.isFormal
+        ? `It is the ${day}${getDaySuffix(day)} of ${nominativeMonth} ${year}`
+        : `${nominativeMonth} ${day}${getDaySuffix(day)}, ${year}`;
+    
+    function getDaySuffix(d) {
+        if (d > 3 && d < 21) return 'th';
+        switch (d % 10) {
+            case 1: return "st";
+            case 2: return "nd";
+            case 3: return "rd";
+            default: return "th";
+        }
+    }
+        let html = `<h3 style="margin-bottom: 15px;">Found ${results.length} date${results.length > 1 ? 's' : ''} for "${searchName}":</h3>`;
                     html += '<div style="max-height: 400px; overflow-y: auto;">';
                     
                     results.forEach(result => {

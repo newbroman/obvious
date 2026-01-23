@@ -5,6 +5,7 @@ import { updateHelpPage } from './help.js';
  */
 import { updateInfoPanel, updateNamedaysDisplay } from './ui-renderer.js';
 import { setupListeners } from './events.js';
+import historicalData from './historical-events.js';
 import holidayData from './holiday.js';
 import { checkVoices } from './audio.js';
 import culturalData from './cultural.js';
@@ -196,6 +197,13 @@ if (holidayName) {
     const isToday = day === today.getDate() && 
                     month === today.getMonth() && 
                     year === today.getFullYear();
+    // Check for historical events
+    const checkDate = new Date(year, month, day);
+    const historicalEvent = historicalData.getHistoricalEvent(checkDate);
+    if (historicalEvent) {
+        daySquare.classList.add('has-historical-event');
+    }
+    
     if (isToday) daySquare.classList.add('today-highlight');
 
     const isSelected = selectedDate && 

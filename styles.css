@@ -11,6 +11,9 @@
     --seasonal-bg: rgba(230, 25, 46, 0.05);
     --border-color: #dee2e6;
     --formal-blue: #00d4ff;
+    --card-bg: #ffffff;
+    --subtle-bg: #f8f9fa;
+    --highlight-bg: #fffbf0;
 }
 
 
@@ -276,6 +279,9 @@
         --tan: #D2B48C;
         --seasonal-bg: rgba(230, 25, 46, 0.15);
         --border-color: #333333;
+        --card-bg: #1e1e1e;
+        --subtle-bg: #252525;
+        --highlight-bg: #2a2a1a;
     }
 }
 
@@ -1422,4 +1428,232 @@ button.back-to-cal:hover,
         font-size: 0.85rem !important;
         top: 15px !important;
     }
+}
+/* Firefox compatibility fixes - add at END of CSS */
+
+/* Ensure grid gap works in Firefox */
+#calendarGrid {
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    gap: 5px !important;
+    grid-gap: 5px !important; /* Fallback for older Firefox */
+}
+
+/* Ensure calendar container doesn't expand */
+.calendar-container {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix flex gaps in Firefox */
+.weekdays {
+    gap: 5px;
+    column-gap: 5px; /* Firefox fallback */
+}
+
+/* Ensure body doesn't have extra spacing */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mobile gap fix for Firefox */
+@media (max-width: 768px) {
+    #calendarGrid {
+        gap: 3px !important;
+        grid-gap: 3px !important;
+    }
+    
+    .weekdays {
+        gap: 3px;
+        column-gap: 3px;
+    }
+}
+/* Fix 1: Constrain calendar width on desktop */
+#calendarView {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.calendar-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Fix 2: Ensure search button is visible on mobile in Cultural page */
+.namedays-display {
+    display: block !important;
+}
+
+/* Make search button more visible on mobile */
+@media (max-width: 768px) {
+    #namedaysSection button#navSearch {
+        font-size: 1.3rem !important;
+        padding: 6px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #namedaysSection button#navSearch {
+        font-size: 1.2rem !important;
+        padding: 4px !important;
+    }
+}
+/* Make calendar 20% smaller on desktop (500px -> 400px) */
+#calendarView {
+    max-width: 400px !important;
+    margin: 0 auto;
+}
+
+.calendar-container {
+    max-width: 400px !important;
+    margin: 0 auto;
+}
+
+/* Ensure calendar doesn't expand beyond this on any screen */
+@media (min-width: 769px) {
+    #calendarView {
+        max-width: 400px !important;
+    }
+    
+    .calendar-container {
+        max-width: 400px !important;
+    }
+}
+
+/* Force search button to be visible on Cultural page */
+#culturalHub #navSearch {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Increase calendar phrase font sizes to 150% */
+#plPhrase, .phrase-pl {
+    font-size: 1.1em !important; /* 150% of base */
+}
+
+#phoneticPhrase, .phrase-phonetic {
+    font-size: 1.1em !important; /* 150% of base */
+}
+
+#enPhrase, .phrase-en {
+    font-size: 1.1em !important; /* 150% of base */
+}
+
+/* Also increase the phrase display container if it exists */
+.phrase-display {
+    font-size: 1.1em !important;
+}
+
+/* Fix help modal scrolling */
+.modal-overlay .modal-content {
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    position: relative;
+}
+
+.modal-overlay .about-body {
+    max-height: calc(90vh - 60px) !important;
+    overflow-y: auto !important;
+}
+
+/* Fix modal content box-sizing */
+.modal-overlay .modal-content,
+.modal-overlay .about-body {
+    box-sizing: border-box !important;
+}
+
+/* Fix scrollbar positioning - remove padding from modal-content, add to about-body */
+.modal-overlay .modal-content {
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.modal-overlay .about-body {
+    padding: 25px !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure feedback button is visible on desktop */
+#feedbackBtn, .pill-btn-feedback {
+    display: block !important;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Hide the old × close button */
+.modal-overlay .close-btn {
+    display: none !important;
+}
+
+/* Fix scrollbar to be at edge of content */
+.modal-overlay .modal-content {
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+.modal-overlay .about-body {
+    padding: 60px 25px 25px 25px !important; /* Top padding for Back button */
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Make feedback button visible on desktop - force display */
+.modal-overlay #feedbackBtn,
+.modal-overlay .pill-btn-feedback {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+}
+
+/* COMPLETE FIX for modal scrollbar positioning */
+.modal-overlay .modal-content {
+    padding: 25px !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+.modal-overlay .about-body {
+    padding: 40px 0 0 0 !important; /* Only top padding for Back button space */
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+/* Fix horizontal scroll on rules page */
+#rulesPage {
+    overflow-x: hidden !important;
+}
+
+#rulesPage .content-body {
+    overflow-x: hidden !important;
+    max-width: 100%;
+}
+
+#rulesPage p, 
+#rulesPage .rule-block {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    max-width: 100%;
+}
+
+/* Fix help modal positioning - prevent bottom cutoff */
+.modal-overlay .modal-content {
+    margin: 5vh auto !important; /* Reduced from 10% to 5vh */
+    max-height: 90vh !important;
+    padding: 25px !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+.modal-overlay .about-body {
+    padding: 40px 0 0 0 !important;
+    max-height: none !important;
+    overflow-y: visible !important;
 }

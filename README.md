@@ -1,42 +1,24 @@
-# 🇵🇱 Polish Date Master
+# Polish Language App - v1326
 
-**Version:** 1226  
-**Last Updated:** January 20, 2026
+✅ sw.js: Updated cache version to v1326
 
----
+## 📱 All Features Working
 
-## 🎯 v1226: TRULY Floating Red Button!
+### What's Included
+- ✅ **Adaptive status bar color** - White in light mode, dark in dark mode
+- ✅ **Swipe labels on tables** - Transformation 1, 2, and Quick Reference
+- ✅ **Dark mode support** - All backgrounds respect device theme
+- ✅ **Grammar Rules translation** - "Zasady Gramatyczne" in Polish mode
+- ✅ **Clean Mode A/B layout** - No tables, vertical card layout
+- ✅ **Swipe navigation** - Month selector
 
-### Button Fixed ✅
-- **Position:** FIXED (floats on screen, stays while scrolling)
-- **Color:** RED (#E6192E) with white text
-- **Location:** Top-right (20px from top, 20px from right)
-- **Text:** "Back"
-- **Hover:** Darker red (#C0162A)
+### User Experience
+- Status bar matches device theme (no more red bar!)
+- Tables that need scrolling show the swipe hint
+- Mode A and Mode B remain clean with no tables
+- All backgrounds adapt to light/dark mode
 
----
-
-## 🚀 Deploy
-
-```bash
-tar -xzf polish-date-master-v1226.tar.gz
-cd ~/obvious
-cp -r polish-date-master-v1226/* .
-git add .
-git commit -m "v1226: Floating red button (position: fixed)"
-git push origin main
-```
-
----
-
-## ✅ What's New
-
-- position: fixed (was absolute)
-- Button floats while scrolling
-- Red background
-- Top-right of screen
-- Service worker: v1226
-
----
-
-**Now it floats!** 🎯
+Deploy:
+tar -xzf polish-date-master-v1326.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1326/* .
+git add . && git commit -m "v1326: Cache refresh" && git push

@@ -54,12 +54,12 @@ export function updateInfoPanel(selectedDate, includeYear, isFormal) {
     const capitalizedDayPhonetic = dayPhonetic.charAt(0).toUpperCase() + dayPhonetic.slice(1);
     
     // We add the Signpost (Day Name) at the start
-    let fullPl = `${dayNamePl}, ${capitalizedDaySpelling} ${currentMonthKey}`;
+    let fullPl = `${dayNamePl}, ${daySpelling} ${currentMonthKey}`;
     let fullEn = `${dayNameEn}, ${monthEn} ${day}${getEnglishSuffix(day)}`;
     
     // For phonetics, we need to add the day name pronunciation if you have it, 
     // otherwise, we start with the day number:
-    let fullPhonetic = `${capitalizedDayPhonetic} ${monthPhonetic}`;
+    let fullPhonetic = `${dayPhonetic} ${monthPhonetic}`;
 
     // 4. Year Logic
     if (includeYear) {
@@ -69,9 +69,9 @@ export function updateInfoPanel(selectedDate, includeYear, isFormal) {
         const suffixPl = "roku";
         const suffixPhonetic = "ro-koo";
 
-        fullPl += ` ${yearSpelling} ${suffixPl}`;
+        fullPl += `, ${yearSpelling} ${suffixPl}`;
         fullEn += `, ${year}`;
-        fullPhonetic += ` ${yearPhonetic} ${suffixPhonetic}`;
+        fullPhonetic += `, ${yearPhonetic} ${suffixPhonetic}`;
     }
     
   // 5. Holiday Display
@@ -137,17 +137,22 @@ export async function updateNamedaysDisplay(selectedDate) {
             console.log('Received names:', names);
             
             if (names && names.length > 0) {
-                const html = `<p class="namedays-names">${names.join(', ')}</p>`;
+                // Get language state from app
+                const isPolish = window.state?.isPolish || false;
+                const label = isPolish ? "Dzisiejsze imieniny:" : "Today's Name Days are:";
+                const html = `<p style="font-weight: bold; margin: 0 0 8px 0; color: #666;">${label}</p><p class="namedays-names">${names.join(', ')}</p>`;
                 console.log('Setting innerHTML to:', html);
                 list.innerHTML = html;
             } else {
-                list.innerHTML = '<p class="namedays-placeholder">No name days found for this date</p>';
+                const noNamesMsg = isPolish ? 'Brak imienin w tym dniu' : 'No name days found for this date';
+                list.innerHTML = `<p class="namedays-placeholder">${noNamesMsg}</p>`;
             }
         } else {
             console.log('window.getNamesForDate is not a function');
         }
     } catch (error) {
         console.error('Error updating namedays:', error);
-        list.innerHTML = '<p class="namedays-placeholder">Error loading name days</p>';
+        const errorMsg = isPolish ? 'Błąd ładowania imienin' : 'Error loading name days';
+        list.innerHTML = `<p class="namedays-placeholder">${errorMsg}</p>`;
     }
 }

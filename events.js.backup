@@ -139,14 +139,10 @@ if (meetingBtn) {
         renderRulesPage(state);
     };
 
-    // Use event delegation for dynamically created navSearch buttons (culture page + help page)
-    document.addEventListener('click', (e) => {
-        if (e.target.id === 'navSearch' || e.target.id === 'helpNavSearch' || 
-            e.target.closest('#navSearch') || e.target.closest('#helpNavSearch')) {
-            showSection('search');
-            renderSearchPage(state);
-        }
-    });
+    document.getElementById('navSearch').onclick = () => {
+        showSection('search');
+        renderSearchPage(state);
+    };
 
     document.getElementById('prevMonth').onclick = () => {
         state.viewDate.setMonth(state.viewDate.getMonth() - 1);
@@ -189,45 +185,6 @@ if (meetingBtn) {
         state.includeYear = !state.includeYear;
         render(); 
     };
-
-    // Swipe Navigation for Mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    let touchStartY = 0;
-    let touchEndY = 0;
-
-    const calendarGrid = document.getElementById('calendarGrid');
-    
-    if (calendarGrid) {
-        calendarGrid.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
-        }, { passive: true });
-
-        calendarGrid.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            touchEndY = e.changedTouches[0].screenY;
-            handleSwipe();
-        }, { passive: true });
-    }
-
-    function handleSwipe() {
-        const swipeThreshold = 50; // minimum pixels for swipe
-        const horizontalDiff = touchStartX - touchEndX;
-        const verticalDiff = Math.abs(touchStartY - touchEndY);
-        
-        // Only trigger if horizontal swipe is dominant (not vertical scroll)
-        if (Math.abs(horizontalDiff) > swipeThreshold && verticalDiff < 100) {
-            if (horizontalDiff > 0) {
-                // Swiped left → next month
-                document.getElementById('nextMonth').click();
-            } else {
-                // Swiped right → prev month
-                document.getElementById('prevMonth').click();
-            }
-        }
-    }
-
 } // <--- CORRECTLY CLOSES setupListeners
 
 /**
@@ -245,7 +202,7 @@ export function renderCulturalHub(state) {
     const displayMonth = monthInfo.pl.charAt(0).toUpperCase() + monthInfo.pl.slice(1);
     
     let html = `
-    <button id="cultureBackBtn" class="pill-btn back-to-cal">Back</button>
+    <button class="pill-btn back-to-cal">Back</button>
     <div class="content-body">
         <header class="content-header">
             <h1>${day}. ${nominativeMonth} ${year}</h1>
@@ -299,7 +256,7 @@ export function renderCulturalHub(state) {
             
             html += `
                 <div class="holiday-entry ${isHoliday ? 'state-holiday' : 'tradition-item'}">
-                    <div class="holiday-type-tag">${isHoliday ? (state.isPolish ? 'ŚWIĘTO PAŃSTWOWE' : 'OFFICIAL HOLIDAY') : (state.isPolish ? 'TRADYCJA' : 'TRADITION')}</div>
+                    <div class="holiday-type-tag">${isHoliday ? 'OFFICIAL HOLIDAY' : 'TRADITION'}</div>
                     <div class="holiday-title">
                         <strong>${dayNum}. ${capitalizedMonthGenitive}:</strong> ${holidayName}
                     </div>
@@ -317,17 +274,7 @@ export function renderCulturalHub(state) {
         </div>`;
 
     hub.innerHTML = html;
-    
-    // Translate back button and search button
-    const cultureBackBtn = document.getElementById('cultureBackBtn');
-    const cultureSearchBtn = hub.querySelector('#navSearch');
-    if (cultureBackBtn) {
-        cultureBackBtn.onclick = () => document.getElementById('navCalendar').click();
-        cultureBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
-    }
-    if (cultureSearchBtn) {
-        cultureSearchBtn.innerHTML = state.isPolish ? "🔍 Szukaj Imienin" : "🔍 Name Day Search";
-    }
+    hub.querySelector('.back-to-cal').onclick = () => document.getElementById('navCalendar').click();
     
     // Update namedays display after HTML is inserted
     if (state.selectedDate) {
@@ -348,16 +295,12 @@ export function renderRulesPage(state) {
     
     // Put button at TOP, outside content-body (like Cultural page)
     page.innerHTML = `
-        <button id="rulesBackBtn" class="pill-btn back-to-cal">Back</button>
-        <h1>${state.isPolish ? "Zasady Gramatyczne" : "Grammar Rules"}</h1>
+        <button class="pill-btn back-to-cal">Back</button>
+        <h1>Grammar Rules</h1>
         <div class="content-body">
             ${getRulesHTML(state)}
         </div>`;
-    const rulesBackBtn = document.getElementById('rulesBackBtn');
-    if (rulesBackBtn) {
-        rulesBackBtn.onclick = () => document.getElementById('navCalendar').click();
-        rulesBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
-    }
+    page.querySelector('.back-to-cal').onclick = () => document.getElementById('navCalendar').click();
 }
 
 
@@ -369,20 +312,10 @@ function renderSearchPage(state) {
     const searchBtn = document.getElementById('nameSearchBtn');
     const searchInput = document.getElementById('nameSearchInput');
     const resultsDiv = document.getElementById('nameSearchResults');
-    const backBtn = document.getElementById('searchBackBtn');
+    const backBtn = page.querySelector('.back-to-cal');
     
     if (backBtn) {
         backBtn.onclick = () => document.getElementById('navCalendar').click();
-        backBtn.innerText = state.isPolish ? "Wróć" : "Back";
-    }
-    
-    // Translate search page title and button
-    const searchTitle = page.querySelector('h2');
-    if (searchTitle) {
-        searchTitle.textContent = state.isPolish ? "🔍 Szukaj Imienin" : "🔍 Name Day Search";
-    }
-    if (searchBtn) {
-        searchBtn.textContent = state.isPolish ? "Szukaj" : "Search";
     }
     
     // Handle search button click

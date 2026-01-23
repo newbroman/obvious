@@ -393,8 +393,9 @@ export function renderCulturalHub(state) {
 
     let foundHoliday = false;
     Object.entries(holidays).forEach(([key, holidayName]) => {
-        if (key.startsWith(`${monthIndex}-`)) {
-            const dayNum = key.split('-')[1];
+        // Only show holidays for the SELECTED DATE, not all month
+        if (key === `${monthIndex}-${day}`) {
+            const dayNum = day;
             
             // 1. Get the data object (fallback to tradition if not found)
             const info = culturalData.holidayExplanations[key] || 

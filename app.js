@@ -187,8 +187,20 @@ if (holidayName) {
             // Apply specific classes based on the type in cultural.js
             if (info.type === 'holiday') {
                 daySquare.classList.add('is-holiday');
+                // Add holiday icon badge
+                const badge = document.createElement('span');
+                badge.className = 'holiday-badge';
+                badge.textContent = '🎉';
+                badge.title = 'Official Holiday';
+                daySquare.appendChild(badge);
             } else if (info.type === 'tradition') {
                 daySquare.classList.add('is-tradition');
+                // Add tradition icon badge
+                const badge = document.createElement('span');
+                badge.className = 'tradition-badge';
+                badge.textContent = '🎊';
+                badge.title = 'Cultural Tradition';
+                daySquare.appendChild(badge);
             }
         }
     }

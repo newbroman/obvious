@@ -44,7 +44,7 @@ const holidayData = {
         "Drugi Dzień Świąt": "St. Stephen's Day. Traditionally a day for visiting friends and throwing grain for good harvests.",
         "Tłusty Czwartek 🍩": "Fat Thursday. The only day it is socially mandatory to eat several 'pączki' (rose-jam donuts).",
         "Środa Popielcowa": "Ash Wednesday. Marking the transition from Carnival to the 40 days of Lent.",
-        "Lany Poniedziałek 💧": "Śmigus-Dyngus. Be careful! It’s a tradition to splash people with water for health and beauty.",
+        "Śmigus-Dyngus (Lany Poniedziałek) 💧": "Wet Monday tradition! Be careful! It’s a tradition to splash people with water for health and beauty.",
         "Zielone Świątki": "Pentecost. Houses are traditionally decorated with birch branches to welcome the spirit of spring.",
     },
 
@@ -111,7 +111,7 @@ const holidayData = {
 
         const easterMonday = new Date(easter);
         easterMonday.setDate(easter.getDate() + 1);
-        addHoliday(easterMonday, "Lany Poniedziałek 💧");
+        addHoliday(easterMonday, "Śmigus-Dyngus (Lany Poniedziałek) 💧");
 
         const pentecost = new Date(easter);
         pentecost.setDate(easter.getDate() + 49);

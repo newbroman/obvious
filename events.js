@@ -6,6 +6,7 @@ import holidayData from './holiday.js';
 import culturalData from './cultural.js';
 import { getRulesHTML } from './rules.js';
 import { updateNamedaysDisplay } from './ui-renderer.js';
+import historicalData, { getAnniversariesForDate } from './historical-events.js';
 
 export function setupListeners(state, render) {
     // Audio playback state
@@ -130,13 +131,13 @@ if (meetingBtn) {
     };
 
     document.getElementById('navRules').onclick = () => {
-    
-    document.getElementById('navInfo').onclick = () => {
-        showSection('help');
-        import('./help.js').then(m => m.updateHelpPage(state.isPolish));
-    };
         showSection('rules');
         renderRulesPage(state);
+    };
+    
+    document.getElementById('navHelp').onclick = () => {
+        showSection('help');
+        import('./help.js').then(m => m.updateHelpPage(state.isPolish));
     };
 
     // Use event delegation for dynamically created navSearch buttons (culture page + help page)
@@ -235,9 +236,9 @@ if (meetingBtn) {
  */
 export function renderCulturalHub(state) {
     const hub = document.getElementById('culturalHub');
-    const monthIndex = state.viewDate.getMonth();
-    const year = state.viewDate.getFullYear();
-    const day = state.viewDate.getDate();
+    const monthIndex = state.selectedDate.getMonth();
+    const year = state.selectedDate.getFullYear();
+    const day = state.selectedDate.getDate();
     const monthInfo = culturalData.months[monthIndex] || { pl: "Miesiąc", derivation: "N/A", season: "N/A" };
     const nominativeMonths = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
     const nominativeMonth = nominativeMonths[monthIndex];
@@ -248,8 +249,114 @@ export function renderCulturalHub(state) {
     <button id="cultureBackBtn" class="pill-btn back-to-cal">Back</button>
     <div class="content-body">
         <header class="content-header">
-            <h1>${day}. ${nominativeMonth} ${year}</h1>
+            <h1>${day}. ${nominativeMonth} ${year}${year < 0 ? ' p.n.e.' : ''}</h1>
         </header>
+        ${(() => {
+            // Check for historical event on this date
+            const historicalEvent = historicalData.getHistoricalEvent(state.selectedDate);
+            
+            if (historicalEvent) {
+                const era = historicalData.eras[historicalEvent.era];
+                const eventName = state.isPolish ? historicalEvent.namePl : historicalEvent.name;
+                const eventDesc = state.isPolish ? historicalEvent.descriptionPl : historicalEvent.description;
+                
+                return `
+                    <div class="historical-event-banner" style="margin: 20px 0; padding: 20px; background: linear-gradient(135deg, ${era.color}22 0%, ${era.color}11 100%); border-left: 4px solid ${era.color}; border-radius: 8px; animation: slideIn 0.5s ease-out;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <span style="font-size: 2rem;">${era.icon}</span>
+                            <div>
+                                <div style="font-size: 0.85rem; color: ${era.color}; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">${state.isPolish ? era.namePl : era.name}</div>
+                                <h2 style="margin: 4px 0 0 0; font-size: 1.4rem; color: var(--text-main);">${eventName}</h2>
+                            </div>
+                        </div>
+                        <p style="margin: 0; font-size: 1rem; line-height: 1.6; color: var(--text-dim);">${eventDesc}</p>
+                    </div>
+                `;
+            }
+            return '';
+        })()}
+        ${(() => {
+            // Check for anniversaries on this date
+            const anniversaries = getAnniversariesForDate(state.selectedDate);
+            
+            if (anniversaries.length > 0) {
+                let annivHtml = `
+                    <div class="anniversaries-section" style="margin: 20px 0; padding: 20px; background: linear-gradient(135deg, #f3e5f5 0%, #f5f5f5 100%); border-left: 4px solid #9c27b0; border-radius: 8px;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                            <span style="font-size: 2rem;">📅</span>
+                            <h2 style="margin: 0; font-size: 1.3rem; color: #7b1fa2;">${state.isPolish ? 'Rocznice Historyczne' : 'Historical Anniversaries'}</h2>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">`;
+                
+                anniversaries.forEach(anniv => {
+                    const era = historicalData.eras[anniv.era];
+                    const eventName = state.isPolish ? anniv.namePl : anniv.name;
+                    const eventDesc = state.isPolish ? anniv.descriptionPl : anniv.description;
+                    const yearDisplay = anniv.originalYear < 0 
+                        ? (state.isPolish ? `${Math.abs(anniv.originalYear)} p.n.e.` : `${Math.abs(anniv.originalYear)} BC`)
+                        : anniv.originalYear;
+                    
+                    annivHtml += `
+                        <div style="padding: 12px; background: var(--card-bg, white); border-radius: 6px; border-left: 3px solid ${era.color};">
+                            <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;">
+                                <span style="font-size: 1.2rem;">${era.icon}</span>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 0.85rem; color: ${era.color}; font-weight: 600;">${anniv.yearsAgo} ${state.isPolish ? 'lat temu' : 'years ago'} (${yearDisplay})</div>
+                                    <div style="font-weight: 600; color: var(--text-main); margin-top: 2px;">${eventName}</div>
+                                </div>
+                            </div>
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--text-dim);">${eventDesc}</p>
+                        </div>`;
+                });
+                
+                annivHtml += `
+                        </div>
+                    </div>`;
+                
+                return annivHtml;
+            }
+            return '';
+        })()}
+        ${(() => {
+            // Pagan Traditions Section
+            if (typeof paganTraditions !== 'undefined' && paganTraditions.hasPaganTradition(state.selectedDate)) {
+                const tradition = paganTraditions.getPaganTradition(state.selectedDate, state.isPolish);
+                const icon = paganTraditions.getIcon(tradition.type);
+                const color = paganTraditions.getColor(tradition.type);
+                
+                let paganHtml = `
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="color: ${color}; display: flex; align-items: center; gap: 8px;">
+                            ${icon} ${state.isPolish ? 'Tradycje Pogańskie' : 'Pagan Traditions'}
+                        </h3>
+                        <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(129, 199, 132, 0.1) 100%); 
+                                    border-left: 4px solid ${color}; 
+                                    border-radius: 8px; 
+                                    padding: 16px; 
+                                    margin-top: 12px;">`;
+                
+                paganHtml += `
+                        <div style="padding: 12px; background: var(--card-bg, white); border-radius: 6px; border-left: 3px solid ${color};">
+                            <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;">
+                                <span style="font-size: 1.2rem;">${icon}</span>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 0.85rem; color: ${color}; font-weight: 600; text-transform: uppercase;">
+                                        ${state.isPolish ? tradition.type === 'solstice' ? 'Przesilenie' : tradition.type === 'equinox' ? 'Równonoc' : tradition.type === 'ancestors' ? 'Przodkowie' : 'Żniwa' : tradition.type.charAt(0).toUpperCase() + tradition.type.slice(1)}
+                                    </div>
+                                    <div style="font-weight: 600; color: var(--text-main); margin-top: 2px;">${tradition.name}</div>
+                                </div>
+                            </div>
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--text-dim);">${tradition.description}</p>
+                        </div>`;
+                
+                paganHtml += `
+                        </div>
+                    </div>`;
+                
+                return paganHtml;
+            }
+            return '';
+        })()}
         <div class="season-box" style="margin-bottom: 20px;">
             <span class="season-icon">${getSeasonIcon(monthInfo.season)}</span>
             <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 
@@ -275,7 +382,7 @@ export function renderCulturalHub(state) {
             </div>
         </section>
         <section class="info-block" style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;"><h3 style="margin: 0;">🎂 ${state.isPolish ? 'Imieniny' : 'Name Days'}</h3><button id="navSearch" class="pill-btn" title="Name Day Search" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">Name Day Search</button></div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;"><h3 style="margin: 0;">🎂 ${state.isPolish ? 'Imieniny' : 'Name Days'}</h3><button id="navSearch" class="pill-btn" title="${state.isPolish ? 'Szukaj Imienin' : 'Name Day Search'}" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">${state.isPolish ? '🔍 Szukaj Imienin' : '🔍 Name Day Search'}</button></div>
             <div id="namedaysList" class="namedays-list" style="padding: 15px; background: rgba(128,128,128,0.05); border-radius: 8px;">
                 <p class="namedays-placeholder" style="color: #999; font-style: italic;">Select a date to see name days</p>
             </div>
@@ -286,8 +393,9 @@ export function renderCulturalHub(state) {
 
     let foundHoliday = false;
     Object.entries(holidays).forEach(([key, holidayName]) => {
-        if (key.startsWith(`${monthIndex}-`)) {
-            const dayNum = key.split('-')[1];
+        // Only show holidays for the SELECTED DATE, not all month
+        if (key === `${monthIndex}-${day}`) {
+            const dayNum = day;
             
             // 1. Get the data object (fallback to tradition if not found)
             const info = culturalData.holidayExplanations[key] || 
@@ -357,6 +465,12 @@ export function renderRulesPage(state) {
     if (rulesBackBtn) {
         rulesBackBtn.onclick = () => document.getElementById('navCalendar').click();
         rulesBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
+    }
+    
+    const helpBackBtn = document.getElementById('helpBackBtn');
+    if (helpBackBtn) {
+        helpBackBtn.onclick = () => document.getElementById('navCalendar').click();
+        helpBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
     }
 }
 

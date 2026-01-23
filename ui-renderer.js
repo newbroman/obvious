@@ -4,6 +4,7 @@
 import { getWrittenDay, getPhoneticDay, getYearPolish, getYearPhonetic } from './numbers.js';
 import phonetics from './phonetics.js';
 import holidayData from './holiday.js';
+import { hasCulturalData } from './year-utils.js';
 import { colorizePolishPhrase } from './color-utils.js';
 
 export function updateInfoPanel(selectedDate, includeYear, isFormal) {
@@ -70,7 +71,7 @@ export function updateInfoPanel(selectedDate, includeYear, isFormal) {
         const suffixPhonetic = "ro-koo";
 
         fullPl += `, ${yearSpelling} ${suffixPl}`;
-        fullEn += `, ${year}`;
+        fullEn += `, ${year < 0 ? Math.abs(year) + ' BC' : year}`;
         fullPhonetic += `, ${yearPhonetic} ${suffixPhonetic}`;
     }
     
@@ -88,7 +89,19 @@ export function updateInfoPanel(selectedDate, includeYear, isFormal) {
             holidayDisplay.style.display = "none";
         }
     }
-   // 6. Update UI - Trimmed to remove potential leading spaces
+    
+    // 6. Historical Date Notice
+    const historicalNotice = document.getElementById('historicalNotice');
+    if (historicalNotice) {
+        if (!hasCulturalData(year)) {
+            historicalNotice.innerHTML = `<span style="color: #8b5a2b;">⚠️ Historical dates (before 1000 AD) have limited cultural data</span>`;
+            historicalNotice.style.display = "block";
+        } else {
+            historicalNotice.style.display = "none";
+        }
+    }
+    
+   // 7. Update UI - Trimmed to remove potential leading spaces
     // Use innerHTML with color coding for Polish phrase
     plDisplay.innerHTML = colorizePolishPhrase(fullPl.trim(), includeYear);
     enDisplay.innerText = fullEn.trim();

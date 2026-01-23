@@ -4,10 +4,11 @@ import { updateHelpPage } from './help.js';
  * app.js - Final Integration Fixed
  */
 import { updateInfoPanel, updateNamedaysDisplay } from './ui-renderer.js';
-import { setupListeners } from './events.js';
+import { setupListeners, renderCulturalHub } from './events.js';
 import holidayData from './holiday.js';
 import { checkVoices } from './audio.js';
 import culturalData from './cultural.js';
+import historicalData, { hasAnniversary, getAnniversaryCount } from './historical-events.js';
 
 // 1. Initialize Global State
 const state = { 
@@ -186,12 +187,57 @@ if (holidayName) {
             // Apply specific classes based on the type in cultural.js
             if (info.type === 'holiday') {
                 daySquare.classList.add('is-holiday');
+                // Add holiday icon badge
+                const badge = document.createElement('span');
+                badge.className = 'holiday-badge';
+                badge.textContent = '🎉';
+                badge.title = 'Official Holiday';
+                daySquare.appendChild(badge);
             } else if (info.type === 'tradition') {
                 daySquare.classList.add('is-tradition');
+                // Add tradition icon badge
+                const badge = document.createElement('span');
+                badge.className = 'tradition-badge';
+                badge.textContent = '🎭';
+                badge.title = 'Cultural Tradition';
+                daySquare.appendChild(badge);
             }
         }
     }
     // --- NEW LOGIC END ---
+
+    // Check for historical event on this date
+    const cellDate = new Date(year, month, day);
+    const historicalEvent = historicalData.getHistoricalEvent(cellDate);
+    if (historicalEvent) {
+        daySquare.classList.add('has-historical-event');
+    }
+    
+    // Check for anniversary on this date
+    const anniv = hasAnniversary(cellDate);
+    if (anniv && !historicalEvent) {
+        daySquare.classList.add('has-anniversary');
+        const count = getAnniversaryCount(cellDate);
+        if (count > 1) {
+            const badge = document.createElement('span');
+            badge.className = 'anniversary-badge';
+            badge.textContent = count + '📅';
+            daySquare.appendChild(badge);
+        } else {
+            const badge = document.createElement('span');
+            badge.className = 'anniversary-badge';
+            badge.textContent = '📅';
+            daySquare.appendChild(badge);
+        }
+    }
+    
+    // Check for pagan tradition on this date
+    if (typeof paganTraditions !== 'undefined' && paganTraditions.hasPaganTradition(cellDate)) {
+        // Only add if no historical event or anniversary (pagan gets lower priority)
+        if (!historicalEvent && !anniv) {
+            daySquare.classList.add('has-pagan');
+        }
+    }
 
     const isToday = day === today.getDate() && 
                     month === today.getMonth() && 
@@ -204,9 +250,41 @@ if (holidayName) {
                        year === selectedDate.getFullYear();
     if (isSelected) daySquare.classList.add('selected');
 
+    let clickTimer = null;
+    
     daySquare.onclick = () => {
+        // Clear any existing timer
+        if (clickTimer) {
+            clearTimeout(clickTimer);
+            clickTimer = null;
+            return; // This is actually a double-click, let ondblclick handle it
+        }
+        
+        // Set a timer for single click
+        clickTimer = setTimeout(() => {
+            const newSelected = new Date(year, month, day);
+            onDateClick(newSelected);
+            clickTimer = null;
+        }, 250); // 250ms delay to detect double-click
+    };
+    
+    // Double-click to navigate to cultural page
+    daySquare.ondblclick = (e) => {
+        e.preventDefault();
+        // Clear the single-click timer
+        if (clickTimer) {
+            clearTimeout(clickTimer);
+            clickTimer = null;
+        }
+        
         const newSelected = new Date(year, month, day);
-        onDateClick(newSelected);
+        state.selectedDate = newSelected;
+        
+        // Trigger the culture navigation button
+        const navCultureBtn = document.getElementById('navCulture');
+        if (navCultureBtn) {
+            navCultureBtn.click();
+        }
     };
 
     grid.appendChild(daySquare);

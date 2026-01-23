@@ -452,6 +452,15 @@ body {
     cursor: pointer;
 }
 
+/* Override for audio/listen button - always red regardless of season */
+#playBtn {
+    background: #dc3545 !important;
+}
+
+#playBtn:hover {
+    background: #c82333 !important;
+}
+
 #meetingToggle, #repeatYearBtn {
     font-size: 0.65rem !important; 
     padding: 4px 8px !important;
@@ -563,6 +572,27 @@ body {
     border-top-color: #3498db !important;
     background-color: rgba(52, 152, 219, 0.08) !important;
     color: #2980b9;
+}
+
+/* Historical Event dates */
+.calendar-day.has-historical-event {
+    background: linear-gradient(135deg, rgba(139, 90, 43, 0.15) 0%, rgba(101, 67, 33, 0.08) 100%) !important;
+    border-top-color: #8b5a2b !important;
+    position: relative;
+}
+
+.calendar-day.has-historical-event::after {
+    content: '🏛️';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+.calendar-day.has-historical-event:hover {
+    background: linear-gradient(135deg, rgba(139, 90, 43, 0.25) 0%, rgba(101, 67, 33, 0.15) 100%) !important;
+    transform: scale(1.05);
 }
 
 /* Selected state should still pop */
@@ -1656,4 +1686,70 @@ body {
     padding: 40px 0 0 0 !important;
     max-height: none !important;
     overflow-y: visible !important;
+}
+
+
+/* Anniversary dates - Purple/Violet theme */
+.calendar-day.has-anniversary {
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    border: 1px solid #ba68c8;
+}
+
+.calendar-day.has-anniversary:hover {
+    background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(156, 39, 176, 0.2);
+}
+
+.anniversary-badge {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 10px;
+    background: rgba(156, 39, 176, 0.2);
+    padding: 1px 3px;
+    border-radius: 3px;
+    color: #7b1fa2;
+    font-weight: bold;
+}
+
+/* Holiday and Tradition badges on calendar */
+.holiday-badge, .tradition-badge {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    font-size: 0.9rem;
+    z-index: 10;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+
+
+
+/* Pagan Tradition Dates - Green Nature Theme */
+.has-pagan {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border: 1px solid #66bb6a;
+    position: relative;
+}
+
+.has-pagan::after {
+    content: '🌿';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 0.7rem;
+}
+
+.has-pagan.badge-count::after {
+    content: attr(data-pagan-count) '🌿';
+    font-size: 0.65rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .has-pagan {
+        background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+        border-color: #4caf50;
+        color: #e8f5e9;
+    }
 }

@@ -1,24 +1,86 @@
-# Polish Language App - v1326
+# Polish Calendar Learning App - Changelog
 
-✅ sw.js: Updated cache version to v1326
+## v1346 - Complete Polish Holiday Coverage
+**Date**: January 23, 2026
 
-## 📱 All Features Working
+### New Fixed Holidays Added
+- **Walentynki 💕** (Feb 14) - Valentine's Day / Day of Lovers
+- **Dzień Flagi 🇵🇱** (May 2) - Day of the Flag celebrating national colors
+- **Dożynki 🌾** (Aug 28) - Modern Christian Harvest Festival
+- **Dzień Zwycięskiego Powstania Wielkopolskiego 🦅** (Dec 27) - Greater Poland Uprising Day
+- **Sylwester 🎆** (Dec 31) - New Year's Eve celebrations
 
-### What's Included
-- ✅ **Adaptive status bar color** - White in light mode, dark in dark mode
-- ✅ **Swipe labels on tables** - Transformation 1, 2, and Quick Reference
-- ✅ **Dark mode support** - All backgrounds respect device theme
-- ✅ **Grammar Rules translation** - "Zasady Gramatyczne" in Polish mode
-- ✅ **Clean Mode A/B layout** - No tables, vertical card layout
-- ✅ **Swipe navigation** - Month selector
+### New Moveable Holidays Added
+- **Wielki Piątek ✝️** (Good Friday) - Easter -2 days
+  - Way of the Cross processions, solemn observance
+- **Wielka Sobota 🥚** (Holy Saturday) - Easter -1 day
+  - Food blessing ceremony (Święconka) with baskets
+- **Boże Ciało ✨** (Corpus Christi) - Easter +60 days
+  - Spectacular street processions with flower carpets
+- **Zielone Świątki 🌿** (Pentecost) - Easter +49 days
+  - Enhanced with full description and emoji
 
-### User Experience
-- Status bar matches device theme (no more red bar!)
-- Tables that need scrolling show the swipe hint
-- Mode A and Mode B remain clean with no tables
-- All backgrounds adapt to light/dark mode
+### Enhanced Descriptions
+- All new holidays have detailed cultural descriptions
+- Explains traditions, customs, and significance
+- Bilingual support maintained throughout
 
-Deploy:
-tar -xzf polish-date-master-v1326.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1326/* .
-git add . && git commit -m "v1326: Cache refresh" && git push
+### Total Holiday Coverage
+- **14 National Holidays** (official public holidays)
+- **15+ Cultural Observances** (traditions and celebrations)
+- **5 Pagan Traditions** (ancient Slavic festivals)
+- **33+ Historical Events** (anniversaries and commemorations)
+
+---
+
+## v1345 - Śmigus-Dyngus Name Prominence & Pagan Traditions
+**Date**: January 23, 2026
+
+### Changes
+- **Śmigus-Dyngus name prominence**: Easter Monday displays as "Śmigus-Dyngus (Lany Poniedziałek) 💧"
+- Pagan traditions integrated with green theme
+- Dark mode support for all themes
+
+---
+
+## Visual Legend
+
+- 🏛️ **Bronze gradient** = Historical event occurred on this exact date
+- 📅 **Purple gradient** = Anniversary of historical event
+- 🌿 **Green gradient** = Ancient pagan tradition/festival
+- 💧 **Water droplet** = Śmigus-Dyngus (Easter Monday water tradition)
+- ✝️ **Cross** = Good Friday solemn observance
+- 🥚 **Egg** = Holy Saturday food blessing
+- ✨ **Sparkles** = Corpus Christi processions
+- 🌾 **Wheat** = Harvest Festival (Dożynki)
+- 🇵🇱 **Flag** = National patriotic observances
+- 🎆 **Fireworks** = New Year's Eve (Sylwester)
+
+## Complete Polish Calendar System
+
+The app now provides comprehensive coverage of Polish culture:
+
+### Christian Calendar (Moveable)
+- Easter cycle with Holy Week observances
+- Pentecost and Corpus Christi celebrations
+- All major Catholic feast days
+
+### National Holidays
+- Independence Day, Constitution Day, Flag Day
+- Labor Day, All Saints' Day
+- Christmas and New Year celebrations
+
+### Folk Traditions
+- Harvest festivals (pagan and Christian)
+- Seasonal celebrations
+- Family observances (Grandparents, Mother's, Father's Days)
+
+### Pagan Traditions
+- Solstices: Kupala Night, Koliada
+- Equinoxes: Spring and Autumn celebrations
+- Ancestor veneration: Dziady
+
+### Historical Commemorations
+- 33+ significant dates in Polish history
+- From ancient times to modern independence
+- Battles, unions, and cultural milestones

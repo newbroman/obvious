@@ -33,7 +33,7 @@
             <button id="navCalendar" class="nav-icon-btn" title="Calendar">📅</button>
             <button id="navCulture" class="nav-icon-btn" title="Culture">📖</button>
             <button id="navRules" class="nav-icon-btn" title="Grammar">⚖️</button>
-            <button id="navInfo" class="nav-icon-btn" title="About">❓</button>
+            <button id="navHelp" class="nav-icon-btn" title="Help">❓</button>
             <div class="divider"></div>
             <button id="meetingToggle" class="pill-btn mode-btn-written">Mode: Written (Genitive)</button>
             <button id="langToggle" class="pill-btn-sm">EN</button>
@@ -48,7 +48,7 @@
             
             <div class="rollers-container">
                 <select id="monthRoller" class="roller-select"></select>
-                <input type="number" id="yearInput" value="2026" min="0" max="3000">
+                <input type="number" id="yearInput" value="2026" min="-1000" max="3000">
             </div>
             
             <button id="nextMonth" class="nav-btn-arrow" aria-label="Next Month">›</button>
@@ -119,6 +119,8 @@
 </section>
 
     <footer class="info-panel">
+        <div id="historicalNotice" style="display: none; padding: 8px; text-align: center; font-size: 0.85rem; background: rgba(139, 90, 43, 0.1); border-radius: 8px; margin-bottom: 10px;"></div>
+        
         <div class="phrase-display">
             <p id="plPhrase" class="phrase-pl">Wybierz datę</p>
             <p id="phoneticPhrase" class="phrase-phonetic">vye-byezh dah-teh</p>
@@ -132,6 +134,7 @@
     </footer>
 
     <script src="namedays.js"></script>
+    <script src="pagan-traditions.js"></script>
     <script type="module" src="app.js"></script>
 <section id="helpPage" class="content-page" style="display: none;">
     <button id="searchBackBtn" class="pill-btn back-to-cal" style="position: absolute; top: 0.5rem; left: 1rem;">Back</button>
@@ -217,9 +220,53 @@
             <em>Tłusty Czwartek</em> (Fat Thursday - donut day!), and <em>Dzień Babci</em> (Grandmothers' Day).
         </p>
         <p style="font-size: 0.9rem; line-height: 1.5;">
-            Look for days with <strong>red borders</strong> in the calendar to identify national holidays 
-            and significant celebrations.
+            The calendar uses color coding to help you identify different types of special dates at a glance.
         </p>
+        
+        <h4 style="margin: 15px 0 10px 0; color: var(--accent-color);">📊 Calendar Color Legend</h4>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin: 15px 0; padding: 15px; background: rgba(128,128,128,0.05); border-radius: 8px;">
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); border: 2px solid #dc3545; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">🎉</div>
+                <div style="flex: 1;">
+                    <strong style="color: #dc3545;">Official Holidays</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-dim);">National public holidays (red background + 🎉 icon)</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border: 2px solid #ff9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">🎭</div>
+                <div style="flex: 1;">
+                    <strong style="color: #ff9800;">Cultural Traditions</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-dim);">Important cultural celebrations (orange background + 🎭 icon)</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2196f3; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">🏛️</div>
+                <div style="flex: 1;">
+                    <strong style="color: #2196f3;">Historical Events</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-dim);">Significant dates in Polish history (blue background)</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border: 2px solid #9c27b0; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">📅</div>
+                <div style="flex: 1;">
+                    <strong style="color: #9c27b0;">Historical Anniversaries</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-dim);">Milestone anniversaries of past events (purple background + 📅 badge)</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #4caf50; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">🌿</div>
+                <div style="flex: 1;">
+                    <strong style="color: #4caf50;">Pagan Traditions</strong>
+                    <div style="font-size: 0.85rem; color: var(--text-dim);">Ancient Slavic celebrations (green background)</div>
+                </div>
+            </div>
+            
+        </div>
         
         <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
         

@@ -54,9 +54,13 @@ export function getPhoneticDay(day, isFormal = false) {
 export function getYearPolish(year, isFormal = false) {
     if (year === 0) return isFormal ? "zerowego" : "zerowy";
     
-    const thousands = Math.floor(year / 1000);
-    const hundreds = Math.floor((year % 1000) / 100);
-    const lastTwo = year % 100;
+    // Handle BC dates (negative years)
+    const isBC = year < 0;
+    const absYear = Math.abs(year);
+    
+    const thousands = Math.floor(absYear / 1000);
+    const hundreds = Math.floor((absYear % 1000) / 100);
+    const lastTwo = absYear % 100;
     let parts = [];
 
     if (thousands > 0) {
@@ -97,13 +101,16 @@ export function getYearPolish(year, isFormal = false) {
         parts.push(yearWord);
     }
     
-    return parts.join(" ");
+    const result = parts.join(" ");
+    return isBC ? `${result} przed naszą erą` : result;
 }
 
 export function getYearPhonetic(year, isFormal = false) {
-    const thousands = Math.floor(year / 1000);
-    const hundreds = Math.floor((year % 1000) / 100);
-    const lastTwo = year % 100;
+    const isBC = year < 0;
+    const absYear = Math.abs(year);
+    const thousands = Math.floor(absYear / 1000);
+    const hundreds = Math.floor((absYear % 1000) / 100);
+    const lastTwo = absYear % 100;
     let pParts = [];
 
     if (thousands > 0) {
@@ -132,5 +139,6 @@ export function getYearPhonetic(year, isFormal = false) {
         pParts.push(pYear);
     }
 
-    return pParts.join(" ");
+    const result = pParts.join(" ");
+    return isBC ? `${result} pshed nah-shown eh-rohn` : result;
 }

@@ -218,6 +218,14 @@ if (holidayName) {
             daySquare.appendChild(badge);
         }
     }
+    
+    // Check for pagan tradition on this date
+    if (typeof paganTraditions !== 'undefined' && paganTraditions.hasPaganTradition(cellDate)) {
+        // Only add if no historical event or anniversary (pagan gets lower priority)
+        if (!historicalEvent && !anniv) {
+            daySquare.classList.add('has-pagan');
+        }
+    }
 
     const isToday = day === today.getDate() && 
                     month === today.getMonth() && 

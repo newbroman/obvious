@@ -1704,3 +1704,32 @@ body {
     font-weight: bold;
 }
 
+
+
+/* Pagan Tradition Dates - Green Nature Theme */
+.has-pagan {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border: 1px solid #66bb6a;
+    position: relative;
+}
+
+.has-pagan::after {
+    content: '🌿';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 0.7rem;
+}
+
+.has-pagan.badge-count::after {
+    content: attr(data-pagan-count) '🌿';
+    font-size: 0.65rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .has-pagan {
+        background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+        border-color: #4caf50;
+        color: #e8f5e9;
+    }
+}

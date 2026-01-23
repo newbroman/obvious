@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Historical Events</title>
+    <script type="module">
+        import historicalData from './historical-events.js';
+        
+        console.log("Historical Data loaded:", historicalData);
+        
+        // Test 1: Get event for Battle of Grunwald
+        const grunwald = new Date(1410, 6, 15);
+        const event = historicalData.getHistoricalEvent(grunwald);
+        console.log("Battle of Grunwald:", event);
+        
+        // Test 2: Check eras
+        console.log("Eras:", historicalData.eras);
+        
+        // Test 3: Modern date (should return null)
+        const modern = new Date(2026, 0, 23);
+        const noEvent = historicalData.getHistoricalEvent(modern);
+        console.log("Modern date (should be null):", noEvent);
+        
+        document.body.innerHTML = "<h1>Check console for test results</h1>";
+    </script>
+</head>
+<body>
+    Loading...
+</body>
+</html>

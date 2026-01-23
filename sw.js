@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pl-date-v1329.2';
+const CACHE_NAME = 'pl-date-v1330';
 const ASSETS = [
   './',
   './index.html',
@@ -12,6 +12,7 @@ const ASSETS = [
   './audio.js',
   './holiday.js',
   './cultural.js',
+  './historical-events.js',
   './rules.js',
   './color-utils.js',
   './namedays.js',

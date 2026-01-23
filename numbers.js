@@ -106,7 +106,9 @@ export function getYearPolish(year, isFormal = false) {
 }
 
 export function getYearPhonetic(year, isFormal = false) {
-    const thousands = Math.floor(year / 1000);
+    const isBC = year < 0;
+    const absYear = Math.abs(year);
+    const thousands = Math.floor(absYear / 1000);
     const hundreds = Math.floor((absYear % 1000) / 100);
     const lastTwo = absYear % 100;
     let pParts = [];
@@ -137,5 +139,6 @@ export function getYearPhonetic(year, isFormal = false) {
         pParts.push(pYear);
     }
 
-    return pParts.join(" ");
+    const result = pParts.join(" ");
+    return isBC ? `${result} pshed nah-shown eh-rohn` : result;
 }

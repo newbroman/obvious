@@ -565,6 +565,27 @@ body {
     color: #2980b9;
 }
 
+/* Historical Event dates */
+.calendar-day.has-historical-event {
+    background: linear-gradient(135deg, rgba(139, 90, 43, 0.15) 0%, rgba(101, 67, 33, 0.08) 100%) !important;
+    border-top-color: #8b5a2b !important;
+    position: relative;
+}
+
+.calendar-day.has-historical-event::after {
+    content: '🏛️';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+.calendar-day.has-historical-event:hover {
+    background: linear-gradient(135deg, rgba(139, 90, 43, 0.25) 0%, rgba(101, 67, 33, 0.15) 100%) !important;
+    transform: scale(1.05);
+}
+
 /* Selected state should still pop */
 .calendar-day.selected {
     border-top-color: white !important;

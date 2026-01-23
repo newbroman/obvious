@@ -8,6 +8,7 @@ import { setupListeners } from './events.js';
 import holidayData from './holiday.js';
 import { checkVoices } from './audio.js';
 import culturalData from './cultural.js';
+import historicalData from './historical-events.js';
 
 // 1. Initialize Global State
 const state = { 
@@ -192,6 +193,13 @@ if (holidayName) {
         }
     }
     // --- NEW LOGIC END ---
+
+    // Check for historical event on this date
+    const cellDate = new Date(year, month, day);
+    const historicalEvent = historicalData.getHistoricalEvent(cellDate);
+    if (historicalEvent) {
+        daySquare.classList.add('has-historical-event');
+    }
 
     const isToday = day === today.getDate() && 
                     month === today.getMonth() && 

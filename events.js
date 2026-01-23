@@ -238,6 +238,10 @@ export function renderCulturalHub(state) {
     const monthIndex = state.selectedDate.getMonth();
     const year = state.selectedDate.getFullYear();
     const day = state.selectedDate.getDate();
+    
+    // Check if we have cultural data for this year (1000 AD onwards)
+    const hasCulturalData = year >= 1000;
+    
     const monthInfo = culturalData.months[monthIndex] || { pl: "Miesiąc", derivation: "N/A", season: "N/A" };
     const nominativeMonths = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
     const nominativeMonth = nominativeMonths[monthIndex];
@@ -248,8 +252,23 @@ export function renderCulturalHub(state) {
     <button id="cultureBackBtn" class="pill-btn back-to-cal">Back</button>
     <div class="content-body">
         <header class="content-header">
-            <h1>${day}. ${nominativeMonth} ${year}</h1>
+            <h1>${day}. ${nominativeMonth} ${year}${year < 0 ? ' p.n.e.' : ''}</h1>
         </header>
+        ${!hasCulturalData ? `
+        <div class="historical-notice" style="background: var(--card-bg); border: 2px solid var(--accent-color); border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center;">
+            <h3 style="color: var(--accent-color); margin-top: 0;">⏳ ${state.isPolish ? 'Dane Historyczne' : 'Historical Period'}</h3>
+            <p style="font-size: 1.1rem; line-height: 1.6;">
+                ${state.isPolish 
+                    ? 'Dane kulturowe (święta, imieniny) są dostępne tylko dla dat od 1000 roku naszej ery. Ta data jest częścią starożytnej historii.' 
+                    : 'Cultural data (holidays, name days) is only available for dates from year 1000 AD onwards. This date is part of ancient history.'}
+            </p>
+            <p style="color: var(--text-secondary); margin-bottom: 0;">
+                ${state.isPolish
+                    ? 'Możesz nadal ćwiczyć wymowę polskich dat z dowolnego okresu!'
+                    : 'You can still practice Polish date pronunciation from any period!'}
+            </p>
+        </div>
+        ` : ''}
         <div class="season-box" style="margin-bottom: 20px;">
             <span class="season-icon">${getSeasonIcon(monthInfo.season)}</span>
             <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 

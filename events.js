@@ -189,6 +189,45 @@ if (meetingBtn) {
         state.includeYear = !state.includeYear;
         render(); 
     };
+
+    // Swipe Navigation for Mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    const calendarGrid = document.getElementById('calendarGrid');
+    
+    if (calendarGrid) {
+        calendarGrid.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        calendarGrid.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+    }
+
+    function handleSwipe() {
+        const swipeThreshold = 50; // minimum pixels for swipe
+        const horizontalDiff = touchStartX - touchEndX;
+        const verticalDiff = Math.abs(touchStartY - touchEndY);
+        
+        // Only trigger if horizontal swipe is dominant (not vertical scroll)
+        if (Math.abs(horizontalDiff) > swipeThreshold && verticalDiff < 100) {
+            if (horizontalDiff > 0) {
+                // Swiped left → next month
+                document.getElementById('nextMonth').click();
+            } else {
+                // Swiped right → prev month
+                document.getElementById('prevMonth').click();
+            }
+        }
+    }
+
 } // <--- CORRECTLY CLOSES setupListeners
 
 /**

@@ -254,21 +254,53 @@ export function renderCulturalHub(state) {
         <header class="content-header">
             <h1>${day}. ${nominativeMonth} ${year}${year < 0 ? ' p.n.e.' : ''}</h1>
         </header>
-        ${!hasCulturalData ? `
-        <div class="historical-notice" style="background: var(--card-bg); border: 2px solid var(--accent-color); border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center;">
-            <h3 style="color: var(--accent-color); margin-top: 0;">⏳ ${state.isPolish ? 'Dane Historyczne' : 'Historical Period'}</h3>
-            <p style="font-size: 1.1rem; line-height: 1.6;">
-                ${state.isPolish 
-                    ? 'Dane kulturowe (święta, imieniny) są dostępne tylko dla dat od 1000 roku naszej ery. Ta data jest częścią starożytnej historii.' 
-                    : 'Cultural data (holidays, name days) is only available for dates from year 1000 AD onwards. This date is part of ancient history.'}
-            </p>
-            <p style="color: var(--text-secondary); margin-bottom: 0;">
-                ${state.isPolish
-                    ? 'Możesz nadal ćwiczyć wymowę polskich dat z dowolnego okresu!'
-                    : 'You can still practice Polish date pronunciation from any period!'}
-            </p>
-        </div>
-        ` : ''}
+        ${(() => {
+            // Check for historical event on this date
+            const historicalEvent = historicalData.getHistoricalEvent(state.selectedDate);
+            
+            if (historicalEvent) {
+                const era = historicalData.eras[historicalEvent.era];
+                const eventName = state.isPolish ? historicalEvent.namePl : historicalEvent.name;
+                const eventDesc = state.isPolish ? historicalEvent.descriptionPl : historicalEvent.description;
+                
+                return `
+                <div class="historical-event" style="background: var(--card-bg); border: 3px solid ${era.color}; border-radius: 12px; padding: 25px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                        <span style="font-size: 2.5rem;">${era.icon}</span>
+                        <div>
+                            <h3 style="color: ${era.color}; margin: 0; font-size: 1.3rem;">${eventName}</h3>
+                            <p style="color: var(--text-secondary); margin: 5px 0 0 0; font-size: 0.9rem;">
+                                ${state.isPolish ? era.namePl : era.name} • ${era.period}
+                            </p>
+                        </div>
+                    </div>
+                    <p style="font-size: 1.05rem; line-height: 1.6; margin: 0;">
+                        ${eventDesc}
+                    </p>
+                </div>
+                `;
+            }
+            
+            if (!hasCulturalData) {
+                return `
+                <div class="historical-notice" style="background: var(--card-bg); border: 2px solid var(--accent-color); border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center;">
+                    <h3 style="color: var(--accent-color); margin-top: 0;">⏳ ${state.isPolish ? 'Dane Historyczne' : 'Historical Period'}</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.6;">
+                        ${state.isPolish 
+                            ? 'Dane kulturowe (święta, imieniny) są dostępne tylko dla dat od 1000 roku naszej ery. Ta data jest częścią starożytnej historii.' 
+                            : 'Cultural data (holidays, name days) is only available for dates from year 1000 AD onwards. This date is part of ancient history.'}
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0;">
+                        ${state.isPolish
+                            ? 'Możesz nadal ćwiczyć wymowę polskich dat z dowolnego okresu!'
+                            : 'You can still practice Polish date pronunciation from any period!'}
+                    </p>
+                </div>
+                `;
+            }
+            
+            return '';
+        })()}
         <div class="season-box" style="margin-bottom: 20px;">
             <span class="season-icon">${getSeasonIcon(monthInfo.season)}</span>
             <strong>${state.isPolish ? 'Pora roku' : 'Season'}:</strong> 

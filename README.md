@@ -1,39 +1,36 @@
-# Polish Language App - v1320
+# Polish Language App - v1321
 
-✅ app.js: Fixed render() function to update all back button translations when language toggles
-✅ app.js: Removed broken modal code that was causing issues
-✅ events.js: Fixed renderCulturalHub to use proper cultureBackBtn ID
-✅ events.js: Fixed renderRulesPage to use proper rulesBackBtn ID (was using wrong ID)
-✅ help.js: Complete translation support for expanded Help page content
-✅ sw.js: Updated cache version to v1320
+✅ ui-renderer.js: Translate "Today's Name Days are:" → "Dzisiejsze imieniny:"
+✅ events.js: Translate "OFFICIAL HOLIDAY" → "ŚWIĘTO PAŃSTWOWE" and "TRADITION" → "TRADYCJA"
+✅ rules.js: Added Polish terminology in Color Coding Guide
+✅ sw.js: Updated cache version to v1321
 
-## Bug Fixes
-**Issues Fixed**:
-1. Help page back button not working
-2. Back buttons not translating to Polish when language toggle is used
-3. Culture page back button not translating
-4. Rules page back button not translating
-5. Search page back button not translating
+## Translation Enhancements
 
-**Solutions**:
-1. Removed broken modal code from render() function in app.js
-2. Added proper back button translation in render() function for all pages:
-   - Help page (helpBackBtn)
-   - Culture page (cultureBackBtn)
-   - Rules page (rulesBackBtn)
-   - Search page (searchBackBtn)
-3. Fixed renderCulturalHub to use correct cultureBackBtn ID
-4. Fixed renderRulesPage to use correct rulesBackBtn ID (was incorrectly using cultureBackBtn)
-5. All back buttons now properly translate "Back" → "Wróć" when language toggles
+**Name Days Section (Calendar & Culture pages)**:
+- "Today's Name Days are:" → "Dzisiejsze imieniny:"
+- "No name days found for this date" → "Brak imienin w tym dniu"
+- "Error loading name days" → "Błąd ładowania imienin"
 
-**Translation Behavior**:
-- When user toggles language (EN ↔ PL), all visible back buttons update immediately
-- Help page content fully translates (titles, lists, buttons)
-- Culture page back button translates
-- Rules page back button translates
-- Search page back button translates
+**Cultural Page - Holiday Tags**:
+- "OFFICIAL HOLIDAY" → "ŚWIĘTO PAŃSTWOWE"
+- "TRADITION" → "TRADYCJA"
+
+**Rules Page - Color Coding Guide** (Now includes Polish names):
+- Blue = Nominative Ordinals **(Mianownik Liczebników Porządkowych)**
+- Gold = Genitive Ordinals **(Dopełniacz Liczebników Porządkowych)**
+- Orange = Genitive Months **(Dopełniacz Miesięcy)**
+- Purple = Year Components **(Składniki Roku)**
+- Red = Genitive Marker **(Znacznik Dopełniacza)**
+
+**What Works Now**:
+- Toggle language (EN/PL) and all labels update dynamically
+- Name days display translates in real-time
+- Holiday/Tradition tags translate on cultural page
+- Color guide shows both English and Polish terminology
+- All back buttons translate properly (from v1320)
 
 Deploy:
-tar -xzf polish-date-master-v1320.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1320/* .
-git add . && git commit -m "v1320: Back button translations fixed!" && git push
+tar -xzf polish-date-master-v1321.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1321/* .
+git add . && git commit -m "v1321: Complete translation coverage!" && git push

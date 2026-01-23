@@ -35,23 +35,23 @@ export function getRulesHTML(state) {
                 <p style="margin-bottom: 15px;">Polish date components are color-coded by their grammatical function:</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.ordinalNominative}; background: rgba(74, 144, 226, 0.05);">
-                        <strong style="color: ${COLORS.ordinalNominative};">Blue</strong> = Nominative Ordinals<br>
+                        <strong style="color: ${COLORS.ordinalNominative};">Blue</strong> = Nominative Ordinals (Mianownik Liczebników Porządkowych)<br>
                         <small style="color: #666;">pierwszy, drugi, trzeci (Today is...)</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.ordinalGenitive}; background: rgba(255, 215, 0, 0.05);">
-                        <strong style="color: ${COLORS.ordinalGenitive};">Gold</strong> = Genitive Ordinals<br>
+                        <strong style="color: ${COLORS.ordinalGenitive};">Gold</strong> = Genitive Ordinals (Dopełniacz Liczebników Porządkowych)<br>
                         <small style="color: #666;">pierwszego, drugiego, trzeciego (It's on...)</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.genitive}; background: rgba(243, 156, 18, 0.05);">
-                        <strong style="color: ${COLORS.genitive};">Orange</strong> = Genitive Months<br>
+                        <strong style="color: ${COLORS.genitive};">Orange</strong> = Genitive Months (Dopełniacz Miesięcy)<br>
                         <small style="color: #666;">stycznia, lutego, marca</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.year}; background: rgba(155, 89, 182, 0.05);">
-                        <strong style="color: ${COLORS.year};">Purple</strong> = Year Components<br>
+                        <strong style="color: ${COLORS.year};">Purple</strong> = Year Components (Składniki Roku)<br>
                         <small style="color: #666;">dwa tysiące dwudziestego szóstego</small>
                     </div>
                     <div style="padding: 10px; border-left: 4px solid ${COLORS.genitiveMark}; background: rgba(231, 76, 60, 0.05);">
-                        <strong style="color: ${COLORS.genitiveMark};">Red</strong> = Genitive Marker<br>
+                        <strong style="color: ${COLORS.genitiveMark};">Red</strong> = Genitive Marker (Znacznik Dopełniacza)<br>
                         <small style="color: #666;">roku (of the year)</small>
                     </div>
                 </div>

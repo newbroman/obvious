@@ -137,17 +137,22 @@ export async function updateNamedaysDisplay(selectedDate) {
             console.log('Received names:', names);
             
             if (names && names.length > 0) {
-                const html = `<p style="font-weight: bold; margin: 0 0 8px 0; color: #666;">Today's Name Days are:</p><p class="namedays-names">${names.join(', ')}</p>`;
+                // Get language state from app
+                const isPolish = window.state?.isPolish || false;
+                const label = isPolish ? "Dzisiejsze imieniny:" : "Today's Name Days are:";
+                const html = `<p style="font-weight: bold; margin: 0 0 8px 0; color: #666;">${label}</p><p class="namedays-names">${names.join(', ')}</p>`;
                 console.log('Setting innerHTML to:', html);
                 list.innerHTML = html;
             } else {
-                list.innerHTML = '<p class="namedays-placeholder">No name days found for this date</p>';
+                const noNamesMsg = isPolish ? 'Brak imienin w tym dniu' : 'No name days found for this date';
+                list.innerHTML = `<p class="namedays-placeholder">${noNamesMsg}</p>`;
             }
         } else {
             console.log('window.getNamesForDate is not a function');
         }
     } catch (error) {
         console.error('Error updating namedays:', error);
-        list.innerHTML = '<p class="namedays-placeholder">Error loading name days</p>';
+        const errorMsg = isPolish ? 'Błąd ładowania imienin' : 'Error loading name days';
+        list.innerHTML = `<p class="namedays-placeholder">${errorMsg}</p>`;
     }
 }

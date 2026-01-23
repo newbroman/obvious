@@ -260,7 +260,7 @@ export function renderCulturalHub(state) {
             
             html += `
                 <div class="holiday-entry ${isHoliday ? 'state-holiday' : 'tradition-item'}">
-                    <div class="holiday-type-tag">${isHoliday ? 'OFFICIAL HOLIDAY' : 'TRADITION'}</div>
+                    <div class="holiday-type-tag">${isHoliday ? (state.isPolish ? 'ŚWIĘTO PAŃSTWOWE' : 'OFFICIAL HOLIDAY') : (state.isPolish ? 'TRADYCJA' : 'TRADITION')}</div>
                     <div class="holiday-title">
                         <strong>${dayNum}. ${capitalizedMonthGenitive}:</strong> ${holidayName}
                     </div>

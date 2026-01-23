@@ -465,6 +465,12 @@ export function renderRulesPage(state) {
         rulesBackBtn.onclick = () => document.getElementById('navCalendar').click();
         rulesBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
     }
+    
+    const helpBackBtn = document.getElementById('helpBackBtn');
+    if (helpBackBtn) {
+        helpBackBtn.onclick = () => document.getElementById('navCalendar').click();
+        helpBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
+    }
 }
 
 

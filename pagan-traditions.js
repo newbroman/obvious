@@ -183,7 +183,7 @@ const paganTraditions = {
 
     descriptions: {
         "Kupala Night (Midsummer)": {
-            en: "Ancient summer solstice festival. Celebrated with bonfires, jumping over flames for purification, sending flower wreaths down rivers, gathering herbs at peak potency, and bathing in sacred waters. The shortest night when boundaries between worlds thin.",
+            en: "Kupala Night (Noc Kupały/Sobótka) - Ancient summer solstice festival (June 21-24). The most magical night of the year when boundaries between worlds thin. Young couples jump over bonfires hand-in-hand to test their love and purify themselves. Girls weave flower wreaths and float them down rivers - if two wreaths stay together, that couple will marry. The legendary fern flower blooms only this night at midnight, bringing fortune to whoever finds it. Herbs gathered now have peak magical and healing potency. Ritual bathing in rivers for health and fertility. Named after Kupala, Slavic goddess of water, fertility, and purification.",
             pl: "Starożytne święto przesilenia letniego. Obchodzone przy ogniskach, skakaniu przez płomienie dla oczyszczenia, puszczaniu wianków na wodzie, zbieraniu ziół o największej mocy i kąpieli w świętych wodach. Najkrótsza noc, kiedy granice między światami się zacierają."
         },
         "Noc Kupały (Sobótka)": {
@@ -191,11 +191,11 @@ const paganTraditions = {
             pl: "Noc Kupały - od prasłowiańskiego 'kǫpati' (kąpać się). Rytuały ognia i wody honorujące płodność, szczyt mocy słońca i obfitość natury. Młodzi ludzie szukają mitycznego kwiatu paproci."
         },
         "Winter Solstice (Koliada Begins)": {
-            en: "Koliada marks winter solstice and sun's rebirth. 12-day Sviatki (Yuletide) period of caroling (koleduvane), gift-giving, ritual songs, and warding off evil spirits. Celebrating return of light after longest night.",
+            en: "Koliada (Dec 21 - Jan 6) - Winter solstice marking the sun's rebirth and victory of light over darkness. The weakened sun needs help to return, so bonfires burn throughout the 12-day Sviatki period. Groups of carolers (kolędnicy) dressed as animals, stars, and mythical creatures visit homes singing ritual songs and receiving gifts of food. Divination rituals peek into the coming year. The boundary between past and future is thinnest. Feasting honors ancestors and welcomes the new solar year. Many traditions later absorbed into Christmas celebrations.",
             pl: "Koliada oznacza przesilenie zimowe i odrodzenie słońca. 12-dniowy okres Świątek z kolędowaniem, obdarowywaniem, rytualnymi pieśniami i odpędzaniem złych duchów. Świętowanie powrotu światła po najdłuższej nocy."
         },
         "Koliada": {
-            en: "Part of the 12-day winter solstice celebration. Ritual caroling (kolędy), sharing special breads, community gatherings, and honoring the sun's return. From Latin 'calendae' (first day of month).",
+            en: "Koliada - Part of the 12-day winter solstice celebration (Sviatki). Each day has special rituals. Carolers (kolędnicy) go house to house singing ritual songs that blend blessing, entertainment, and mild threat ('give us treats or we'll curse your crops!'). Special breads (kolach) are shared. Bonfires help the sun regain strength. Young people divine their marriage prospects. The name may derive from Latin 'calendae' (first day of month) or from the Slavic word for 'wheel' (solar symbol).",
             pl: "Część 12-dniowego święta przesilenia zimowego. Rytualne kolędowanie, dzielenie się specjalnym chlebem, spotkania wspólnotowe i czci powrotu słońca. Od łacińskiego 'calendae' (pierwszy dzień miesiąca)."
         },
         "Spring Equinox (Jare Gody)": {
@@ -203,7 +203,7 @@ const paganTraditions = {
             pl: "Jare Gody - równowaga dnia i nocy. Czas na wiosenne rytuały, witanie ciepła, przygotowania do sezonu sadzenia. Starożytni Słowianie świętowali przebudzenie ziemi ze snu zimowego."
         },
         "Autumn Equinox (Dozhinki)": {
-            en: "Autumn equinox and harvest festival (Dożynki). Thanksgiving for successful harvest, last sheaf rituals, feasting, and honoring earth's abundance before winter. Balance of day and night.",
+            en: "Autumn Equinox & Harvest Festival (Sept 22). Balance returns as day equals night. Ancient Dożynki - thanksgiving for successful harvest. Last sheaf rituals: the final grain cut was woven into wreaths and kept until spring planting. Feasting honors earth's abundance before winter scarcity. Offerings to Mokosh (earth goddess). Later Christianized but harvest customs remain (Dożynki). Thanksgiving for successful harvest, last sheaf rituals, feasting, and honoring earth's abundance before winter. Balance of day and night.",
             pl: "Równonoc jesienna i święto żniw (Dożynki). Dziękczynien ie za udane żniwa, rytuały ostatniego snopa, ucztowanie i czci obfitości ziemi przed zimą. Równowaga dnia i nocy."
         },
         "Spring Dziady (Forefathers' Eve)": {

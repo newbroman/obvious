@@ -104,7 +104,7 @@ export const historicalEvents = {
     "966-04-14": {
         name: "Baptism of Poland",
         namePl: "Chrzest Polski",
-        description: "Duke Mieszko I accepted Christianity from Rome, bringing Poland into Western Christendom",
+        description: "Baptism of Poland (Chrzest Polski) - Duke Mieszko I accepted Christianity from Rome in 966, a pivotal moment that brought Poland into Western Christendom and European civilization. This strategic decision aligned Poland with the Holy Roman Empire rather than Orthodox Byzantium, shaping Polish identity for over a millennium. The baptism unified the Polish tribes under one faith and established the Church as a central institution. It also brought Latin literacy, architecture, art, and diplomatic ties with other Christian kingdoms. Poland's thousand-year Catholic heritage begins here.",
         descriptionPl: "Książę Mieszko I przyjął chrześcijaństwo z Rzymu, wprowadzając Polskę do zachodniej chrześcijaństwa",
         era: "medieval-poland",
         importance: "critical",
@@ -154,7 +154,7 @@ export const historicalEvents = {
     "1410-07-15": {
         name: "Battle of Grunwald",
         namePl: "Bitwa pod Grunwaldem",
-        description: "Polish-Lithuanian forces decisively defeated the Teutonic Knights in one of medieval Europe's largest battles",
+        description: "Battle of Grunwald (Bitwa pod Grunwaldem) - July 15, 1410. One of the largest and most important battles in medieval Europe. Polish-Lithuanian forces under King Władysław II Jagiełło decisively crushed the Teutonic Knights, ending their aggressive expansion. Over 60,000 soldiers clashed. Teutonic Grand Master Ulrich von Jungingen was killed. This victory is celebrated as one of Poland's greatest military triumphs and a symbol of Slavic resistance. The battle secured Poland's access to the Baltic and cemented the Polish-Lithuanian alliance.",
         descriptionPl: "Siły polsko-litewskie pokonały Zakon Krzyżacki w jednej z największych bitew średniowiecznej Europy",
         era: "medieval-poland",
         importance: "critical",
@@ -287,7 +287,7 @@ export const eras = {
     "1385-08-14": {
         name: "Union of Krewo",
         namePl: "Unia Krewska",
-        description: "Personal union between Poland and Lithuania. Jogaila to marry Jadwiga and convert Lithuania to Christianity",
+        description: "Union of Krewo (Unia w Krewie) - Personal union between Poland and Lithuania in 1385, creating the largest territorial state in medieval Europe. Grand Duke Jogaila of Lithuania married Queen Jadwiga of Poland, converted to Christianity, and became King Władysław II Jagiełło. This dynastic union established the Jagiellonian dynasty and created the Polish-Lithuanian Commonwealth, a unique dual-state partnership that would dominate Eastern Europe for centuries, stretching from the Baltic to the Black Sea.",
         descriptionPl: "Unia personalna między Polską a Litwą. Jogaiło miał poślubić Jadwigę i nawrócić Litwę na chrześcijaństwo",
         era: "medieval-poland",
         importance: "critical",

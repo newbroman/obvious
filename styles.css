@@ -452,6 +452,15 @@ body {
     cursor: pointer;
 }
 
+/* Override for audio/listen button - always red regardless of season */
+#playBtn {
+    background: #dc3545 !important;
+}
+
+#playBtn:hover {
+    background: #c82333 !important;
+}
+
 #meetingToggle, #repeatYearBtn {
     font-size: 0.65rem !important; 
     padding: 4px 8px !important;

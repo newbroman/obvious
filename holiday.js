@@ -18,10 +18,10 @@ const holidayData = {
         "7-15": "Wniebowzięcie NMP",
         "10-1": "Wszystkich Świętych",
         "10-11": "Narodowe Święto Niepodległości",
-        "10-29": "Andrzejki 🕯️",
-        "11-6": "Mikołajki 🎅", // Fixed typo here
+        "11-6": "Mikołajki 🎅",
         "11-24": "Wigilia Bożego Narodzenia",
         "11-25": "Boże Narodzenie",
+        "10-29": "Andrzejki 🕯️",
         "11-26": "Drugi Dzień Świąt"
     },
 
@@ -41,16 +41,11 @@ const holidayData = {
         "Wszystkich Świętych": "All Saints' Day. A stunning sight: millions of 'znicze' (candles) turn cemeteries into glowing seas of light at night.",
         "Narodowe Święto Niepodległości": "Independence Day. Commemorates 1918. Expect patriotic marches and the singing of 'Mazurek Dąbrowskiego'.",
         "Andrzejki 🕯️": "St. Andrew's Eve. The last night for parties before Advent. People pour hot wax into water to 'see' their future spouse.",
-        "Mikołajki 🎅": "St. Nicholas Day. Not the 'main' Christmas; this is when kids find small gifts in their boots or under pillows.",
-        "Wigilia Bożego Narodzenia": "Christmas Eve. The 'Star' of Polish holidays. We share the 'Opłatek' wafer and wait for the first star to start dinner.",
-        "Boże Narodzenie": "Christmas Day. A time for family, 'pierniki' (gingerbread), and visiting the 'szopka' (nativity scene) at church.",
         "Drugi Dzień Świąt": "St. Stephen's Day. Traditionally a day for visiting friends and throwing grain for good harvests.",
-        "Wielkanoc 🐣": "Easter Sunday. Starts with a sunrise mass and a breakfast of 'żurek' and eggs from the blessed basket.",
         "Tłusty Czwartek 🍩": "Fat Thursday. The only day it is socially mandatory to eat several 'pączki' (rose-jam donuts).",
         "Środa Popielcowa": "Ash Wednesday. Marking the transition from Carnival to the 40 days of Lent.",
         "Lany Poniedziałek 💧": "Śmigus-Dyngus. Be careful! It’s a tradition to splash people with water for health and beauty.",
         "Zielone Świątki": "Pentecost. Houses are traditionally decorated with birch branches to welcome the spirit of spring.",
-        "Boże Ciało": "Corpus Christi. Massive street processions where children strew flower petals before the priest."
     },
 
     getEaster(year) {
@@ -69,6 +64,26 @@ const holidayData = {
         const month = Math.floor((h + l - 7 * m + 114) / 31);
         const day = ((h + l - 7 * m + 114) % 31) + 1;
         return new Date(year, month - 1, day);
+    },
+
+    getEaster(year) {
+        // Meeus/Jones/Butcher algorithm for Gregorian calendar
+        const a = year % 19;
+        const b = Math.floor(year / 100);
+        const c = year % 100;
+        const d = Math.floor(b / 4);
+        const e = b % 4;
+        const f = Math.floor((b + 8) / 25);
+        const g = Math.floor((b - f + 1) / 3);
+        const h = (19 * a + b - d - g + 15) % 30;
+        const i = Math.floor(c / 4);
+        const k = c % 4;
+        const l = (32 + 2 * e + 2 * i - h - k) % 7;
+        const m = Math.floor((a + 11 * h + 22 * l) / 451);
+        const month = Math.floor((h + l - 7 * m + 114) / 31) - 1; // 0-indexed
+        const day = ((h + l - 7 * m + 114) % 31) + 1;
+        
+        return new Date(year, month, day);
     },
 
     getHolidaysForYear(year) {

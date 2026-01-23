@@ -76,16 +76,7 @@ export const historicalEvents = {
         type: "political"
     },
     
-    "0-01-01": {
-        name: "Traditional Birth Year of Jesus Christ",
-        namePl: "Tradycyjny Rok Narodzin Jezusa Chrystusa",
-        description: "Year 1 in the Christian calendar (though historians debate the actual date)",
-        descriptionPl: "Rok 1 w kalendarzu chrześcijańskim (choć historycy dyskutują o rzeczywistej dacie)",
-        era: "ancient-rome",
-        importance: "critical",
-        type: "religious"
-    },
-    
+
     "476-09-04": {
         name: "Fall of Western Roman Empire",
         namePl: "Upadek Cesarstwa Zachodniorzymskiego",
@@ -192,6 +183,186 @@ export const eras = {
         icon: "🏛️",
         period: "753 BC - 476 AD"
     },
+    
+    "1034-05-10": {
+        name: "Death of Mieszko II Lambert",
+        namePl: "Śmierć Mieszka II Lamberta",
+        description: "Second crowned King of Poland died, leading to a period of crisis and pagan reaction",
+        descriptionPl: "Drugi koronowany król Polski zmarł, prowadząc do okresu kryzysu i reakcji pogańskiej",
+        era: "medieval-poland",
+        importance: "high",
+        type: "political"
+    },
+    
+    "1058-02-01": {
+        name: "Restoration of Polish Kingdom",
+        namePl: "Odnowienie Królestwa Polskiego",
+        description: "Casimir I the Restorer rebuilt the Polish state after the crisis of the 1030s",
+        descriptionPl: "Kazimierz I Odnowiciel odbudował państwo polskie po kryzysie lat 1030",
+        era: "medieval-poland",
+        importance: "high",
+        type: "political"
+    },
+    
+    "1138-10-28": {
+        name: "Death of Bolesław III Wrymouth - Poland Fragmented",
+        namePl: "Śmierć Bolesława III Krzywoustego - Rozbicie Polski",
+        description: "His testament divided Poland among his sons, beginning the period of feudal fragmentation",
+        descriptionPl: "Jego testament podzielił Polskę między synów, rozpoczynając okres rozbicia dzielnicowego",
+        era: "medieval-poland",
+        importance: "critical",
+        type: "political"
+    },
+    
+    "1241-04-09": {
+        name: "Battle of Legnica",
+        namePl: "Bitwa pod Legnicą",
+        description: "Polish and German forces fought the Mongols. Duke Henry II the Pious died defending Central Europe",
+        descriptionPl: "Polskie i niemieckie siły walczyły z Mongołami. Książę Henryk II Pobożny zginął broniąc Europy Środkowej",
+        era: "medieval-poland",
+        importance: "critical",
+        type: "battle"
+    },
+    
+    "1295-06-26": {
+        name: "Coronation of Przemysł II",
+        namePl: "Koronacja Przemysła II",
+        description: "First king crowned in Poland since Bolesław II (1076), attempting to reunify the kingdom",
+        descriptionPl: "Pierwszy król koronowany w Polsce od czasów Bolesława II (1076), próbujący zjednoczyć królestwo",
+        era: "medieval-poland",
+        importance: "high",
+        type: "political"
+    },
+    
+    "1320-01-20": {
+        name: "Coronation of Władysław I the Elbow-high",
+        namePl: "Koronacja Władysława I Łokietka",
+        description: "Successfully reunited most Polish lands and restored the Kingdom of Poland",
+        descriptionPl: "Pomyślnie zjednoczył większość ziem polskich i przywrócił Królestwo Polskie",
+        era: "medieval-poland",
+        importance: "critical",
+        type: "political"
+    },
+    
+    "1333-03-02": {
+        name: "Casimir III the Great Becomes King",
+        namePl: "Kazimierz III Wielki Zostaje Królem",
+        description: "Last Piast king began reign. Founded universities, built castles, reformed law. 'Found Poland wooden, left it stone'",
+        descriptionPl: "Ostatni król z dynastii Piastów rozpoczął panowanie. Założył uniwersytety, budował zamki, reformował prawo",
+        era: "medieval-poland",
+        importance: "critical",
+        type: "political"
+    },
+    
+    "1364-05-12": {
+        name: "Founding of Jagiellonian University",
+        namePl: "Założenie Uniwersytetu Jagiellońskiego",
+        description: "Casimir III founded the University of Kraków, second-oldest university in Central Europe",
+        descriptionPl: "Kazimierz III założył Uniwersytet Krakowski, drugi najstarszy uniwersytet w Europie Środkowej",
+        era: "medieval-poland",
+        importance: "high",
+        type: "cultural"
+    },
+    
+    "1370-11-05": {
+        name: "Death of Casimir III the Great",
+        namePl: "Śmierć Kazimierza III Wielkiego",
+        description: "Last male Piast ruler died. End of Piast dynasty. Succeeded by Louis I of Hungary",
+        descriptionPl: "Ostatni męski władca z dynastii Piastów zmarł. Koniec dynastii Piastów. Następcą został Ludwik I Węgierski",
+        era: "medieval-poland",
+        importance: "critical",
+        type: "political"
+    },
+    
+    "1384-07-22": {
+        name: "Jadwiga Crowned 'King' of Poland",
+        namePl: "Jadwiga Koronowana na 'Króla' Polski",
+        description: "10-year-old Jadwiga crowned as 'king' (not queen) to emphasize her sovereign authority",
+        descriptionPl: "10-letnia Jadwiga koronowana na 'króla' (nie królową), aby podkreślić jej suwerenną władzę",
+        era: "medieval-poland",
+        importance: "high",
+        type: "political"
+    },
+    
+    "1385-08-14": {
+        name: "Union of Krewo",
+        namePl: "Unia Krewska",
+        description: "Personal union between Poland and Lithuania. Jogaila to marry Jadwiga and convert Lithuania to Christianity",
+        descriptionPl: "Unia personalna między Polską a Litwą. Jogaiło miał poślubić Jadwigę i nawrócić Litwę na chrześcijaństwo",
+        era: "medieval-poland",
+        importance: "critical",
+        type: "political"
+    },
+    
+    "1386-02-18": {
+        name: "Marriage of Jadwiga and Jogaila",
+        namePl: "Małżeństwo Jadwigi i Jagiełły",
+        description: "Union creating the Jagiellonian dynasty. Jogaila baptized as Władysław II Jagiełło",
+        descriptionPl: "Unia tworząca dynastię Jagiellonów. Jogaiło ochrzczony jako Władysław II Jagiełło",
+        era: "medieval-poland",
+        importance: "critical",
+        type: "political"
+    },
+    
+    "1399-07-17": {
+        name: "Death of Saint Jadwiga",
+        namePl: "Śmierć Świętej Jadwigi",
+        description: "Queen Jadwiga died after childbirth. Later canonized for her piety and support of education",
+        descriptionPl: "Królowa Jadwiga zmarła po porodzie. Później kanonizowana za pobożność i wspieranie edukacji",
+        era: "medieval-poland",
+        importance: "high",
+        type: "religious"
+    },
+    
+    "1401-01-18": {
+        name: "Union of Vilnius and Radom",
+        namePl: "Unia Wileńsko-Radomska",
+        description: "Strengthened Polish-Lithuanian union, granted Lithuanian nobles equal rights with Polish nobility",
+        descriptionPl: "Wzmocniła unię polsko-litewską, nadała litewskiej szlachcie równe prawa z polską",
+        era: "medieval-poland",
+        importance: "medium",
+        type: "political"
+    },
+    
+    "1413-10-02": {
+        name: "Union of Horodło",
+        namePl: "Unia Horodelska",
+        description: "Heraldic union granting Lithuanian nobility Polish coat of arms and szlachta privileges",
+        descriptionPl: "Unia heraldyczna nadająca litewskiej szlachcie polskie herby i przywileje szlacheckie",
+        era: "medieval-poland",
+        importance: "medium",
+        type: "political"
+    },
+    
+    "1434-06-01": {
+        name: "Death of Władysław II Jagiełło",
+        namePl: "Śmierć Władysława II Jagiełły",
+        description: "Founder of Jagiellonian dynasty died after 48-year reign. Created Polish-Lithuanian union",
+        descriptionPl: "Założyciel dynastii Jagiellonów zmarł po 48-letnim panowaniu. Stworzył unię polsko-litewską",
+        era: "medieval-poland",
+        importance: "critical",
+        type: "political"
+    },
+    
+    "1454-02-21": {
+        name: "Start of Thirteen Years' War",
+        namePl: "Początek Wojny Trzynastoletniej",
+        description: "Prussian cities rebelled against Teutonic Order, seeking Polish protection",
+        descriptionPl: "Miasta pruskie zbuntowały się przeciwko Zakonowi Krzyżackiemu, szukając polskiej ochrony",
+        era: "medieval-poland",
+        importance: "high",
+        type: "battle"
+    },
+    
+    "1492-06-07": {
+        name: "Death of Casimir IV Jagiellon",
+        namePl: "Śmierć Kazimierza IV Jagiellończyka",
+        description: "His children became kings of Poland, Bohemia, and Hungary, creating Jagiellonian dominance in Central Europe",
+        descriptionPl: "Jego dzieci zostały królami Polski, Czech i Węgier, tworząc dominację Jagiellonów w Europie Środkowej",
+        era: "medieval-poland",
+        importance: "high",
+        type: "political"
+    },
     "early-poland": {
         name: "Early Poland",
         namePl: "Wczesna Polska",
@@ -254,10 +425,85 @@ export function hasHistoricalEvent(date) {
     return getHistoricalEvent(date) !== null;
 }
 
+
+/**
+ * Get anniversary information for a specific date
+ * @param {Date} date - The date to check for anniversaries
+ * @returns {Array} - Array of anniversary objects with event details and years ago
+ */
+export function getAnniversariesForDate(date) {
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const currentYear = date.getFullYear();
+    
+    const anniversaries = [];
+    
+    // Check all historical events for matching month/day
+    for (const [key, event] of Object.entries(historicalEvents)) {
+        const [eventYear, eventMonth, eventDay] = key.split('-').map(Number);
+        
+        // Check if month and day match
+        if (eventMonth === parseInt(month) && eventDay === parseInt(day)) {
+            // Calculate years ago (handle BC dates)
+            let yearsAgo;
+            if (eventYear < 0) {
+                // BC date: add absolute value + current year
+                yearsAgo = Math.abs(eventYear) + currentYear;
+            } else {
+                // AD date: simple subtraction
+                yearsAgo = currentYear - eventYear;
+            }
+            
+            // Only include if it's actually an anniversary (not the same year)
+            if (yearsAgo > 0) {
+                anniversaries.push({
+                    ...event,
+                    originalYear: eventYear,
+                    yearsAgo: yearsAgo,
+                    dateKey: key
+                });
+            }
+        }
+    }
+    
+    // Sort by importance and then by years ago
+    anniversaries.sort((a, b) => {
+        const importanceOrder = { critical: 0, high: 1, medium: 2, low: 3 };
+        const aOrder = importanceOrder[a.importance] || 4;
+        const bOrder = importanceOrder[b.importance] || 4;
+        
+        if (aOrder !== bOrder) return aOrder - bOrder;
+        return b.yearsAgo - a.yearsAgo; // Older events first
+    });
+    
+    return anniversaries;
+}
+
+/**
+ * Check if a date has any anniversaries
+ * @param {Date} date - The date to check
+ * @returns {boolean}
+ */
+export function hasAnniversary(date) {
+    return getAnniversariesForDate(date).length > 0;
+}
+
+/**
+ * Get anniversary count for a date
+ * @param {Date} date - The date to check
+ * @returns {number}
+ */
+export function getAnniversaryCount(date) {
+    return getAnniversariesForDate(date).length;
+}
+
 export default {
     events: historicalEvents,
     eras,
     getHistoricalEvent,
     getEventsForYear,
-    hasHistoricalEvent
+    hasHistoricalEvent,
+    getAnniversariesForDate,
+    hasAnniversary,
+    getAnniversaryCount
 };

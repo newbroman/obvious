@@ -8,7 +8,7 @@ import { setupListeners } from './events.js';
 import holidayData from './holiday.js';
 import { checkVoices } from './audio.js';
 import culturalData from './cultural.js';
-import historicalData from './historical-events.js';
+import historicalData, { hasAnniversary, getAnniversaryCount } from './historical-events.js';
 
 // 1. Initialize Global State
 const state = { 

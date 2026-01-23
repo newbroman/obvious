@@ -6,7 +6,7 @@ import holidayData from './holiday.js';
 import culturalData from './cultural.js';
 import { getRulesHTML } from './rules.js';
 import { updateNamedaysDisplay } from './ui-renderer.js';
-import historicalData from './historical-events.js';
+import historicalData, { getAnniversariesForDate } from './historical-events.js';
 
 export function setupListeners(state, render) {
     // Audio playback state
@@ -131,13 +131,13 @@ if (meetingBtn) {
     };
 
     document.getElementById('navRules').onclick = () => {
-    
-    document.getElementById('navInfo').onclick = () => {
-        showSection('help');
-        import('./help.js').then(m => m.updateHelpPage(state.isPolish));
-    };
         showSection('rules');
         renderRulesPage(state);
+    };
+    
+    document.getElementById('navHelp').onclick = () => {
+        showSection('help');
+        import('./help.js').then(m => m.updateHelpPage(state.isPolish));
     };
 
     // Use event delegation for dynamically created navSearch buttons (culture page + help page)
@@ -272,6 +272,48 @@ export function renderCulturalHub(state) {
                         <p style="margin: 0; font-size: 1rem; line-height: 1.6; color: var(--text-dim);">${eventDesc}</p>
                     </div>
                 `;
+            }
+            return '';
+        })()}
+        ${(() => {
+            // Check for anniversaries on this date
+            const anniversaries = getAnniversariesForDate(state.selectedDate);
+            
+            if (anniversaries.length > 0) {
+                let annivHtml = `
+                    <div class="anniversaries-section" style="margin: 20px 0; padding: 20px; background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%); border-left: 4px solid #2196f3; border-radius: 8px;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                            <span style="font-size: 2rem;">📅</span>
+                            <h2 style="margin: 0; font-size: 1.3rem; color: #1976d2;">${state.isPolish ? 'Rocznice Historyczne' : 'Historical Anniversaries'}</h2>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">`;
+                
+                anniversaries.forEach(anniv => {
+                    const era = historicalData.eras[anniv.era];
+                    const eventName = state.isPolish ? anniv.namePl : anniv.name;
+                    const eventDesc = state.isPolish ? anniv.descriptionPl : anniv.description;
+                    const yearDisplay = anniv.originalYear < 0 
+                        ? (state.isPolish ? `${Math.abs(anniv.originalYear)} p.n.e.` : `${Math.abs(anniv.originalYear)} BC`)
+                        : anniv.originalYear;
+                    
+                    annivHtml += `
+                        <div style="padding: 12px; background: white; border-radius: 6px; border-left: 3px solid ${era.color};">
+                            <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;">
+                                <span style="font-size: 1.2rem;">${era.icon}</span>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 0.85rem; color: ${era.color}; font-weight: 600;">${anniv.yearsAgo} ${state.isPolish ? 'lat temu' : 'years ago'} (${yearDisplay})</div>
+                                    <div style="font-weight: 600; color: var(--text-main); margin-top: 2px;">${eventName}</div>
+                                </div>
+                            </div>
+                            <p style="margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--text-dim);">${eventDesc}</p>
+                        </div>`;
+                });
+                
+                annivHtml += `
+                        </div>
+                    </div>`;
+                
+                return annivHtml;
             }
             return '';
         })()}

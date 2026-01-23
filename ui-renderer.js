@@ -71,7 +71,7 @@ export function updateInfoPanel(selectedDate, includeYear, isFormal) {
         const suffixPhonetic = "ro-koo";
 
         fullPl += `, ${yearSpelling} ${suffixPl}`;
-        fullEn += `, ${year}`;
+        fullEn += `, ${year < 0 ? Math.abs(year) + ' BC' : year}`;
         fullPhonetic += `, ${yearPhonetic} ${suffixPhonetic}`;
     }
     

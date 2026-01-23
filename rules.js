@@ -160,17 +160,19 @@ export function getRulesHTML(state) {
                 <p>Used when simply naming or identifying a date. Like pointing at a calendar square.</p>
                 <p><strong>Question answered:</strong> <em>What day is it?</em></p>
                 
-                <div style="background: white; padding: 15px; border-radius: 6px; margin: 15px 0;">
-                    <p style="margin: 0 0 10px 0;"><strong>Structure:</strong></p>
-                    <p style="font-size: 1.1em; margin: 10px 0;">
+                <div style="background: white; padding: 20px; border-radius: 6px; margin: 15px 0;">
+                    <p style="margin: 0 0 15px 0; font-weight: bold;">Structure:</p>
+                    <p style="font-size: 1.1em; margin: 0 0 20px 0; padding: 12px; background: rgba(74, 144, 226, 0.05); border-radius: 4px;">
                         [Day Name] + ${colorTerm('Ordinal-Nominative', 'ordinalNom')} + ${colorTerm('Month-Genitive', 'genitive')} + ${colorTerm('Year', 'year')} ${colorTerm('roku', 'roku')}
                     </p>
-                    <p style="margin: 15px 0 5px 0;"><strong>Example (10th ${dynamicMonth} ${currentYear}):</strong></p>
-                    <p style="font-size: 1.2em; margin: 5px 0;">
+                    
+                    <p style="margin: 0 0 10px 0; font-weight: bold;">Example (10th ${dynamicMonth} ${currentYear}):</p>
+                    <p style="font-size: 1.2em; margin: 0 0 15px 0; padding: 15px; background: rgba(74, 144, 226, 0.05); border-radius: 4px; line-height: 1.6;">
                         Wtorek, ${colorTerm('dziesiąty', 'ordinalNom')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
                     </p>
-                    <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
-                        Notice: ${colorTerm('dziesiąty', 'ordinalNom')} (nominative ending: -y)
+                    
+                    <p style="color: #666; font-size: 0.95em; margin: 0; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                        <strong>Notice:</strong> ${colorTerm('dziesiąty', 'ordinalNom')} (nominative ending: -y)
                     </p>
                 </div>
             </section>
@@ -180,17 +182,19 @@ export function getRulesHTML(state) {
                 <p><strong>PRIMARY MODE for dates.</strong> Used for events, appointments, birthdays - anything happening "on" a date.</p>
                 <p><strong>Question answered:</strong> <em>When is it?</em> (On what date?)</p>
                 
-                <div style="background: white; padding: 15px; border-radius: 6px; margin: 15px 0;">
-                    <p style="margin: 0 0 10px 0;"><strong>Structure:</strong></p>
-                    <p style="font-size: 1.1em; margin: 10px 0;">
+                <div style="background: white; padding: 20px; border-radius: 6px; margin: 15px 0;">
+                    <p style="margin: 0 0 15px 0; font-weight: bold;">Structure:</p>
+                    <p style="font-size: 1.1em; margin: 0 0 20px 0; padding: 12px; background: rgba(255, 215, 0, 0.05); border-radius: 4px;">
                         [Day Name] + ${colorTerm('Ordinal-GENITIVE', 'ordinalGen')} + ${colorTerm('Month-Genitive', 'genitive')} + ${colorTerm('Year', 'year')} ${colorTerm('roku', 'roku')}
                     </p>
-                    <p style="margin: 15px 0 5px 0;"><strong>Example (10th ${dynamicMonth} ${currentYear}):</strong></p>
-                    <p style="font-size: 1.2em; margin: 5px 0;">
+                    
+                    <p style="margin: 0 0 10px 0; font-weight: bold;">Example (10th ${dynamicMonth} ${currentYear}):</p>
+                    <p style="font-size: 1.2em; margin: 0 0 15px 0; padding: 15px; background: rgba(255, 215, 0, 0.05); border-radius: 4px; line-height: 1.6;">
                         Wtorek, ${colorTerm('dziesiątego', 'ordinalGen')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
                     </p>
-                    <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
-                        Notice: ${colorTerm('dziesiątego', 'ordinalGen')} (genitive ending: -ego)
+                    
+                    <p style="color: #666; font-size: 0.95em; margin: 0; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                        <strong>Notice:</strong> ${colorTerm('dziesiątego', 'ordinalGen')} (genitive ending: -ego)
                     </p>
                 </div>
                 

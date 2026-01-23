@@ -349,7 +349,7 @@ export function renderRulesPage(state) {
     // Put button at TOP, outside content-body (like Cultural page)
     page.innerHTML = `
         <button id="rulesBackBtn" class="pill-btn back-to-cal">Back</button>
-        <h1>Grammar Rules</h1>
+        <h1>${state.isPolish ? "Zasady Gramatyczne" : "Grammar Rules"}</h1>
         <div class="content-body">
             ${getRulesHTML(state)}
         </div>`;

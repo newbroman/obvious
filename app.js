@@ -34,20 +34,7 @@ function render() {
     const year = state.viewDate.getFullYear();
 
 
-const modalTitle = document.getElementById('modalTitle');
-const modalAboutHeader = document.getElementById('modalAboutHeader');
-const featCal = document.getElementById('featCal');
-const featCult = document.getElementById('featCult');
-const featGram = document.getElementById('featGram');
-const modalDevNote = document.getElementById('modalDevNote');
-const feedbackBtn = document.getElementById('feedbackBtn');
 
-if (modalTitle) {
-    if (state.isPolish) {
-    updateHelpPage(state.isPolish);
-    }
-}
-    
    // 1. Update Mode Button
     if (meetingBtn) {
     // state.isFormal = false (Default) -> "Today is" (Naming Mode)
@@ -79,6 +66,30 @@ if (modalTitle) {
         updateNamedaysDisplay(state.selectedDate);
     } catch (e) {
         console.error("Namedays Error:", e);
+    }
+    
+    // Update all visible page translations
+    const helpPage = document.getElementById('helpPage');
+    if (helpPage && helpPage.style.display !== 'none') {
+        import('./help.js').then(m => m.updateHelpPage(state.isPolish));
+    }
+    
+    // Update Culture page back button
+    const cultureBackBtn = document.getElementById('cultureBackBtn');
+    if (cultureBackBtn) {
+        cultureBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
+    }
+    
+    // Update Rules page back button
+    const rulesBackBtn = document.getElementById('rulesBackBtn');
+    if (rulesBackBtn) {
+        rulesBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
+    }
+    
+    // Update Search page back button
+    const searchBackBtn = document.getElementById('searchBackBtn');
+    if (searchBackBtn) {
+        searchBackBtn.innerText = state.isPolish ? "Wróć" : "Back";
     }
     
     // 3. Seasonal Themes

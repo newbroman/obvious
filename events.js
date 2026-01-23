@@ -206,7 +206,7 @@ export function renderCulturalHub(state) {
     const displayMonth = monthInfo.pl.charAt(0).toUpperCase() + monthInfo.pl.slice(1);
     
     let html = `
-    <button class="pill-btn back-to-cal">Back</button>
+    <button id="cultureBackBtn" class="pill-btn back-to-cal">Back</button>
     <div class="content-body">
         <header class="content-header">
             <h1>${day}. ${nominativeMonth} ${year}</h1>
@@ -309,7 +309,7 @@ export function renderRulesPage(state) {
     
     // Put button at TOP, outside content-body (like Cultural page)
     page.innerHTML = `
-        <button class="pill-btn back-to-cal">Back</button>
+        <button id="rulesBackBtn" class="pill-btn back-to-cal">Back</button>
         <h1>Grammar Rules</h1>
         <div class="content-body">
             ${getRulesHTML(state)}

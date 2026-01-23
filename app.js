@@ -198,7 +198,7 @@ if (holidayName) {
                 // Add tradition icon badge
                 const badge = document.createElement('span');
                 badge.className = 'tradition-badge';
-                badge.textContent = '🎊';
+                badge.textContent = '🎭';
                 badge.title = 'Cultural Tradition';
                 daySquare.appendChild(badge);
             }

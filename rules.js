@@ -64,7 +64,7 @@ export function getRulesHTML(state) {
                 <p><strong>English equivalent:</strong> "one" → "first", "two" → "second", "three" → "third"</p>
                 <p>In Polish, dates ALWAYS use ordinal numbers for days, never cardinals.</p>
                 
-                <div style="background: white; padding: 15px; border-radius: 6px; margin: 15px 0;">
+                <div style="background: var(--card-bg); padding: 15px; border-radius: 6px; margin: 15px 0;">
                     <table style="width: 100%; border-collapse: collapse;">
                         <thead>
                             <tr style="border-bottom: 2px solid #ddd;">
@@ -111,7 +111,7 @@ export function getRulesHTML(state) {
                 <p><strong>English equivalent:</strong> "January" → "of January", "the year 2026" → "of the year 2026"</p>
                 <p>The genitive case expresses possession or relationship ("of"). In dates, it answers "when?" by saying "on the [date] OF [month] OF [year]".</p>
                 
-                <div style="background: white; padding: 15px; border-radius: 6px; margin: 15px 0;">
+                <div style="background: var(--card-bg); padding: 15px; border-radius: 6px; margin: 15px 0;">
                     <h4 style="margin-top: 0;">Months Transform:</h4>
                     <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
                         <thead>
@@ -160,7 +160,7 @@ export function getRulesHTML(state) {
                 <p>Used when simply naming or identifying a date. Like pointing at a calendar square.</p>
                 <p><strong>Question answered:</strong> <em>What day is it?</em></p>
                 
-                <div style="background: white; padding: 20px; border-radius: 6px; margin: 15px 0;">
+                <div style="background: var(--card-bg); padding: 20px; border-radius: 6px; margin: 15px 0;">
                     <p style="margin: 0 0 15px 0; font-weight: bold;">Structure:</p>
                     <p style="font-size: 1.1em; margin: 0 0 20px 0; padding: 12px; background: rgba(74, 144, 226, 0.05); border-radius: 4px;">
                         [Day Name] + ${colorTerm('Ordinal-Nominative', 'ordinalNom')} + ${colorTerm('Month-Genitive', 'genitive')} + ${colorTerm('Year', 'year')} ${colorTerm('roku', 'roku')}
@@ -171,7 +171,7 @@ export function getRulesHTML(state) {
                         Wtorek, ${colorTerm('dziesiąty', 'ordinalNom')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
                     </p>
                     
-                    <p style="color: #666; font-size: 0.95em; margin: 0; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                    <p style="color: #666; font-size: 0.95em; margin: 0; padding: 10px; background: var(--subtle-bg); border-radius: 4px;">
                         <strong>Notice:</strong> ${colorTerm('dziesiąty', 'ordinalNom')} (nominative ending: -y)
                     </p>
                 </div>
@@ -182,7 +182,7 @@ export function getRulesHTML(state) {
                 <p><strong>PRIMARY MODE for dates.</strong> Used for events, appointments, birthdays - anything happening "on" a date.</p>
                 <p><strong>Question answered:</strong> <em>When is it?</em> (On what date?)</p>
                 
-                <div style="background: white; padding: 20px; border-radius: 6px; margin: 15px 0;">
+                <div style="background: var(--card-bg); padding: 20px; border-radius: 6px; margin: 15px 0;">
                     <p style="margin: 0 0 15px 0; font-weight: bold;">Structure:</p>
                     <p style="font-size: 1.1em; margin: 0 0 20px 0; padding: 12px; background: rgba(255, 215, 0, 0.05); border-radius: 4px;">
                         [Day Name] + ${colorTerm('Ordinal-GENITIVE', 'ordinalGen')} + ${colorTerm('Month-Genitive', 'genitive')} + ${colorTerm('Year', 'year')} ${colorTerm('roku', 'roku')}
@@ -193,12 +193,12 @@ export function getRulesHTML(state) {
                         Wtorek, ${colorTerm('dziesiątego', 'ordinalGen')} ${colorTerm(dynamicMonth, 'genitive')} ${colorTerm('dwa tysiące dwudziestego szóstego', 'year')} ${colorTerm('roku', 'roku')}
                     </p>
                     
-                    <p style="color: #666; font-size: 0.95em; margin: 0; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                    <p style="color: #666; font-size: 0.95em; margin: 0; padding: 10px; background: var(--subtle-bg); border-radius: 4px;">
                         <strong>Notice:</strong> ${colorTerm('dziesiątego', 'ordinalGen')} (genitive ending: -ego)
                     </p>
                 </div>
                 
-                <div style="background: #fffbf0; border: 2px solid #ffd700; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                <div style="background: var(--highlight-bg); border: 2px solid #ffd700; padding: 15px; border-radius: 6px; margin-top: 15px;">
                     <h4 style="margin-top: 0;">🎯 The Critical Difference</h4>
                     <p style="margin-bottom: 8px;"><strong>Nominative:</strong> ${colorTerm('dziesiąty', 'ordinalNom')} (tenth) - ends in <code>-y</code></p>
                     <p style="margin-bottom: 0;"><strong>Genitive:</strong> ${colorTerm('dziesiątego', 'ordinalGen')} (of the tenth) - ends in <code>-ego</code></p>
@@ -212,7 +212,7 @@ export function getRulesHTML(state) {
             <h3 class="section-divider">🧮 Quick Reference: Common Day Numbers</h3>
             
             <section class="rule-block" style="padding: 20px;">
-                <div style="background: white; padding: 15px; border-radius: 6px;">
+                <div style="background: var(--card-bg); padding: 15px; border-radius: 6px;">
                     <table style="width: 100%; border-collapse: collapse;">
                         <thead>
                             <tr style="border-bottom: 2px solid #ddd;">

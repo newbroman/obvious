@@ -11,6 +11,9 @@
     --seasonal-bg: rgba(230, 25, 46, 0.05);
     --border-color: #dee2e6;
     --formal-blue: #00d4ff;
+    --card-bg: #ffffff;
+    --subtle-bg: #f8f9fa;
+    --highlight-bg: #fffbf0;
 }
 
 
@@ -276,6 +279,9 @@
         --tan: #D2B48C;
         --seasonal-bg: rgba(230, 25, 46, 0.15);
         --border-color: #333333;
+        --card-bg: #1e1e1e;
+        --subtle-bg: #252525;
+        --highlight-bg: #2a2a1a;
     }
 }
 

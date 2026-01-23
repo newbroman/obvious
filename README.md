@@ -1,45 +1,45 @@
 # Polish Calendar Learning App - Changelog
 
+## v1346 - Complete Polish Holiday Coverage
+**Date**: January 23, 2026
+
+### New Fixed Holidays Added
+- **Walentynki 💕** (Feb 14) - Valentine's Day / Day of Lovers
+- **Dzień Flagi 🇵🇱** (May 2) - Day of the Flag celebrating national colors
+- **Dożynki 🌾** (Aug 28) - Modern Christian Harvest Festival
+- **Dzień Zwycięskiego Powstania Wielkopolskiego 🦅** (Dec 27) - Greater Poland Uprising Day
+- **Sylwester 🎆** (Dec 31) - New Year's Eve celebrations
+
+### New Moveable Holidays Added
+- **Wielki Piątek ✝️** (Good Friday) - Easter -2 days
+  - Way of the Cross processions, solemn observance
+- **Wielka Sobota 🥚** (Holy Saturday) - Easter -1 day
+  - Food blessing ceremony (Święconka) with baskets
+- **Boże Ciało ✨** (Corpus Christi) - Easter +60 days
+  - Spectacular street processions with flower carpets
+- **Zielone Świątki 🌿** (Pentecost) - Easter +49 days
+  - Enhanced with full description and emoji
+
+### Enhanced Descriptions
+- All new holidays have detailed cultural descriptions
+- Explains traditions, customs, and significance
+- Bilingual support maintained throughout
+
+### Total Holiday Coverage
+- **14 National Holidays** (official public holidays)
+- **15+ Cultural Observances** (traditions and celebrations)
+- **5 Pagan Traditions** (ancient Slavic festivals)
+- **33+ Historical Events** (anniversaries and commemorations)
+
+---
+
 ## v1345 - Śmigus-Dyngus Name Prominence & Pagan Traditions
 **Date**: January 23, 2026
 
 ### Changes
-- **Śmigus-Dyngus name prominence**: Easter Monday now displays as "Śmigus-Dyngus (Lany Poniedziałek) 💧"
-  - Traditional name shown first
-  - Literal translation "Wet Monday" in parentheses
-  - Makes the holiday more recognizable by its popular name
-
-### New Features (from v1344)
-- **Pagan Traditions Calendar**: Ancient Slavic/Polish pre-Christian festivals now integrated
-  - 🌿 Green theme for pagan traditions (distinct from historical bronze and anniversary purple)
-  - Calendar highlighting with nature icon badge
-  - Cultural page section with detailed descriptions
-
-### Pagan Festivals Included
-- **Kupala Night** (June 21-24): Summer solstice with fire/water rituals
-- **Koliada** (Dec 21-Jan 6): Winter solstice, 12-day celebration
-- **Spring Dziady** (April 1): Ancestor veneration
-- **Autumn Dziady** (Oct 31-Nov 2): Forefathers' Eve
-- **Equinoxes** (Mar 20, Sep 22): Seasonal balance celebrations
-
-### Technical Changes
-- New `pagan-traditions.js` module with festival database
-- Green gradient styling for pagan dates
-- Priority system: Historical > Anniversary > Pagan
-- Bilingual support (Polish/English) for all traditions
-- Dark mode support for green theme
-
----
-
-## v1343 - Dark Mode Fix for Historical Boxes
-**Date**: January 23, 2026
-
-### Bug Fixes
-- **Dark mode historical/anniversary boxes**: Fixed white background boxes in cultural page
-  - Now uses `var(--card-bg)` CSS variable
-  - Light mode: white background
-  - Dark mode: `#1e1e1e` dark background
-  - Properly respects device display mode settings
+- **Śmigus-Dyngus name prominence**: Easter Monday displays as "Śmigus-Dyngus (Lany Poniedziałek) 💧"
+- Pagan traditions integrated with green theme
+- Dark mode support for all themes
 
 ---
 
@@ -49,25 +49,38 @@
 - 📅 **Purple gradient** = Anniversary of historical event
 - 🌿 **Green gradient** = Ancient pagan tradition/festival
 - 💧 **Water droplet** = Śmigus-Dyngus (Easter Monday water tradition)
-- **Today highlight** = Current date marker
-- **Holiday styling** = Polish cultural holidays and traditions
+- ✝️ **Cross** = Good Friday solemn observance
+- 🥚 **Egg** = Holy Saturday food blessing
+- ✨ **Sparkles** = Corpus Christi processions
+- 🌾 **Wheat** = Harvest Festival (Dożynki)
+- 🇵🇱 **Flag** = National patriotic observances
+- 🎆 **Fireworks** = New Year's Eve (Sylwester)
 
-## Pagan Traditions Overview
+## Complete Polish Calendar System
 
-The app now includes ancient Slavic calendar traditions based on pre-Christian festivals:
+The app now provides comprehensive coverage of Polish culture:
 
-### Calendar System
-- Lunar-solar hybrid with 13 months
-- Year began March 1 or March 9
-- Month names from nature (e.g., Kwiecień = "flowering month")
+### Christian Calendar (Moveable)
+- Easter cycle with Holy Week observances
+- Pentecost and Corpus Christi celebrations
+- All major Catholic feast days
 
-### Major Festivals
-1. **Kupala Night** - Summer solstice fire/water rituals
-2. **Koliada** - Winter solstice sun rebirth
-3. **Dziady** - Ancestor veneration ("communion of living with dead")
-4. **Equinoxes** - Seasonal balance celebrations
+### National Holidays
+- Independence Day, Constitution Day, Flag Day
+- Labor Day, All Saints' Day
+- Christmas and New Year celebrations
 
-### Pantheon
-- **Perun**: Thunder god (oak, sky, order)
-- **Veles**: Earth/underworld god (willow, chaos)
-- Cosmic dualism: sky vs earth, light vs dark
+### Folk Traditions
+- Harvest festivals (pagan and Christian)
+- Seasonal celebrations
+- Family observances (Grandparents, Mother's, Father's Days)
+
+### Pagan Traditions
+- Solstices: Kupala Night, Koliada
+- Equinoxes: Spring and Autumn celebrations
+- Ancestor veneration: Dziady
+
+### Historical Commemorations
+- 33+ significant dates in Polish history
+- From ancient times to modern independence
+- Battles, unions, and cultural milestones

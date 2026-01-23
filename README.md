@@ -1,128 +1,97 @@
-# Polish Language App - v1329
+# Polish Language App - v1328
 
-✅ **OPTION B PHASE 1**: Historical Events Database
+✅ **OPTION A COMPLETE**: Basic BC date support (1000 BC to 3000 AD)
 
-## 🎯 New Feature: Historical Events (16 Major Events)
+## 🎯 New Feature: Historical Dates (1000 BC - 3000 AD)
 
 ### What's New
-When you select a historical date, the Cultural page now shows rich historical context with:
-- Event name in English and Polish
-- Detailed description
-- Era classification with icons and colors
-- Historical importance level
+Navigate and practice Polish dates from **1000 BC** to **3000 AD**!
 
-### Historical Events Included
+### Changes Made
 
-#### 🏛️ Ancient Rome (753 BC - 476 AD)
-- **April 21, 753 BC**: Founding of Rome
-- **January 1, 509 BC**: Foundation of Roman Republic
-- **January 1, 264 BC**: First Punic War Begins
-- **January 1, 218 BC**: Hannibal's Campaign (Second Punic War)
-- **March 15, 44 BC**: Assassination of Julius Caesar (Ides of March)
-- **January 16, 27 BC**: Augustus Becomes First Roman Emperor
-- **January 1, Year 0**: Traditional Birth Year of Jesus Christ
-- **September 4, 476 AD**: Fall of Western Roman Empire
+#### 1. Extended Year Range
+- **index.html**: Year input now accepts `-1000` to `3000`
+- Calendar works with any year in this range
+- JavaScript Date object handles negative years natively
 
-#### ⚔️ Early Poland (Before 966 AD)
-- **January 1, 960 AD**: Beginning of Polish State
+#### 2. BC/AD Display
+- **New file: year-utils.js** - Utility functions for era formatting
+- BC dates show as "p.n.e." (przed naszą erą) in Polish
+- BC dates show as "BC" in English
+- Example: `-753` displays as "753 p.n.e." or "753 BC"
 
-#### 🛡️ Medieval Poland (966 - 1500 AD)
-- **April 14, 966 AD**: Baptism of Poland
-- **June 24, 972 AD**: Battle of Cedynia
-- **May 25, 992 AD**: Death of Mieszko I
-- **March 1, 1000 AD**: Congress of Gniezno
-- **December 25, 1025 AD**: Coronation of Bolesław I the Brave
-- **July 15, 1410 AD**: Battle of Grunwald
-- **October 19, 1466 AD**: Second Peace of Thorn
+#### 3. Polish Pronunciation for BC Years
+- **numbers.js**: Updated `getYearPolish()` to handle negative years
+- Automatically adds "przed naszą erą" suffix
+- Examples:
+  - `-753` → "siedemset pięćdziesiątego trzeciego przed naszą erą"
+  - `-44` → "czterdziestego czwartego przed naszą erą"
+  - `-1` → "pierwszego przed naszą erą"
+
+#### 4. Historical Date Notice
+- **events.js**: Added notice on Cultural page for dates before 1000 AD
+- Explains that cultural data (holidays, name days) only available from 1000 AD+
+- Users can still practice pronunciation for any date
+- Graceful degradation - no fake historical data
 
 ### User Experience
 
-**Example 1: July 15, 1410 (Battle of Grunwald)**
-1. Enter year: `1410`
-2. Select: July 15
-3. Cultural page shows:
-   - 🛡️ Medieval Poland era indicator
-   - "Bitwa pod Grunwaldem" (Polish)
-   - "Battle of Grunwald" (English)
-   - Full description of the battle
-   - Era period: 966 - 1500 AD
+**Example 1: Founding of Rome (April 21, 753 BC)**
+1. Enter year: `-753`
+2. Select: April 21
+3. See: "Niedziela, dwudziestego pierwszego kwietnia, siedemset pięćdziesiątego trzeciego roku przed naszą erą"
+4. Cultural page shows: Historical notice (no cultural data)
 
-**Example 2: March 15, 44 BC (Ides of March)**
-1. Enter year: `-44`
-2. Select: March 15
-3. Cultural page shows:
-   - 🏛️ Ancient Rome era indicator
-   - "Zamordowanie Juliusza Cezara" (Polish)
-   - "Assassination of Julius Caesar" (English)
-   - Historical context
-   - Era period: 753 BC - 476 AD
-
-**Example 3: Random historical date (no event)**
-- Shows generic historical notice
-- Explains cultural data limitations
-- Encourages Polish pronunciation practice
-
-### Technical Implementation
-
-#### New Files
-- **historical-events.js**: Complete events database with:
-  - 16 historically significant events
-  - Bilingual descriptions (English/Polish)
-  - Era classifications with metadata
-  - Helper functions for lookups
-
-#### Updated Files
-- **events.js**: Integrated historical events into Cultural page
-- **styles.css**: Added animations and era-specific styling
-
-#### Era System
-Each era has:
-- Icon (🏛️ Rome, ⚔️ Early Poland, 🛡️ Medieval Poland)
-- Color coding (Brown, Gray, Polish Red)
-- Period range
-- Bilingual names
+**Example 2: Modern Date (January 23, 2026)**
+1. Works exactly as before
+2. Full cultural data available
+3. Holidays, name days, month meanings all present
 
 ### What Works
-- ✅ 16 major historical events with full context
-- ✅ Era-based visual styling with icons
-- ✅ Bilingual support (English/Polish)
-- ✅ Smooth animations on event display
-- ✅ Graceful fallback for dates without events
-- ✅ All v1328 features preserved (BC date support)
+- ✅ Calendar navigation: 1000 BC to 3000 AD
+- ✅ Polish date pronunciation with BC suffix
+- ✅ English translation with BC indicator
+- ✅ Phonetic pronunciation
+- ✅ Audio playback (text-to-speech)
+- ✅ All existing features preserved
 
-### Next Steps - Option B Expansion
-1. **Phase 2**: Add 50-100 more events
-   - More Roman battles and political events
-   - Byzantine Empire
-   - Early medieval Europe
-   - More Polish history (Jagiellonian dynasty, partitions)
-2. **Phase 3**: Julian calendar awareness
-3. **Phase 4**: Timeline visualization (optional)
+### What Doesn't Work (Yet - Coming in Option B)
+- ❌ Cultural data before 1000 AD (shows notice instead)
+- ❌ Holidays before 1000 AD
+- ❌ Name days before 1000 AD
+- ❌ Historical events database
+- ❌ Julian calendar conversion
 
-### Database Statistics
-- **Total Events**: 16
-- **Ancient Rome**: 8 events
-- **Early Poland**: 1 event
-- **Medieval Poland**: 7 events
-- **Date Range**: 753 BC to 1466 AD
+### Next Steps - Option B (Future Enhancements)
+1. Add historical events database (Roman history, ancient Poland)
+2. Research ancient Polish/Slavic calendar traditions
+3. Add Julian calendar conversion option
+4. Historical context for different eras
+5. Ancient name days (if historically accurate data exists)
+
+### Technical Details
+- Service worker cache: v1328
+- New dependency: year-utils.js (optional, for future expansion)
+- BC dates use negative year values (-1000 to -1)
+- Proleptic Gregorian calendar (extrapolated backwards)
 
 ### All Previous Features Still Work
-- ✅ BC date support 1000 BC - 3000 AD (v1328)
 - ✅ Cultural page shows selected date (v1327)
 - ✅ Adaptive status bar color (v1326)
 - ✅ Swipe labels on reference tables (v1325)
 - ✅ Dark mode support (v1324)
+- ✅ Grammar Rules translations (v1323)
 
 ## Deploy
 ```bash
-tar -xzf polish-date-master-v1329.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1329/* .
-git add . && git commit -m "v1329: Add historical events database (Option B Phase 1)" && git push
+tar -xzf polish-date-master-v1328.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1328/* .
+git add . && git commit -m "v1328: Add BC date support (1000 BC - 3000 AD)" && git push
 ```
 
-## Try These Historical Dates
-- **April 21, 753 BC**: Founding of Rome 🏛️
-- **March 15, 44 BC**: Assassination of Julius Caesar ⚔️
-- **April 14, 966 AD**: Baptism of Poland 🛡️
-- **July 15, 1410 AD**: Battle of Grunwald ⚔️
-- **January 16, 27 BC**: Augustus becomes emperor 👑
+## Fun Historical Dates to Try
+- **753 BC**: Founding of Rome (April 21)
+- **44 BC**: Death of Julius Caesar (March 15 - "Ides of March")
+- **1 BC**: Year before Christ
+- **966 AD**: Baptism of Poland
+- **1410 AD**: Battle of Grunwald (July 15)

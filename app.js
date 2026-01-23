@@ -200,6 +200,24 @@ if (holidayName) {
     if (historicalEvent) {
         daySquare.classList.add('has-historical-event');
     }
+    
+    // Check for anniversary on this date
+    const anniv = hasAnniversary(cellDate);
+    if (anniv && !historicalEvent) {
+        daySquare.classList.add('has-anniversary');
+        const count = getAnniversaryCount(cellDate);
+        if (count > 1) {
+            const badge = document.createElement('span');
+            badge.className = 'anniversary-badge';
+            badge.textContent = count + '📅';
+            daySquare.appendChild(badge);
+        } else {
+            const badge = document.createElement('span');
+            badge.className = 'anniversary-badge';
+            badge.textContent = '📅';
+            daySquare.appendChild(badge);
+        }
+    }
 
     const isToday = day === today.getDate() && 
                     month === today.getMonth() && 
@@ -215,6 +233,14 @@ if (holidayName) {
     daySquare.onclick = () => {
         const newSelected = new Date(year, month, day);
         onDateClick(newSelected);
+    };
+    
+    // Double-click to navigate to cultural page
+    daySquare.ondblclick = () => {
+        const newSelected = new Date(year, month, day);
+        state.selectedDate = newSelected;
+        state.view = 'culture';
+        render();
     };
 
     grid.appendChild(daySquare);

@@ -1,45 +1,37 @@
-# Polish Language App - v1324
+# Polish Language App - v1325
 
-✅ rules.js: Replace hardcoded white/gray backgrounds with CSS variables
-✅ styles.css: Add dark mode support for card backgrounds
-✅ sw.js: Updated cache version to v1324
+✅ rules.js: Added "swipe to see all columns" labels to all tables
+✅ sw.js: Updated cache version to v1325
 
-## 🌙 Dark Mode Support for Grammar Rules
+## 📱 Table Swipe Labels Restored
 
-### Fixed Background Issues
-**Problem**: Grammar Rules page had hardcoded white backgrounds that didn't respect dark mode
-**Solution**: Replaced all hardcoded backgrounds with CSS variables
+### What Changed
+Added back the "↔️ Swipe to see all columns" labels to all tables that need horizontal scrolling:
 
-**Changes**:
-- `background: white;` → `background: var(--card-bg);`
-- `background: #f8f9fa;` → `background: var(--subtle-bg);`
-- `background: #fffbf0;` → `background: var(--highlight-bg);`
+**Tables with swipe labels**:
+1. ✅ **Transformation 1** - Cardinal → Ordinal table
+2. ✅ **Transformation 2** - Months transform table
+3. ✅ **Transformation 2** - Years transform table  
+4. ✅ **Quick Reference** - Complete reference table
 
-### New CSS Variables
-**Light Mode**:
-- `--card-bg: #ffffff` (white cards)
-- `--subtle-bg: #f8f9fa` (light gray for Notice boxes)
-- `--highlight-bg: #fffbf0` (light yellow for highlights)
-
-**Dark Mode**:
-- `--card-bg: #1e1e1e` (dark cards)
-- `--subtle-bg: #252525` (darker gray for Notice boxes)
-- `--highlight-bg: #2a2a1a` (dark yellow-tinted for highlights)
+**Sections WITHOUT tables** (clean vertical layout):
+- ❌ Mode A (Putting It Together)
+- ❌ Mode B (Putting It Together)
 
 ### User Experience
-- ✅ All boxes in Grammar Rules now respect device dark mode setting
-- ✅ "Notice" boxes have proper dark backgrounds in dark mode
-- ✅ Structure and Example boxes adapt to theme
-- ✅ No more white boxes on dark backgrounds
-- ✅ Smooth, consistent experience across light/dark modes
+- Tables that need scrolling now show the swipe hint
+- Users know they can scroll horizontally to see more columns
+- Mode A and Mode B remain clean with no tables
+- All backgrounds still respect dark mode (v1324)
 
 ### All Previous Features Still Work
+- ✅ Dark mode support for all backgrounds (v1324)
 - ✅ Grammar Rules title translates (v1323)
-- ✅ No horizontal scrolling tables (v1323)
-- ✅ Swipe navigation (v1322)
+- ✅ Clean Mode A/B layout without tables (v1323)
+- ✅ Swipe navigation for months (v1322)
 - ✅ Complete translation coverage (v1321)
 
 Deploy:
-tar -xzf polish-date-master-v1324.tar.gz
-cd ~/obvious && cp -r polish-date-master-v1324/* .
-git add . && git commit -m "v1324: Dark mode support for Grammar Rules!" && git push
+tar -xzf polish-date-master-v1325.tar.gz
+cd ~/obvious && cp -r polish-date-master-v1325/* .
+git add . && git commit -m "v1325: Restore swipe labels for tables!" && git push

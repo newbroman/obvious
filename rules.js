@@ -64,7 +64,8 @@ export function getRulesHTML(state) {
                 <p><strong>English equivalent:</strong> "one" → "first", "two" → "second", "three" → "third"</p>
                 <p>In Polish, dates ALWAYS use ordinal numbers for days, never cardinals.</p>
                 
-                <div style="background: var(--card-bg); padding: 15px; border-radius: 6px; margin: 15px 0;">
+                <p style="font-size: 0.85em; color: var(--text-dim); margin: 10px 0 5px 0; font-style: italic;">↔️ Swipe to see all columns</p>
+                <div style="background: var(--card-bg); padding: 15px; border-radius: 6px; margin: 15px 0; overflow-x: auto;">
                     <table style="width: 100%; border-collapse: collapse;">
                         <thead>
                             <tr style="border-bottom: 2px solid #ddd;">
@@ -111,7 +112,8 @@ export function getRulesHTML(state) {
                 <p><strong>English equivalent:</strong> "January" → "of January", "the year 2026" → "of the year 2026"</p>
                 <p>The genitive case expresses possession or relationship ("of"). In dates, it answers "when?" by saying "on the [date] OF [month] OF [year]".</p>
                 
-                <div style="background: var(--card-bg); padding: 15px; border-radius: 6px; margin: 15px 0;">
+                <p style="font-size: 0.85em; color: var(--text-dim); margin: 10px 0 5px 0; font-style: italic;">↔️ Swipe to see all columns</p>
+                <div style="background: var(--card-bg); padding: 15px; border-radius: 6px; margin: 15px 0; overflow-x: auto;">
                     <h4 style="margin-top: 0;">Months Transform:</h4>
                     <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
                         <thead>
@@ -212,7 +214,8 @@ export function getRulesHTML(state) {
             <h3 class="section-divider">🧮 Quick Reference: Common Day Numbers</h3>
             
             <section class="rule-block" style="padding: 20px;">
-                <div style="background: var(--card-bg); padding: 15px; border-radius: 6px;">
+                <p style="font-size: 0.85em; color: var(--text-dim); margin: 0 0 10px 0; font-style: italic;">↔️ Swipe to see all columns</p>
+                <div style="background: var(--card-bg); padding: 15px; border-radius: 6px; overflow-x: auto;">
                     <table style="width: 100%; border-collapse: collapse;">
                         <thead>
                             <tr style="border-bottom: 2px solid #ddd;">

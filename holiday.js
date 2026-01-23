@@ -87,6 +87,11 @@ const holidayData = {
     },
 
     getHolidaysForYear(year) {
+        // Christian holidays only apply after Christ's birth (year 1 AD)
+        if (year < 1) {
+            return {}; // No Christian holidays in BC period
+        }
+        
         const holidays = { ...this.fixed };
         const easter = this.getEaster(year);
 

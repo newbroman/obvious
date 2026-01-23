@@ -444,6 +444,13 @@ export function getAnniversariesForDate(date) {
         
         // Check if month and day match
         if (eventMonth === parseInt(month) && eventDay === parseInt(day)) {
+            // Don't show anniversaries for events that haven't happened yet
+            // For BC dates: always show (we're past them)
+            // For AD dates: only show if current year is after event year
+            if (eventYear > 0 && currentYear < eventYear) {
+                continue; // Event is in the future, skip it
+            }
+            
             // Calculate years ago (handle BC dates)
             let yearsAgo;
             if (eventYear < 0) {

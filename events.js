@@ -281,10 +281,10 @@ export function renderCulturalHub(state) {
             
             if (anniversaries.length > 0) {
                 let annivHtml = `
-                    <div class="anniversaries-section" style="margin: 20px 0; padding: 20px; background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%); border-left: 4px solid #2196f3; border-radius: 8px;">
+                    <div class="anniversaries-section" style="margin: 20px 0; padding: 20px; background: linear-gradient(135deg, #f3e5f5 0%, #f5f5f5 100%); border-left: 4px solid #9c27b0; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                             <span style="font-size: 2rem;">📅</span>
-                            <h2 style="margin: 0; font-size: 1.3rem; color: #1976d2;">${state.isPolish ? 'Rocznice Historyczne' : 'Historical Anniversaries'}</h2>
+                            <h2 style="margin: 0; font-size: 1.3rem; color: #7b1fa2;">${state.isPolish ? 'Rocznice Historyczne' : 'Historical Anniversaries'}</h2>
                         </div>
                         <div style="display: flex; flex-direction: column; gap: 12px;">`;
                 

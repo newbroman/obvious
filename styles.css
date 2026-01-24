@@ -578,9 +578,9 @@ body {
 
 /* Historical Event dates */
 .calendar-day.has-historical-event {
-    border-top-color: #2196f3 !important;
-    background-color: rgba(33, 150, 243, 0.08) !important;
-    color: #1565c0;
+    border-top-color: #ff9800 !important;
+    background-color: rgba(255, 152, 0, 0.08) !important;
+    color: #e65100;
     position: relative;
 }
 

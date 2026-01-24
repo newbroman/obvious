@@ -557,6 +557,7 @@ body {
 .calendar-day {
     box-sizing: border-box;
     border-top: 5px solid transparent; /* Placeholder to prevent jumping */
+    border-bottom: 5px solid transparent; /* Placeholder for bottom bar */
     transition: all 0.2s ease;
 }
 
@@ -578,6 +579,7 @@ body {
 /* Historical Event dates */
 .calendar-day.has-historical-event {
     border-top-color: #2196f3 !important;
+    border-bottom-color: #2196f3 !important;
     background-color: rgba(33, 150, 243, 0.08) !important;
     color: #1565c0;
     position: relative;
@@ -1693,6 +1695,7 @@ body {
 /* Anniversary dates - Purple/Violet theme */
 .calendar-day.has-anniversary {
     border-top-color: #9c27b0 !important;
+    border-bottom-color: #9c27b0 !important;
     background-color: rgba(156, 39, 176, 0.08) !important;
     color: #6a1b9a;
 }
@@ -1731,6 +1734,7 @@ body {
 /* Pagan Tradition Dates - Green Nature Theme */
 .has-pagan {
     border-top-color: #4caf50 !important;
+    border-bottom-color: #4caf50 !important;
     background-color: rgba(76, 175, 80, 0.08) !important;
     color: #2e7d32;
     position: relative;

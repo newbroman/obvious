@@ -41,7 +41,7 @@ function render() {
     // state.isFormal = false (Default) -> "Today is" (Naming Mode)
     // state.isFormal = true            -> "It's on" (Event Mode)
     
-    const icon = state.isFormal ? "🎉" : "📅";
+    const icon = "";
     
     const label = state.isFormal 
         ? (state.isPolish ? "To jest dnia" : "It's on") 

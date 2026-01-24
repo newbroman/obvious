@@ -563,6 +563,7 @@ body {
 /* Priority 1: State Holiday (Red Top Border) */
 .calendar-day.is-holiday {
     border-top-color: #dc3545 !important;
+    border-bottom-color: #dc3545 !important;
     background-color: rgba(220, 53, 69, 0.08) !important;
     color: #c0392b;
 }
@@ -583,7 +584,6 @@ body {
 }
 
 .calendar-day.has-historical-event::after {
-    content: '🏛️';
     position: absolute;
     top: 2px;
     right: 2px;
@@ -1737,7 +1737,6 @@ body {
 }
 
 .has-pagan::after {
-    content: '🌿';
     position: absolute;
     top: 2px;
     right: 2px;
@@ -1745,7 +1744,6 @@ body {
 }
 
 .has-pagan.badge-count::after {
-    content: attr(data-pagan-count) '🌿';
     font-size: 0.65rem;
 }
 

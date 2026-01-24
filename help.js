@@ -192,16 +192,16 @@ export function updateHelpPage(isPolish) {
         
         // Cultural Traditions
         legendItems[1].innerHTML = isPolish
-            ? `<strong style="color: #ff9800;">Tradycje Kulturowe</strong>
+            ? `<strong style="color: #2196f3;">Tradycje Kulturowe</strong>
                <div style="font-size: 0.85rem; color: var(--text-dim);">Ważne uroczystości kulturowe (pomarańczowe tło + ikona 🎭)</div>`
-            : `<strong style="color: #ff9800;">Cultural Traditions</strong>
+            : `<strong style="color: #2196f3;">Cultural Traditions</strong>
                <div style="font-size: 0.85rem; color: var(--text-dim);">Important cultural celebrations (orange background + 🎭 icon)</div>`;
         
         // Historical Events
         legendItems[2].innerHTML = isPolish
-            ? `<strong style="color: #2196f3;">Wydarzenia Historyczne</strong>
+            ? `<strong style="color: #ff9800;">Wydarzenia Historyczne</strong>
                <div style="font-size: 0.85rem; color: var(--text-dim);">Ważne daty w historii Polski (niebieskie tło)</div>`
-            : `<strong style="color: #2196f3;">Historical Events</strong>
+            : `<strong style="color: #ff9800;">Historical Events</strong>
                <div style="font-size: 0.85rem; color: var(--text-dim);">Significant dates in Polish history (blue background)</div>`;
         
         // Historical Anniversaries

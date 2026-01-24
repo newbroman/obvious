@@ -1,5 +1,54 @@
 # Polish Calendar Learning App - Changelog
 
+## v1359 - Final Packaging
+**Date**: January 24, 2026
+
+### Changes
+- Final repackaging with all v1358 changes verified
+- All files confirmed updated (styles.css, index.html, help.js, sw.js)
+
+---
+
+## v1358 - Color Swap & Cultural Page Consolidation
+**Date**: January 24, 2026
+
+### Changes
+- **Color swap**: Cultural Traditions now blue (#2196f3), Historical Events now orange (#ff9800)
+- **Cultural page updated**: Section renamed to "Bank holidays, traditions and historical events"
+- All 5 event types consolidated in one unified legend section
+- Legend boxes match calendar styling (top bar + subtle glow)
+- Updated help.js, styles.css, and index.html for consistency
+
+---
+
+## v1357 - Double Bars Exclusive to Bank Holidays
+**Date**: January 24, 2026
+
+### Changes
+- Double bar styling now **exclusive to bank holidays only**
+- All other event types (cultural, historical, anniversaries, pagan) have single top bar
+- Clear visual hierarchy distinguishing official public holidays
+
+---
+
+## v1355 - Prominent Double Red Bars
+**Date**: January 24, 2026
+
+### Changes
+- Made bottom red bar same 5px thickness as top bar for bank holidays
+- Both bars now equally prominent and eye-catching
+
+---
+
+## v1354 - Added Red Bottom Bar
+**Date**: January 24, 2026
+
+### Changes
+- Public bank holidays now have red bars on BOTH top and bottom
+- Enhanced visual prominence for official holidays
+
+---
+
 ## v1346 - Complete Polish Holiday Coverage
 **Date**: January 23, 2026
 

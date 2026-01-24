@@ -187,20 +187,8 @@ if (holidayName) {
             // Apply specific classes based on the type in cultural.js
             if (info.type === 'holiday') {
                 daySquare.classList.add('is-holiday');
-                // Add holiday icon badge
-                const badge = document.createElement('span');
-                badge.className = 'holiday-badge';
-                badge.textContent = '🎉';
-                badge.title = 'Official Holiday';
-                daySquare.appendChild(badge);
             } else if (info.type === 'tradition') {
                 daySquare.classList.add('is-tradition');
-                // Add tradition icon badge
-                const badge = document.createElement('span');
-                badge.className = 'tradition-badge';
-                badge.textContent = '🎭';
-                badge.title = 'Cultural Tradition';
-                daySquare.appendChild(badge);
             }
         }
     }
@@ -217,18 +205,7 @@ if (holidayName) {
     const anniv = hasAnniversary(cellDate);
     if (anniv && !historicalEvent) {
         daySquare.classList.add('has-anniversary');
-        const count = getAnniversaryCount(cellDate);
-        if (count > 1) {
-            const badge = document.createElement('span');
-            badge.className = 'anniversary-badge';
-            badge.textContent = count + '📅';
-            daySquare.appendChild(badge);
-        } else {
-            const badge = document.createElement('span');
-            badge.className = 'anniversary-badge';
-            badge.textContent = '📅';
-            daySquare.appendChild(badge);
-        }
+        // Anniversary styling applied via CSS only
     }
     
     // Check for pagan tradition on this date

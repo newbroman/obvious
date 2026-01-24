@@ -39,8 +39,8 @@ const culturalData = {
         "11-25": { text: "Boże Narodzenie: Christmas Day. A quiet time for family and singing carols.", type: "holiday" },
         "11-26": { text: "Drugi Dzień Świąt: St. Stephen’s Day; a day for visiting friends and family.", type: "holiday" },
         "Wielkanoc 🐣": { text: "Easter Sunday: Celebrated with a festive breakfast including blessed eggs (pisanki).", type: "holiday" },
-        "Lany Poniedziałek 💧": { text: "Wet Monday: A fun tradition of splashing friends with water! Also a day off.", type: "holiday" },
-        "Boże Ciało": { text: "Corpus Christi: Famous for massive outdoor processions through flower-covered streets.", type: "holiday" },
+        "Śmigus-Dyngus (Lany Poniedziałek) 💧": { text: "Wet Monday: A fun tradition of splashing friends with water! Also a day off.", type: "holiday" },
+        "Boże Ciało ✨": { text: "Corpus Christi: Famous for massive outdoor processions through flower-covered streets.", type: "holiday" },
 
         // --- Cultural Traditions (Working Days) ---
         "0-21": { text: "Dzień Babci: Grandmothers receive flowers and handmade cards from grandchildren.", type: "tradition" },
@@ -56,7 +56,9 @@ const culturalData = {
         "11-24": { text: "Wigilia: Christmas Eve. The most sacred night, involving a 12-dish meatless supper.", type: "tradition" },
         "Tłusty Czwartek 🍩": { text: "Fat Thursday: The last Thursday before Lent. Everyone eats pączki (donuts)!", type: "tradition" },
         "Środa Popielcowa": { text: "Ash Wednesday: Marks the beginning of Lent. Ashes are placed on foreheads.", type: "tradition" },
-        "Zielone Świątki": { text: "Pentecost: An old agricultural holiday where homes were decorated with branches.", type: "tradition" }
+        "Wielki Piątek ✝️": { text: "Good Friday: A solemn day of fasting and visiting 'Lord's Tombs' in churches.", type: "tradition" },
+        "Wielka Sobota 🥚": { text: "Holy Saturday: The day before Easter. Families prepare traditional Easter baskets for blessing.", type: "tradition" },
+        "Zielone Świątki (Pentecost) 🌿": { text: "Pentecost: An old agricultural holiday where homes were decorated with branches.", type: "tradition" }
     }
 };
 

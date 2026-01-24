@@ -1,5 +1,17 @@
 # Polish Calendar Learning App - Changelog
 
+## v1360 - Complete Color Swap Implementation
+**Date**: January 24, 2026
+
+### Changes
+- **Fixed calendar tradition styling**: .is-tradition now blue (#2196f3)
+- **Fixed detail page styling**: .tradition-item now blue (#2196f3)
+- **Fixed historical event hover**: Now uses orange instead of blue
+- **All color references updated**: Cultural Traditions → Blue, Historical Events → Orange
+- Complete consistency across calendar, detail pages, help text, and legends
+
+---
+
 ## v1359 - Final Packaging
 **Date**: January 24, 2026
 

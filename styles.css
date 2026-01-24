@@ -542,8 +542,8 @@ body {
 
 /* Tradition Style */
 .tradition-item {
-    border-left: 4px solid #3498db; /* Blue */
-    background: rgba(52, 152, 219, 0.05);
+    border-left: 4px solid #2196f3; /* Blue */
+    background: rgba(33, 150, 243, 0.05);
 }
 
 .holiday-type-tag {
@@ -571,9 +571,9 @@ body {
 
 /* Priority 2: Tradition (Blue Top Border) */
 .calendar-day.is-tradition {
-    border-top-color: #ff9800 !important;
-    background-color: rgba(255, 152, 0, 0.08) !important;
-    color: #e65100;
+    border-top-color: #2196f3 !important;
+    background-color: rgba(33, 150, 243, 0.08) !important;
+    color: #1565c0;
 }
 
 /* Historical Event dates */
@@ -593,7 +593,7 @@ body {
 }
 
 .calendar-day.has-historical-event:hover {
-    background-color: rgba(33, 150, 243, 0.15) !important;
+    background-color: rgba(255, 152, 0, 0.15) !important;
     transform: scale(1.05);
 }
 

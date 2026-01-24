@@ -1,5 +1,16 @@
 # Polish Calendar Learning App - Changelog
 
+## v1361 - Added Legend to Cultural Page
+**Date**: January 24, 2026
+
+### Changes
+- **Added legend section to Cultural page**: Shows all 5 event types with visual examples
+- **Bilingual support**: Legend text adapts to Polish/English mode
+- **Consistent styling**: Matches calendar cell styling with colored bars
+- Legend appears at bottom of Cultural page in events.js
+
+---
+
 ## v1360 - Complete Color Swap Implementation
 **Date**: January 24, 2026
 

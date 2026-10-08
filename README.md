@@ -1,5 +1,7 @@
 # Polish Calendar Learning App - Changelog
 
+> **Archived.** This is an earlier version, kept for reference. The current app is **Say the Date in Polish**: [repo](https://github.com/newbroman/too-obvious) · [live app](https://newbroman.github.io/too-obvious/). The numbers, dates and clock trainers are also combined in [Polska](https://github.com/newbroman/Polska).
+
 ## v1361 - Added Legend to Cultural Page
 **Date**: January 24, 2026
 
